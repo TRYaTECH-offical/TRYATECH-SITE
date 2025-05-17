@@ -1,2 +1,0 @@
-# TRYATECH-SITE
-Coming soon 
