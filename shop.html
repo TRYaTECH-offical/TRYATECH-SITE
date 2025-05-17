@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TRYaTECH KIDS Shop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #00aaff;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product {
+      background-color: #111;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .product h2 {
+      margin: 0.5rem 0;
+      color: #00aaff;
+    }
+    .product p {
+      color: #cccccc;
+      font-size: 0.95rem;
+      margin: 0.5rem 0 1rem;
+    }
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #00ccff;
+    }
+    .btn {
+      background-color: #00aaff;
+      color: #0a0a0a;
+      padding: 0.75rem 1.25rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #008ecc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>TRYaTECH KIDS Collection</h1>
+
+  <div class="grid">
+    <div class="product">
+      <h2>Startup Mode: ON</h2>
+      <p>Ignite young hustle with this bold tee for future innovators.</p>
+      <p class="price">$22.00</p>
+      <a href="#" class="btn">Coming Soon</a>
+    </div>
+    <div class="product">
+      <h2>No Limits Detected</h2>
+      <p>For kids who know no boundaries. A mindset, not just a shirt.</p>
+      <p class="price">$22.00</p>
+      <a href="#" class="btn">Coming Soon</a>
+    </div>
+    <div class="product">
+      <h2>Future CEO</h2>
+      <p>Confidence meets leadership in this clean, fearless design.</p>
+      <p class="price">$22.00</p>
+      <a href="#" class="btn">Coming Soon</a>
+    </div>
+  </div>
+
+</body>
+</html>
