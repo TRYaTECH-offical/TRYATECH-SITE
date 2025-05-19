@@ -8,101 +8,94 @@
   <style>
     body {
       background-color: #000;
-      color: #00aaff;
+      color: #00bfff;
       font-family: Arial, sans-serif;
+      text-align: center;
       margin: 0;
-      padding: 0;
-    }
-    .container {
-      width: 90%;
-      margin: 0 auto;
-      padding-top: 40px;
+      padding: 20px;
     }
     h1 {
-      text-align: center;
-      margin-bottom: 40px;
+      color: #00bfff;
     }
-    .product-grid {
+    .collection {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 20px;
     }
     .product {
       background-color: #111;
-      border-radius: 10px;
       padding: 20px;
-      margin: 20px;
+      border-radius: 10px;
       max-width: 300px;
-      text-align: center;
     }
     .product img {
       width: 100%;
       border-radius: 10px;
     }
-    .product h3 {
-      color: #00aaff;
-    }
-    .product p {
-      color: #fff;
-    }
-    input, select, button {
-      display: block;
+    select, input[type="email"], button {
       width: 100%;
-      margin-top: 10px;
       padding: 10px;
-      font-size: 14px;
-      border-radius: 4px;
+      margin-top: 10px;
+      font-size: 1em;
+    }
+    button {
+      background-color: #00bfff;
       border: none;
+      color: black;
+      cursor: pointer;
     }
-    .back-home {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-home a {
+    a.home-link {
       display: inline-block;
-      background-color: #00aaff;
-      color: #000;
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s;
+      margin-top: 30px;
+      color: #00bfff;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>TRYaTECH KIDS Collection</h1>
-    <div class="product-grid">
-      <div class="product">
-        <img src="images/no-limits.png" alt="No Limits Detected Shirt" />
-        <h3>No Limits Detected</h3>
-        <p>For kids who know no boundaries. A mindset, not just a shirt. <br/><strong>$22.00</strong></p>
-        <select name="size"><option>Select Size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-        <input type="email" placeholder="Your Email" />
-        <button>Preorder</button>
-      </div>
-      <div class="product">
-        <img src="images/startup-mode.png" alt="Startup Mode ON Shirt" />
-        <h3>Startup Mode: ON</h3>
-        <p>Ignite young hustle with this bold tee for future innovators. <br/><strong>$22.00</strong></p>
-        <select name="size"><option>Select Size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-        <input type="email" placeholder="Your Email" />
-        <button>Preorder</button>
-      </div>
-      <div class="product">
-        <img src="images/future-ceo.png" alt="Future CEO Shirt" />
-        <h3>Future CEO</h3>
-        <p>Confidence meets leadership in this clean, fearless design. <br/><strong>$22.00</strong></p>
-        <select name="size"><option>Select Size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-        <input type="email" placeholder="Your Email" />
-        <button>Preorder</button>
-      </div>
+  <h1>TRYaTECH KIDS Collection</h1>
+  <div class="collection">
+    <div class="product">
+      <img src="startup-mode.png" alt="Startup Mode: ON">
+      <h2>Startup Mode: ON</h2>
+      <p>Ignite young hustle with this bold tee for future innovators.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/mnqeyzve" method="POST">
+        <select name="size" required>
+          <option value="">Select Size</option>
+          <option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Preorder</button>
+      </form>
     </div>
-    <div class="back-home">
-      <a href="/index.html">← Back to Home</a>
+    <div class="product">
+      <img src="future-ceo.png" alt="Future CEO">
+      <h2>Future CEO</h2>
+      <p>Confidence meets leadership in this clean, fearless design.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/mnqeyzve" method="POST">
+        <select name="size" required>
+          <option value="">Select Size</option>
+          <option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Preorder</button>
+      </form>
+    </div>
+    <div class="product">
+      <img src="no-limits.png" alt="No Limits Detected">
+      <h2>No Limits Detected</h2>
+      <p>For kids who know no boundaries. A mindset, not just a shirt.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/mnqeyzve" method="POST">
+        <select name="size" required>
+          <option value="">Select Size</option>
+          <option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Preorder</button>
+      </form>
     </div>
   </div>
+  <a class="home-link" href="/">← Back to Home</a>
 </body>
 </html>
