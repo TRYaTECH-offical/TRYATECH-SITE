@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TRYaTECH KIDS Collection</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00aaff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .collection {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 20px;
+    }
+    .product {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product select, .product input, .product button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    .home-link {
+      margin-top: 30px;
+      display: inline-block;
+      color: #00aaff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRYaTECH KIDS Collection</h1>
+  <div class="collection">
+    <div class="product">
+      <img src="clean_tryatech_kids_mockup_no_limits.jpg" alt="No Limits Detected Shirt">
+      <h2>No Limits Detected</h2>
+      <p>For kids who know no boundaries. A mindset, not just a shirt.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/xqkrvdna" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Preorder</button>
+      </form>
+    </div>
+
+    <div class="product">
+      <img src="clean_tryatech_kids_mockup_startup.jpg" alt="Startup Mode: ON Shirt">
+      <h2>Startup Mode: ON</h2>
+      <p>Ignite young hustle with this bold tee for future innovators.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/xbjnbjkr" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Preorder</button>
+      </form>
+    </div>
+
+    <div class="product">
+      <img src="clean_tryatech_kids_mockup_ceo.jpg" alt="Future CEO Shirt">
+      <h2>Future CEO</h2>
+      <p>Confidence meets leadership in this clean, fearless design.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/xyyrljvl" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Preorder</button>
+      </form>
+    </div>
+  </div>
+
+  <a class="home-link" href="index.html">&larr; Back to Home</a>
+</body>
+</html>
