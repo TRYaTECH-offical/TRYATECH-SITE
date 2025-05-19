@@ -7,110 +7,105 @@
   <title>TRYaTECH KIDS Collection</title>
   <style>
     body {
-      background-color: #000;
-      color: #00ccff;
-      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
+      color: #00aaff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
       text-align: center;
-      margin: 0;
+    }
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    .shirt-block {
+      border: 1px solid #00aaff;
+      border-radius: 10px;
       padding: 20px;
-    }
-    h2 {
-      color: #00ccff;
-    }
-    .product-grid {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .product-card {
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 20px;
-      width: 280px;
+      margin: 30px auto;
+      max-width: 400px;
+      background-color: #111;
     }
     img {
-      max-width: 100%;
+      width: 100%;
       border-radius: 8px;
     }
-    select, input, button {
-      width: 90%;
+    select, input[type="email"] {
+      width: 80%;
       padding: 10px;
-      margin-top: 10px;
-      border-radius: 4px;
-      border: none;
+      margin: 10px 0;
+      border: 1px solid #00aaff;
+      background-color: #000;
+      color: #00aaff;
+      border-radius: 5px;
     }
     button {
-      background-color: #00ccff;
-      color: black;
+      background-color: #00aaff;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
       font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
     }
-    .back-home-link {
+    a {
+      color: #00aaff;
+      text-decoration: none;
       display: inline-block;
       margin-top: 30px;
-      color: #00ccff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .back-home-link:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <section class="shop-section">
-    <h2>TRYaTECH KIDS Collection</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="nolimits.png" alt="No Limits Detected Shirt" />
-        <h3>No Limits Detected</h3>
-        <p>For kids who know no boundaries. A mindset, not just a shirt.<br><strong>$22.00</strong></p>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
-          <select name="size" required>
-            <option value="" disabled selected>Select Size</option>
-            <option value="YS">YS</option>
-            <option value="YM">YM</option>
-            <option value="YL">YL</option>
-          </select>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <button type="submit">Preorder</button>
-        </form>
-      </div>
-      <div class="product-card">
-        <img src="startup.png" alt="Startup Mode ON Shirt" />
-        <h3>Startup Mode: ON</h3>
-        <p>Ignite young hustle with this bold tee for future innovators.<br><strong>$22.00</strong></p>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
-          <select name="size" required>
-            <option value="" disabled selected>Select Size</option>
-            <option value="YS">YS</option>
-            <option value="YM">YM</option>
-            <option value="YL">YL</option>
-          </select>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <button type="submit">Preorder</button>
-        </form>
-      </div>
-      <div class="product-card">
-        <img src="ceo.png" alt="Future CEO Shirt" />
-        <h3>Future CEO</h3>
-        <p>Confidence meets leadership in this clean, fearless design.<br><strong>$22.00</strong></p>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
-          <select name="size" required>
-            <option value="" disabled selected>Select Size</option>
-            <option value="YS">YS</option>
-            <option value="YM">YM</option>
-            <option value="YL">YL</option>
-          </select>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <button type="submit">Preorder</button>
-        </form>
-      </div>
-    </div>
-    <div style="margin-top: 30px; text-align: center;">
-      <a href="index.html" class="back-home-link">← Back to Home</a>
-    </div>
-  </section>
+  <h1>TRYaTECH KIDS Collection</h1>
+  <p><em>Innovation. Hustle. Mindset.</em></p>
+
+  <div class="shirt-block">
+    <h2>Future CEO</h2>
+    <img src="future-ceo.jpg" alt="Future CEO Shirt" />
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <select name="size" required>
+        <option value="">Select Size</option>
+        <option>Youth Small</option>
+        <option>Youth Medium</option>
+        <option>Youth Large</option>
+        <option>Youth XL</option>
+      </select><br/>
+      <input type="email" name="email" placeholder="Your email" required/><br/>
+      <button type="submit">Preorder Now</button>
+    </form>
+  </div>
+
+  <div class="shirt-block">
+    <h2>Startup Mode: ON</h2>
+    <img src="startup-mode.jpg" alt="Startup Mode Shirt" />
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <select name="size" required>
+        <option value="">Select Size</option>
+        <option>Youth Small</option>
+        <option>Youth Medium</option>
+        <option>Youth Large</option>
+        <option>Youth XL</option>
+      </select><br/>
+      <input type="email" name="email" placeholder="Your email" required/><br/>
+      <button type="submit">Preorder Now</button>
+    </form>
+  </div>
+
+  <div class="shirt-block">
+    <h2>No Limits Detected</h2>
+    <img src="no-limits.jpg" alt="No Limits Shirt" />
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <select name="size" required>
+        <option value="">Select Size</option>
+        <option>Youth Small</option>
+        <option>Youth Medium</option>
+        <option>Youth Large</option>
+        <option>Youth XL</option>
+      </select><br/>
+      <input type="email" name="email" placeholder="Your email" required/><br/>
+      <button type="submit">Preorder Now</button>
+    </form>
+  </div>
+
+  <a href="/">Back to Home</a>
 </body>
 </html>
