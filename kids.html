@@ -26,12 +26,19 @@
       width: 100%;
       border-radius: 8px;
     }
-    .preorder-btn {
+    .preorder-btn, .home-btn {
       background-color: #00bfff;
       color: black;
       border: none;
       padding: 10px 20px;
+      font-weight: bold;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 6px;
+    }
+    .home-container {
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -92,6 +99,11 @@
         <button type="submit" class="preorder-btn">Preorder</button>
       </form>
     </div>
+  </div>
+
+  <!-- Back to Home Button -->
+  <div class="home-container">
+    <a href="index.html" class="home-btn">Back to Home</a>
   </div>
 </body>
 </html>
