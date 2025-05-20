@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TRYaTECH KIDS Collection</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    .collection {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .item {
+      text-align: center;
+      max-width: 300px;
+    }
+    .item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .preorder-btn, .home-btn {
+      background-color: #00bfff;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 6px;
+    }
+    .home-container {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRYaTECH KIDS Collection</h1>
+  <p><em>Innovation. Hustle. Mindset.</em></p>
+  <div class="collection">
+    <!-- No Limits Detected -->
+    <div class="item">
+      <img src="no-limits-detected.jpeg" alt="No Limits Detected">
+      <h3 style="color: #00bfff;">No Limits Detected</h3>
+      <p>For kids who know no boundaries. A mindset, not just a shirt.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option value="YS">YS</option>
+          <option value="YM">YM</option>
+          <option value="YL">YL</option>
+          <option value="YXL">YXL</option>
+        </select><br><br>
+        <input type="email" name="email" placeholder="Your Email" required><br><br>
+        <button type="submit" class="preorder-btn">Preorder</button>
+      </form>
+    </div>
+
+    <!-- Startup Mode: ON -->
+    <div class="item">
+      <img src="startup-mode-on.png" alt="Startup Mode: ON">
+      <h3 style="color: #00bfff;">Startup Mode: ON</h3>
+      <p>Ignite your hustle with this bold tee for future innovators.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option value="YS">YS</option>
+          <option value="YM">YM</option>
+          <option value="YL">YL</option>
+          <option value="YXL">YXL</option>
+        </select><br><br>
+        <input type="email" name="email" placeholder="Your Email" required><br><br>
+        <button type="submit" class="preorder-btn">Preorder</button>
+      </form>
+    </div>
+
+    <!-- Future CEO -->
+    <div class="item">
+      <img src="future-ceo.jpeg" alt="Future CEO">
+      <h3 style="color: #00bfff;">Future CEO</h3>
+      <p>Confidence meets leadership in this clean, fearless design.<br><strong>$22.00</strong></p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option value="YS">YS</option>
+          <option value="YM">YM</option>
+          <option value="YL">YL</option>
+          <option value="YXL">YXL</option>
+        </select><br><br>
+        <input type="email" name="email" placeholder="Your Email" required><br><br>
+        <button type="submit" class="preorder-btn">Preorder</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Back to Home Button -->
+  <div class="home-container">
+    <a href="index.html" class="home-btn">Back to Home</a>
+  </div>
+</body>
+</html>
