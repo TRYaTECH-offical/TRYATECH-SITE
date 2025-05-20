@@ -12,98 +12,190 @@
       padding: 20px;
       text-align: center;
     }
-    .collection {
-      display: flex;
+    h1 {
+      color: #00bfff;
+    }
+    .tabs {
+      margin-top: 20px;
+    }
+    .tabs button {
+      background-color: #222;
+      color: #00bfff;
+      border: 2px solid #00bfff;
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .tabs button.active {
+      background-color: #00bfff;
+      color: black;
+    }
+    .tab-content {
+      display: none;
+      margin-top: 40px;
+    }
+    .tab-content.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
       justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
     }
     .item {
-      text-align: center;
-      max-width: 300px;
+      background-color: #111;
+      padding: 15px;
+      border-radius: 8px;
     }
     .item img {
       width: 100%;
       border-radius: 8px;
     }
-    .preorder-btn, .home-btn {
+    h3 {
+      color: #00bfff;
+      margin: 10px 0;
+    }
+    .preorder-btn {
       background-color: #00bfff;
       color: black;
+      font-weight: bold;
       border: none;
       padding: 10px 20px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
+      margin-top: 10px;
       border-radius: 6px;
+      cursor: pointer;
     }
-    .home-container {
-      margin-top: 40px;
+    select, input {
+      width: 90%;
+      padding: 8px;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
   <h1>TRYaTECH KIDS Collection</h1>
-  <p><em>Innovation. Hustle. Mindset.</em></p>
-  <div class="collection">
-    <!-- No Limits Detected -->
+  <div class="tabs">
+    <button class="tablink active" onclick="openTab('boys')">Boys</button>
+    <button class="tablink" onclick="openTab('girls')">Girls</button>
+  </div>
+
+  <!-- BOYS -->
+  <div id="boys" class="tab-content active">
     <div class="item">
       <img src="no-limits-detected.jpeg" alt="No Limits Detected">
-      <h3 style="color: #00bfff;">No Limits Detected</h3>
-      <p>For kids who know no boundaries. A mindset, not just a shirt.<br><strong>$22.00</strong></p>
+      <h3>No Limits Detected</h3>
+      <p>A mindset, not just a shirt.</p>
       <form action="https://formspree.io/f/mwkgrnbv" method="POST">
         <select name="Size" required>
-          <option value="">Select Size</option>
-          <option value="YS">YS</option>
-          <option value="YM">YM</option>
-          <option value="YL">YL</option>
-          <option value="YXL">YXL</option>
-        </select><br><br>
-        <input type="email" name="email" placeholder="Your Email" required><br><br>
-        <button type="submit" class="preorder-btn">Preorder</button>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
       </form>
     </div>
-
-    <!-- Startup Mode: ON -->
     <div class="item">
       <img src="startup-mode-on.png" alt="Startup Mode: ON">
-      <h3 style="color: #00bfff;">Startup Mode: ON</h3>
-      <p>Ignite your hustle with this bold tee for future innovators.<br><strong>$22.00</strong></p>
+      <h3>Startup Mode: ON</h3>
+      <p>Ignite young hustle.</p>
       <form action="https://formspree.io/f/mwkgrnbv" method="POST">
         <select name="Size" required>
-          <option value="">Select Size</option>
-          <option value="YS">YS</option>
-          <option value="YM">YM</option>
-          <option value="YL">YL</option>
-          <option value="YXL">YXL</option>
-        </select><br><br>
-        <input type="email" name="email" placeholder="Your Email" required><br><br>
-        <button type="submit" class="preorder-btn">Preorder</button>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
       </form>
     </div>
-
-    <!-- Future CEO -->
     <div class="item">
       <img src="future-ceo.jpeg" alt="Future CEO">
-      <h3 style="color: #00bfff;">Future CEO</h3>
-      <p>Confidence meets leadership in this clean, fearless design.<br><strong>$22.00</strong></p>
+      <h3>Future CEO</h3>
+      <p>Confidence meets leadership.</p>
       <form action="https://formspree.io/f/mwkgrnbv" method="POST">
         <select name="Size" required>
-          <option value="">Select Size</option>
-          <option value="YS">YS</option>
-          <option value="YM">YM</option>
-          <option value="YL">YL</option>
-          <option value="YXL">YXL</option>
-        </select><br><br>
-        <input type="email" name="email" placeholder="Your Email" required><br><br>
-        <button type="submit" class="preorder-btn">Preorder</button>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
+    <div class="item">
+      <img src="innovation-core.jpeg" alt="Innovation Core">
+      <h3>Innovation Core</h3>
+      <p>The future begins with the right code.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
+    <div class="item">
+      <img src="blueprint-build.jpeg" alt="Blueprint Build">
+      <h3>Blueprint Build</h3>
+      <p>Build fearless. Build your future.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
+    <div class="item">
+      <img src="target-lock.jpeg" alt="Target Lock">
+      <h3>Target Lock</h3>
+      <p>Zero in on goals. No distractions.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
       </form>
     </div>
   </div>
 
-  <!-- Back to Home Button -->
-  <div class="home-container">
-    <a href="index.html" class="home-btn">Back to Home</a>
+  <!-- GIRLS -->
+  <div id="girls" class="tab-content">
+    <div class="item">
+      <img src="mockup_girl1.jpg" alt="Glow Mode">
+      <h3>Glow Mode</h3>
+      <p>Confidence that shines.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
+    <div class="item">
+      <img src="mockup_girl2.jpg" alt="Cyber Spark">
+      <h3>Cyber Spark</h3>
+      <p>Brilliance with edge.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option><option>YS</option><option>YM</option><option>YL</option><option>YXL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
   </div>
+
+  <script>
+    function openTab(tabName) {
+      const tabcontent = document.getElementsByClassName("tab-content");
+      const tablinks = document.getElementsByClassName("tablink");
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      event.currentTarget.classList.add("active");
+    }
+  </script>
 </body>
 </html>
