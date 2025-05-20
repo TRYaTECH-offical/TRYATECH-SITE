@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TRYaTECH TEENS Collection</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #00bfff;
+      margin-bottom: 10px;
+    }
+    .tagline {
+      color: #888;
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+    .collection {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      justify-content: center;
+    }
+    .item {
+      background-color: #111;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    h3 {
+      color: #00bfff;
+      margin: 10px 0;
+    }
+    .preorder-btn {
+      background-color: #00bfff;
+      color: black;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    select, input {
+      width: 90%;
+      padding: 8px;
+      margin-top: 8px;
+    }
+    .footer {
+      margin-top: 50px;
+    }
+    .footer a {
+      background-color: #00bfff;
+      color: black;
+      font-weight: bold;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRYaTECH TEENS</h1>
+  <p class="tagline">Built different. Wired for impact.</p>
+
+  <div class="collection">
+    <div class="item">
+      <img src="system-activated.jpeg" alt="System Activated">
+      <h3>System Activated</h3>
+      <p>Your power is online.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option>S</option><option>M</option><option>L</option><option>XL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
+
+    <div class="item">
+      <img src="core-update:-limitless.jpeg" alt="Core Update: Limitless">
+      <h3>Core Update: Limitless</h3>
+      <p>Break the loop. Level up.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option>S</option><option>M</option><option>L</option><option>XL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
+
+    <div class="item">
+      <img src="earned-not-given.jpeg" alt="Earned Not Given">
+      <h3>Earned Not Given</h3>
+      <p>Respect the grind. Own the result.</p>
+      <form action="https://formspree.io/f/mwkgrnbv" method="POST">
+        <select name="Size" required>
+          <option value="">Select Size</option>
+          <option>S</option><option>M</option><option>L</option><option>XL</option>
+        </select><br>
+        <input type="email" name="email" placeholder="Your Email" required><br>
+        <button class="preorder-btn" type="submit">Preorder</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="index.html">Back to Home</a>
+  </div>
+</body>
+</html>
