@@ -2,113 +2,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TRYaTECH KIDS Collection</title>
+  <meta charset="UTF-8">
+  <title>TRYaTECH</title>
   <style>
     body {
-      background-color: #0a0a0a;
-      color: #00aaff;
-      font-family: 'Segoe UI', sans-serif;
-      padding: 20px;
+      background-color: #000;
+      color: white;
+      font-family: Arial, sans-serif;
       text-align: center;
+      padding: 60px 20px;
     }
-    h1, h2 {
+    h1 {
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
-    .shirt-block {
-      border: 1px solid #00aaff;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 30px auto;
-      max-width: 400px;
-      background-color: #111;
+    p.slogan {
+      font-size: 1.2rem;
+      color: #00bfff;
+      margin-bottom: 40px;
     }
-    img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    select, input[type="email"] {
-      width: 80%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #00aaff;
-      background-color: #000;
-      color: #00aaff;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #00aaff;
-      border: none;
-      padding: 10px 20px;
-      color: #000;
+    .visit-button {
+      background-color: #00bfff;
+      color: black;
+      font-size: 1.2rem;
       font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    a {
-      color: #00aaff;
+      padding: 14px 28px;
       text-decoration: none;
+      border-radius: 8px;
       display: inline-block;
-      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+    .social-links {
+      margin-top: 60px;
+    }
+    .social-links a {
+      color: #00bfff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>TRYaTECH KIDS Collection</h1>
-  <p><em>Innovation. Hustle. Mindset.</em></p>
+  <h1>TRYaTECH</h1>
+  <p class="slogan">Innovation. Hustle. Mindset.</p>
 
-  <div class="shirt-block">
-    <h2>No Limits Detected</h2>
-    <img src="startup mode-correct.png" alt="startup mode Shirt" />
-    <p>For kids who know no boundaries. A mindset, not just a shirt.<br><strong>$22.00</strong></p>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <select name="size" required>
-        <option value="">Select Size</option>
-        <option>Youth Small</option>
-        <option>Youth Medium</option>
-        <option>Youth Large</option>
-        <option>Youth XL</option>
-      </select><br/>
-      <input type="email" name="email" placeholder="Your Email" required/><br/>
-      <button type="submit">Preorder</button>
-    </form>
+  <a href="kids.html" class="visit-button">Visit the KIDS Store</a>
+
+  <div class="social-links">
+    <p>Follow us:</p>
+    <a href="https://youtube.com/@TRYaTECH" target="_blank">YouTube</a>
+    <!-- TikTok link placeholder for later -->
   </div>
-
-  <div class="shirt-block">
-    <h2>Startup Mode: ON</h2>
-    <img src="startup-mode-correct.png" alt="Startup Mode Shirt" />
-    <p>Ignite your hustle with this bold tee for future innovators.<br><strong>$22.00</strong></p>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <select name="size" required>
-        <option value="">Select Size</option>
-        <option>Youth Small</option>
-        <option>Youth Medium</option>
-        <option>Youth Large</option>
-        <option>Youth XL</option>
-      </select><br/>
-      <input type="email" name="email" placeholder="Your Email" required/><br/>
-      <button type="submit">Preorder</button>
-    </form>
-  </div>
-
-  <div class="shirt-block">
-    <h2>Future CEO</h2>
-    <img src="future-ceo.jpg" alt="Future CEO Shirt" />
-    <p>Confidence meets leadership in this clean, fearless design.<br><strong>$22.00</strong></p>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <select name="size" required>
-        <option value="">Select Size</option>
-        <option>Youth Small</option>
-        <option>Youth Medium</option>
-        <option>Youth Large</option>
-        <option>Youth XL</option>
-      </select><br/>
-      <input type="email" name="email" placeholder="Your Email" required/><br/>
-      <button type="submit">Preorder</button>
-    </form>
-  </div>
-
-  <a href="/">← Back to Home</a>
 </body>
 </html>
