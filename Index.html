@@ -40,5 +40,33 @@
       console.error(error);
     });
   </script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAIuvxr33CidJkN8I_RLFsYDcCWqXggw",
+    authDomain: "tryatech-aaeb5.firebaseapp.com",
+    projectId: "tryatech-aaeb5",
+    storageBucket: "tryatech-aaeb5.appspot.com",
+    messagingSenderId: "590512524765",
+    appId: "1:590512524765:web:e8e419adaeac73d4e9fa34",
+    measurementId: "G-GCSB07FXGR"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  db.collection("Motivation").get().then(snapshot => {
+    const quotes = snapshot.docs.map(doc => doc.data());
+    const i = new Date().getDate() % quotes.length;
+    const q = quotes[i];
+    document.getElementById("quote").innerText = `"${q.quote}"`;
+    document.getElementById("author").innerText = `— ${q.author}`;
+  }).catch(error => {
+    document.getElementById("quote").innerText = "Could not load quote.";
+    console.error("Firestore error:", error);
+  });
+</script>
+
 </body>
 </html>
