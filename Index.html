@@ -1,20 +1,39 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
-<head><title>TRYaTECH</title></head>
-<body style="background:black; color:#00bfff; text-align:center; padding:2rem; font-family:sans-serif;">
+<head>
+  <title>TRYaTECH</title>
+  <style>
+    body {
+      background: black;
+      color: #00bfff;
+      text-align: center;
+      padding: 2rem;
+      font-family: sans-serif;
+    }
+    .motivation-box {
+      background: #111;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
   <h1>TRYaTECH</h1>
   <p>Innovation. Hustle. Mindset.</p>
-  <a href="kids.html" style="color:#00bfff; text-decoration:underline;">Visit the KIDS Store</a><br/><br/>
+  <a href="kids.html" style="color:#00bfff; text-decoration:underline;">Visit the KIDS Store</a><br><br>
   <a href="#" style="color:#00bfff; text-decoration:underline;">COMING SOON</a>
 
-  <div style="background:#111; padding:1.5rem; margin-top:2rem; border-radius:10px;">
+  <div class="motivation-box">
     <h2>Daily Motivation</h2>
     <div id="quote">Loading quote...</div>
-    <div id="author" style="font-style:italic;"></div>
+    <div id="author" style="font-style: italic;"></div>
   </div>
 
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyAIuvxr33CidJkN8I_RLFsYDcCWqXggw",
@@ -22,51 +41,25 @@
       projectId: "tryatech-aaeb5",
       storageBucket: "tryatech-aaeb5.appspot.com",
       messagingSenderId: "590512524765",
-      appId: "1:590512524765:web:e8e419adaeac73d4e9fa34",
+      appId: "1:590512524765:web:e8e419adaec73d4e9fa34",
       measurementId: "G-GCSB07FXGR"
     };
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    db.collection("Motivation").get().then(snapshot => {
+    db.collection("Motivation").get().then((snapshot) => {
       const quotes = snapshot.docs.map(doc => doc.data());
       const i = new Date().getDate() % quotes.length;
-      const q = quotes[i];
-      document.getElementById("quote").innerText = `"${q.quote}"`;
-      document.getElementById("author").innerText = `— ${q.author}`;
+      const quote = quotes[i]?.quote || "Keep going.";
+      const author = quotes[i]?.author || "Unknown";
+
+      document.getElementById("quote").innerText = `"${quote}"`;
+      document.getElementById("author").innerText = `– ${author}`;
     }).catch(error => {
-      document.getElementById("quote").innerText = "Unable to load quote.";
-      console.error(error);
+      document.getElementById("quote").innerText = "Could not load quote.";
+      console.error("Firestore error:", error);
     });
   </script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAIuvxr33CidJkN8I_RLFsYDcCWqXggw",
-    authDomain: "tryatech-aaeb5.firebaseapp.com",
-    projectId: "tryatech-aaeb5",
-    storageBucket: "tryatech-aaeb5.appspot.com",
-    messagingSenderId: "590512524765",
-    appId: "1:590512524765:web:e8e419adaeac73d4e9fa34",
-    measurementId: "G-GCSB07FXGR"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  db.collection("Motivation").get().then(snapshot => {
-    const quotes = snapshot.docs.map(doc => doc.data());
-    const i = new Date().getDate() % quotes.length;
-    const q = quotes[i];
-    document.getElementById("quote").innerText = `"${q.quote}"`;
-    document.getElementById("author").innerText = `— ${q.author}`;
-  }).catch(error => {
-    document.getElementById("quote").innerText = "Could not load quote.";
-    console.error("Firestore error:", error);
-  });
-</script>
-
 </body>
 </html>
