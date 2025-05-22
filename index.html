@@ -99,7 +99,7 @@
     <input type="email" placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;"><br>
     <button onclick="alert('Thanks for signing up! Stay tuned.')" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br>
     <a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br>
-    <button id="playAudioBtn" style="margin-top:10px; padding:10px 24px; background:#1a1a1a; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">▶ Kids Media</button>
+     style="margin-top:10px; padding:10px 24px; background:#1a1a1a; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">▶ Kids Media</button>
   </section>
 
   
@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  <a class="store-button" href="kids.html" style="padding: 8px 16px; font-size: 14px;">Visit the KIDS Store</a>
+  <a href="kids.html" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; font-size:14px; text-decoration:none;">Visit the KIDS Store</a>
 
   <h2 class="section-title">TRYaTECH KIDS Collection</h2>
   <p style="text-align:center;">[Insert product mockups, size dropdowns, and Formspree forms here]</p>
@@ -179,7 +179,7 @@
       audio.play().catch(e => console.log("Autoplay blocked:", e));
     });
 
-    const playButton = document.getElementById("playAudioBtn");
+    const playButton = // Removed Kids Media logic;
     playButton.addEventListener("click", () => {
       const audio = document.getElementById("kidAudio");
       audio.play();
