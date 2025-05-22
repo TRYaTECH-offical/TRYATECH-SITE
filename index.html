@@ -67,6 +67,7 @@
       appId: "1:590512524765:web:e8e419adaeac73d4e9fa34",
       measurementId: "G-GCSB07FXGR"
     };
+
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
@@ -77,8 +78,8 @@
       document.getElementById("quote").innerText = `"${q.quote}"`;
       document.getElementById("author").innerText = `– ${q.author}`;
     }).catch(error => {
-      document.getElementById("quote").innerText = "Could not load quote.";
-      console.error("Firestore error:", error);
+      document.getElementById("quote").innerText = "“You got this. Reload for more.”";
+      document.getElementById("author").innerText = "– TRYaTECH";
     });
   </script>
 </body>
