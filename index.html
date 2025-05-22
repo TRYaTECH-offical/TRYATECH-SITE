@@ -1,8 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>TRYaTECH</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background-color: black;
@@ -13,49 +14,36 @@
     }
     a {
       color: #00bfff;
-      text-decoration: underline;
+      text-decoration: none;
       border: 1px solid #00bfff;
       padding: 0.5rem 1rem;
       margin: 0.5rem;
       display: inline-block;
     }
-    .media-container {
-      background: #111;
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin: 2rem auto;
-      max-width: 500px;
-    }
-    audio {
-      width: 100%;
-      margin-top: 1rem;
+    a:hover {
+      background-color: #00bfff;
+      color: black;
     }
     .quote-box {
       background: #111;
-      color: #00bfff;
-      padding: 1rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
       border-radius: 10px;
-      margin: 2rem auto;
-      max-width: 500px;
-    }
-    .socials a {
-      margin: 1rem;
     }
   </style>
 </head>
 <body>
   <h1>TRYaTECH</h1>
   <p>Innovation. Hustle. Mindset.</p>
+
   <a href="kids.html">Visit the KIDS Store</a>
   <a href="#">COMING SOON</a>
 
-  <h2 style="margin-top:3rem;">KIDS MEDIA</h2>
-  <div class="media-container">
-    <audio controls>
-      <source src="TRYaTECH.kid.Mylaie_30sec.wav" type="audio/wav">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
+  <h2 style="color:#00bfff; margin-top: 2rem;">KIDS MEDIA</h2>
+  <audio controls style="margin: 1rem 0;">
+    <source src="Mylaie_30sec.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <div class="quote-box">
     <h2>Daily Motivation</h2>
@@ -63,11 +51,9 @@
     <div id="author" style="font-style: italic;"></div>
   </div>
 
-  <p>Follow us:</p>
-  <div class="socials">
-    <a href="https://youtube.com" target="_blank">YouTube</a>
-    <a href="https://tiktok.com" target="_blank">TikTok</a>
-  </div>
+  <p style="margin-top: 2rem;">Follow us:</p>
+  <a href="https://www.youtube.com/@TRYaTECH" target="_blank">YouTube</a>
+  <a href="https://www.tiktok.com/@tryatech" target="_blank">TikTok</a>
 
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
@@ -81,7 +67,6 @@
       appId: "1:590512524765:web:e8e419adaeac73d4e9fa34",
       measurementId: "G-GCSB07FXGR"
     };
-
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
