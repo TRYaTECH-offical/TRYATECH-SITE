@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TRYaTECH Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ccff;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .hero, .footer {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .hero h1 {
+      font-size: 28px;
+    }
+    .kids-slider-wrapper {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    .slider-column {
+      width: 45%;
+    }
+    .slider-title {
+      text-align: center;
+      font-size: 20px;
+    }
+    .boys-title { color: #00ccff; }
+    .girls-title { color: #ff80ff; }
+    .slider-container {
+      display: flex;
+      align-items: center;
+    }
+    .slider-arrow {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .slider-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 16px;
+      padding: 10px;
+    }
+    .slider-card {
+      min-width: 180px;
+      background: #111;
+      border: 2px solid #00ccff;
+      border-radius: 10px;
+      padding: 20px;
+      color: #00ccff;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .slider-card.girls {
+      border-color: #ff80ff;
+      color: #ff80ff;
+    }
+    .store-button {
+      display: block;
+      margin: 40px auto;
+      padding: 12px 24px;
+      background-color: #00ccff;
+      color: #000;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 22px;
+      margin-top: 60px;
+      margin-bottom: 20px;
+    }
+    .footer a {
+      color: #00ccff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>COMING SOON TO TRYaTECH</h1>
+    <p>Innovation. Hustle. Mindset.</p>
+    <input type="email" placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;"><br>
+    <button style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br>
+    <button style="margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff;">Download TikTok Strategy Guide</button><br>
+    <button id="playAudioBtn" style="margin-top:10px; padding:10px 24px; background:#1a1a1a; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">▶ Kids Media</button>
+  </section>
+
+  
+  <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <strong style="color: #00ccff;">Monte - Hustle</strong><br>
+      <button id="playMonteBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#00ccff; border:2px solid #00ccff; font-weight:bold;">
+        ▶ Hear Monte
+      </button>
+    </div>
+
+    <div style="text-align: center;">
+      <strong style="color: #ffcc00;">Mylaie - Vision</strong><br>
+      <button id="playMylaieBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">
+        ▶ Hear Mylaie
+      </button>
+    </div>
+  </div>
+
+<section class="kids-slider-wrapper">
+    <div class="slider-column">
+      <h2 class="slider-title boys-title">TRYaTECH KIDS - BOYS</h2>
+      <div class="slider-container">
+        <button class="slider-arrow" onclick="scrollSlider('boysTrack', -1)">&#60;</button>
+        <div class="slider-track" id="boysTrack">
+          <div class="slider-card">Startup Mode: ON</div>
+          <div class="slider-card">No Limits Detected</div>
+          <div class="slider-card">System Activated</div>
+        </div>
+        <button class="slider-arrow" onclick="scrollSlider('boysTrack', 1)">&#62;</button>
+      </div>
+    </div>
+
+    <div class="slider-column">
+      <h2 class="slider-title girls-title">TRYaTECH KIDS - GIRLS</h2>
+      <div class="slider-container">
+        <button class="slider-arrow" onclick="scrollSlider('girlsTrack', -1)">&#60;</button>
+        <div class="slider-track" id="girlsTrack">
+          <div class="slider-card girls">Future CEO</div>
+          <div class="slider-card girls">Big Dreams Loading</div>
+          <div class="slider-card girls">The Future Starts With Me</div>
+        </div>
+        <button class="slider-arrow" onclick="scrollSlider('girlsTrack', 1)">&#62;</button>
+      </div>
+    </div>
+  </section>
+
+  <a class="store-button" href="kids.html">Visit the KIDS Store</a>
+
+  <h2 class="section-title">TRYaTECH KIDS Collection</h2>
+  <p style="text-align:center;">[Insert product mockups, size dropdowns, and Formspree forms here]</p>
+
+  <h2 class="section-title">Daily Motivation</h2>
+  <p style="text-align:center;">"You got this. Reload daily. Repeat for more." - TRYaTECH</p>
+
+  <section class="footer">
+    <p>Follow us:</p>
+    <a href="https://www.tiktok.com/@tryatech" target="_blank">TikTok</a>
+    <a href="https://www.youtube.com/@TRYaTECH" target="_blank">YouTube</a>
+  </section>
+
+  <script>
+    function scrollSlider(trackId, direction) {
+      const track = document.getElementById(trackId);
+      const scrollAmount = 200;
+      track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
+    }
+  </script>
+
+  <audio id="kidAudio" preload="auto" autoplay>
+    <source src="Monte voice.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("kidAudio");
+      audio.play().catch(e => console.log("Autoplay blocked:", e));
+    });
+
+    const playButton = document.getElementById("playAudioBtn");
+    playButton.addEventListener("click", () => {
+      const audio = document.getElementById("kidAudio");
+      audio.play();
+    });
+  </script>
+
+  <audio id="monteAudio" preload="auto">
+    <source src="Monte voice.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="mylaieAudio" preload="auto">
+    <source src="Mylaie.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    document.getElementById("playMonteBtn").addEventListener("click", () => {
+      document.getElementById("monteAudio").play();
+    });
+
+    document.getElementById("playMylaieBtn").addEventListener("click", () => {
+      document.getElementById("mylaieAudio").play();
+    });
+  </script>
+</body>
+
+
+</html>
