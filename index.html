@@ -1,95 +1,76 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TRYaTECH - Innovation. Hustle. Mindset.</title>
+  <title>TRYaTECH</title>
   <style>
     body {
-      background-color: #000;
+      background-color: black;
       color: #00bfff;
-      font-family: 'Arial', sans-serif;
+      font-family: sans-serif;
       text-align: center;
-      margin: 0;
-      padding: 2rem 1rem;
+      padding: 2rem;
     }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-    }
-    .button {
-      background-color: transparent;
+    a {
       color: #00bfff;
-      border: 2px solid #00bfff;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      margin: 0.5rem 0;
-      border-radius: 5px;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .button:hover {
-      background-color: #00bfff;
-      color: #000;
-    }
-    .motivation-box {
-      background-color: #111;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-top: 2rem;
-    }
-    .quote {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .author {
-      margin-top: 0.5rem;
-      font-style: italic;
-    }
-    .social-buttons {
-      margin-top: 2rem;
-    }
-    .social-buttons .button {
+      text-decoration: underline;
+      border: 1px solid #00bfff;
+      padding: 0.5rem 1rem;
       margin: 0.5rem;
+      display: inline-block;
+    }
+    .media-container {
+      background: #111;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 2rem auto;
+      max-width: 500px;
+    }
+    audio {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    .quote-box {
+      background: #111;
+      color: #00bfff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 2rem auto;
+      max-width: 500px;
+    }
+    .socials a {
+      margin: 1rem;
     }
   </style>
 </head>
 <body>
   <h1>TRYaTECH</h1>
   <p>Innovation. Hustle. Mindset.</p>
+  <a href="kids.html">Visit the KIDS Store</a>
+  <a href="#">COMING SOON</a>
 
-  <a href="kids.html" class="button">Visit the KIDS Store</a><br/>
-  <a href="#" class="button">COMING SOON</a>
-
-  <div class="media">
-    <h2>KIDS MEDIA</h2>
+  <h2 style="margin-top:3rem;">KIDS MEDIA</h2>
+  <div class="media-container">
     <audio controls>
       <source src="TRYaTECH.kid.Mylaie_30sec.wav" type="audio/wav">
       Your browser does not support the audio element.
     </audio>
   </div>
 
-  <div class="motivation-box">
+  <div class="quote-box">
     <h2>Daily Motivation</h2>
-    <div id="quote" class="quote">Loading quote...</div>
-    <div id="author" class="author"></div>
+    <div id="quote">Loading quote...</div>
+    <div id="author" style="font-style: italic;"></div>
   </div>
 
-  <div class="social-buttons">
-    <p>Follow us:</p>
-    <a href="https://www.youtube.com/@tryatech" target="_blank" class="button">YouTube</a>
-    <a href="https://www.tiktok.com/@tryatech" target="_blank" class="button">TikTok</a>
+  <p>Follow us:</p>
+  <div class="socials">
+    <a href="https://youtube.com" target="_blank">YouTube</a>
+    <a href="https://tiktok.com" target="_blank">TikTok</a>
   </div>
 
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyAIuvxr33CidJkN8I_RLFsYDcCWqXggw",
@@ -97,21 +78,19 @@
       projectId: "tryatech-aaeb5",
       storageBucket: "tryatech-aaeb5.appspot.com",
       messagingSenderId: "590512524765",
-      appId: "1:590512524765:web:e8e419adaec73d4e9fa34",
+      appId: "1:590512524765:web:e8e419adaeac73d4e9fa34",
       measurementId: "G-GCSB07FXGR"
     };
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    db.collection("Motivation").get().then((snapshot) => {
+    db.collection("Motivation").get().then(snapshot => {
       const quotes = snapshot.docs.map(doc => doc.data());
       const i = new Date().getDate() % quotes.length;
-      const quote = quotes[i]?.quote || "Keep going.";
-      const author = quotes[i]?.author || "Unknown";
-
-      document.getElementById("quote").innerText = `"${quote}"`;
-      document.getElementById("author").innerText = `– ${author}`;
+      const q = quotes[i];
+      document.getElementById("quote").innerText = `"${q.quote}"`;
+      document.getElementById("author").innerText = `– ${q.author}`;
     }).catch(error => {
       document.getElementById("quote").innerText = "Could not load quote.";
       console.error("Firestore error:", error);
