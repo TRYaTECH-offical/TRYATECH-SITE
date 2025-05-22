@@ -98,7 +98,7 @@
     <p>Innovation. Hustle. Mindset.</p>
     <input type="email" placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;"><br>
     <button onclick="alert('Thanks for signing up! Stay tuned.')" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br>
-    <button onclick="alert('Coming soon: TikTok Growth Strategy!')" style="margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff;">Download TikTok Strategy Guide</button><br>
+    <a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br>
     <button id="playAudioBtn" style="margin-top:10px; padding:10px 24px; background:#1a1a1a; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">▶ Kids Media</button>
   </section>
 
@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  <a class="store-button" href="kids.html">Visit Store</a>
+  <a class="store-button" href="kids.html" style="padding: 8px 16px; font-size: 14px;">Visit the KIDS Store</a>
 
   <h2 class="section-title">TRYaTECH KIDS Collection</h2>
   <p style="text-align:center;">[Insert product mockups, size dropdowns, and Formspree forms here]</p>
@@ -211,7 +211,34 @@
       track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
     }
   </script>
+
+  <audio id="monteAudio" preload="auto">
+    <source src="Monte voice.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="mylaieAudio" preload="auto">
+    <source src="Mylaie.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    document.getElementById("playMonteBtn").addEventListener("click", () => {
+      document.getElementById("monteAudio").play();
+    });
+
+    document.getElementById("playMylaieBtn").addEventListener("click", () => {
+      document.getElementById("mylaieAudio").play();
+    });
+
+    function scrollSlider(trackId, direction) {
+      const track = document.getElementById(trackId);
+      const scrollAmount = 200;
+      track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
+    }
+  </script>
 </body>
+
 
 
 </html>
