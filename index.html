@@ -102,8 +102,8 @@
 </section>
 <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
 <div style="text-align: center;">
-<strong style="color: #00ccff;">Monte - Hustle</strong><br/>
-<button id="playMonteBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#00ccff; border:2px solid #00ccff; font-weight:bold;">
+<strong style="color:#00ff88;">Monte - Hustle</strong><br/>
+<button id="playMonteBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#00ff88; border:2px solid #00ff88; font-weight:bold;">
         ▶ Hear Monte
       </button>
 </div>
@@ -113,13 +113,7 @@
         ▶ Hear Mylaie
       </button>
 </div>
-</div><div style="text-align:center; margin-top:80px;">
-<h3 style="color:#00ccff; font-family:'Orbitron', sans-serif; margin-bottom:16px;">READY TO SHOP?</h3>
-<a href="kids.html" style="display:inline-block; padding:12px 28px; background:#000;
-            color:#00ccff; border:2px solid #00ccff; font-size:16px;
-            text-decoration:none; box-shadow:0 0 12px #00ccff; font-weight:bold;">
-            ▶ Visit the KIDS Store</a>
-</div>
+</div><div style="text-align:center; margin-top:80px;"><a href="kids.html" style="display:inline-block; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; font-size:14px; text-decoration:none;">Visit the KIDS Store</a></div>
 <section class="kids-slider-wrapper">
 <div class="slider-column">
 <h2 class="slider-title boys-title">TRYaTECH KIDS - BOYS</h2>
@@ -162,8 +156,22 @@
       track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
     }
   </script>
+<audio autoplay="" id="kidAudio" preload="auto">
+<source src="Monte voice.wav" type="audio/wav"/>
+    Your browser does not support the audio element.
+  </audio>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("kidAudio");
+      audio.play().catch(e => console.log("Autoplay blocked:", e));
+    });
 
-
+    const playButton = // Removed  logic;
+    playButton.addEventListener("click", () => {
+      const audio = document.getElementById("kidAudio");
+      audio.play();
+    });
+  </script>
 <audio id="monteAudio" preload="auto">
 <source src="Monte voice.wav" type="audio/wav"/>
     Your browser does not support the audio element.
@@ -187,8 +195,28 @@
       track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
     }
   </script>
+<audio id="monteAudio" preload="auto">
+<source src="Monte voice.wav" type="audio/wav"/>
+    Your browser does not support the audio element.
+  </audio>
+<audio id="mylaieAudio" preload="auto">
+<source src="Mylaie.mp3" type="audio/mpeg"/>
+    Your browser does not support the audio element.
+  </audio>
+<script>
+    document.getElementById("playMonteBtn").addEventListener("click", () => {
+      document.getElementById("monteAudio").play();
+    });
 
+    document.getElementById("playMylaieBtn").addEventListener("click", () => {
+      document.getElementById("mylaieAudio").play();
+    });
 
-
+    function scrollSlider(trackId, direction) {
+      const track = document.getElementById(trackId);
+      const scrollAmount = 200;
+      track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
