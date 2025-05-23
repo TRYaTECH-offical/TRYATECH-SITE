@@ -173,7 +173,7 @@
     });
   </script>
 <audio id="monteAudio" preload="auto">
-<source src="Monte voice.wav" type="audio/wav"/>
+<source src="monte.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
 <audio id="mylaieAudio" preload="auto">
@@ -181,20 +181,13 @@
     Your browser does not support the audio element.
   </audio>
 <script>
-    document.getElementById("playMonteBtn").addEventListener("click", () => {
-      document.getElementById("monteAudio").play();
-    });
-
-    document.getElementById("playMylaieBtn").addEventListener("click", () => {
-      document.getElementById("mylaieAudio").play();
-    });
-
-    function scrollSlider(trackId, direction) {
-      const track = document.getElementById(trackId);
-      const scrollAmount = 200;
-      track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
-    }
-  </script>
+document.getElementById("playMonteBtn").addEventListener("click", () => {
+  document.getElementById("monteAudio").play();
+});
+document.getElementById("playMylaieBtn").addEventListener("click", () => {
+  document.getElementById("mylaieAudio").play();
+});
+</script>
 <audio id="monteAudio" preload="auto">
 <source src="Monte voice.wav" type="audio/wav"/>
     Your browser does not support the audio element.
