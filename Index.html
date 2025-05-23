@@ -329,6 +329,32 @@
       audio.pause();
     }
   }
+
+<script>
+  // Toggle background audio
+  function toggleAudio() {
+    const audio = document.getElementById("kidAudio");
+    if (audio.paused) {
+      audio.play().then(() => console.log("Background audio playing"))
+      .catch(e => console.warn("Play blocked or failed:", e));
+    } else {
+      audio.pause();
+      console.log("Background audio paused");
+    }
+  }
+
+  // Voice playback handlers
+  document.getElementById("playMonteBtn").addEventListener("click", () => {
+    const audio = document.getElementById("monteAudio");
+    audio.play().then(() => console.log("Playing Monte"))
+    .catch(e => console.warn("Monte playback failed:", e));
+  });
+
+  document.getElementById("playMylaieBtn").addEventListener("click", () => {
+    const audio = document.getElementById("mylaieAudio");
+    audio.play().then(() => console.log("Playing Mylaie"))
+    .catch(e => console.warn("Mylaie playback failed:", e));
+  });
+</script>
 </script>
 </body>
-</html>
