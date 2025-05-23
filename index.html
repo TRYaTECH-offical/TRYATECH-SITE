@@ -100,7 +100,6 @@
 <button onclick="alert('Thanks for signing up! Stay tuned.')" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br/>
 <a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br/>
 </section>
-
 <div class="voice-section" style="display: flex; justify-content: center; gap: 60px; margin-top: 60px; margin-bottom: 40px; flex-wrap: wrap;">
 <div style="text-align: center;">
 <strong style="color: #00ccff;">Monte – Hustle</strong><br/>
@@ -115,7 +114,6 @@
     </button>
 </div>
 </div>
-
 <div style="text-align:center; margin-top:80px;">
 <h3 style="color:#00ccff; font-family:'Orbitron', sans-serif; margin-bottom:16px;">READY TO SHOP?</h3>
 <a href="kids.html" style="display:inline-block; padding:12px 28px; background:#000;
@@ -168,18 +166,6 @@
     }
   </script>
 
-<script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const audio = document.getElementById("kidAudio");
-      audio.play().catch(e => console.log("Autoplay blocked:", e));
-    });
-
-    const playButton = // Removed  logic;
-    playButton.addEventListener("click", () => {
-      const audio = document.getElementById("kidAudio");
-      audio.play();
-    });
-  </script>
 <audio id="monteAudio" preload="auto">
 <source src="Monte voice.wav" type="audio/wav"/>
     Your browser does not support the audio element.
@@ -188,10 +174,6 @@
 <source src="Mylaie.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
-
-
-
-
 <script>
 document.getElementById("playMonteBtn").addEventListener("click", () => {
   document.getElementById("monteAudio").play();
