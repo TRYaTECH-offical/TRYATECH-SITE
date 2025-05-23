@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TRYaTECH Audio Web API</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ccff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      background: #00ccff;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .btn-monte {
+      border: 2px solid #00ccff;
+      color: #00ccff;
+      background: #111;
+    }
+    .btn-mylaie {
+      border: 2px solid #ffcc00;
+      color: #ffcc00;
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRYaTECH Voice Test (Web Audio API)</h1>
+
+  <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <strong style="color: #00ccff;">Monte - Hustle</strong><br/>
+      <button class="btn-monte" onclick="playAudio('/monte.mp3')">▶ Hear Monte</button>
+    </div>
+    <div style="text-align: center;">
+      <strong style="color: #ffcc00;">Mylaie - Vision</strong><br/>
+      <button class="btn-mylaie" onclick="playAudio('/mylaie.mp3')">▶ Hear Mylaie</button>
+    </div>
+  </div>
+
+  <script>
+    async function playAudio(url) {
+      try {
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        source.start(0);
+      } catch (e) {
+        alert("Audio playback failed. Try reloading the page.");
+        console.error(e);
+      }
+    }
+  </script>
+</body>
+</html>
