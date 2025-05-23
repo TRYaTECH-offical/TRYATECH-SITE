@@ -4,28 +4,81 @@
 <head>
   <meta charset="UTF-8">
   <title>TRYaTECH</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .voice-section {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .voice-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #1a1a1a;
+      border: 2px solid;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .monte {
+      color: #00ccff;
+      border-color: #00ccff;
+    }
+
+    .mylaie {
+      color: #ffcc00;
+      border-color: #ffcc00;
+    }
+
+    .store-section {
+      margin-top: 100px;
+    }
+
+    .store-heading {
+      color: #00ccff;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .store-button {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #000;
+      color: #00ccff;
+      border: 2px solid #00ccff;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 0 12px #00ccff;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body style="background:#000; color:#fff; font-family:sans-serif; text-align:center; padding:40px;">
-  <div style="display:flex; justify-content:center; gap:60px; margin-bottom:40px; flex-wrap:wrap;">
+<body>
+
+  <div class="voice-section">
     <div>
-      <strong style="color:#00ccff;">Monte - Hustle</strong><br>
-      <button id="playMonteBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#00ccff; border:2px solid #00ccff; font-weight:bold;">▶ Hear Monte</button>
+      <strong style="color:#00ccff;">Monte – Hustle</strong><br>
+      <button id="playMonteBtn" class="voice-button monte">▶ Hear Monte</button>
     </div>
     <div>
-      <strong style="color:#ffcc00;">Mylaie - Vision</strong><br>
-      <button id="playMylaieBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">▶ Hear Mylaie</button>
+      <strong style="color:#ffcc00;">Mylaie – Vision</strong><br>
+      <button id="playMylaieBtn" class="voice-button mylaie">▶ Hear Mylaie</button>
     </div>
   </div>
 
-  <!-- Store Section: Example B + C -->
-  <div style="text-align:center; margin-top:80px;">
-    <h3 style="color:#00ccff; font-family:'Orbitron', sans-serif; margin-bottom:10px;">READY TO SHOP?</h3>
-    <a href="kids.html"
-       style="display:inline-block; padding:12px 28px; background:#000;
-              color:#00ccff; border:2px solid #00ccff; font-size:16px;
-              text-decoration:none; box-shadow:0 0 12px #00ccff; font-weight:bold;">
-      ▶ Visit the KIDS Store
-    </a>
+  <div class="store-section">
+    <h3 class="store-heading">READY TO SHOP?</h3>
+    <a href="kids.html" class="store-button">▶ Visit the KIDS Store</a>
   </div>
 
   <audio id="monteAudio" preload="auto">
@@ -39,13 +92,14 @@
   </audio>
 
   <script>
-    document.getElementById("playMonteBtn").addEventListener("click", () => {
+    document.getElementById("playMonteBtn").addEventListener("click", function () {
       document.getElementById("monteAudio").play();
     });
 
-    document.getElementById("playMylaieBtn").addEventListener("click", () => {
+    document.getElementById("playMylaieBtn").addEventListener("click", function () {
       document.getElementById("mylaieAudio").play();
     });
   </script>
+
 </body>
 </html>
