@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>TRYaTECH Homepage</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
 <style>
   body {
     background-color: #0a0a0a;
@@ -20,15 +20,31 @@
   .hero h1 {
     font-size: 28px;
   }
-  .store-button {
-    display: block;
-    margin: 40px auto;
-    padding: 12px 24px;
-    background-color: #00ccff;
-    color: #000;
-    border: none;
+  .btn {
+    margin-top: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
     font-weight: bold;
+    border: 2px solid;
+    border-radius: 6px;
+    background-color: #111;
     cursor: pointer;
+  }
+  .monte-btn {
+    border-color: #00ff00;
+    color: #00ff00;
+  }
+  .monte-btn:hover {
+    background-color: #00ff00;
+    color: #000;
+  }
+  .mylaie-btn {
+    border-color: #ffcc00;
+    color: #ffcc00;
+  }
+  .mylaie-btn:hover {
+    background-color: #ffcc00;
+    color: #000;
   }
 </style>
 </head>
@@ -43,22 +59,17 @@
 
 <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
   <div style="text-align: center;">
-    <strong style="color: #00ccff;">Monte - Hustle</strong><br/>
-    <button id="playMonteBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#00ccff; border:2px solid #00ccff; font-weight:bold;">
-      ▶ Hear Monte
-    </button>
+    <strong style="color: #00ff00;">Monte - Hustle</strong><br/>
+    <button id="playMonteBtn" class="btn monte-btn">▶ Hear Monte</button>
   </div>
   <div style="text-align: center;">
     <strong style="color: #ffcc00;">Mylaie - Vision</strong><br/>
-    <button id="playMylaieBtn" style="margin-top:10px; padding:10px 20px; background:#1a1a1a; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">
-      ▶ Hear Mylaie
-    </button>
+    <button id="playMylaieBtn" class="btn mylaie-btn">▶ Hear Mylaie</button>
   </div>
 </div>
 
-<!-- Audio files -->
 <audio id="monteAudio" preload="auto">
-  <source src="monte.wav" type="audio/wav"/>
+  <source src="monte.mp3" type="audio/mpeg"/>
 </audio>
 <audio id="mylaieAudio" preload="auto">
   <source src="mylaie.mp3" type="audio/mpeg"/>
