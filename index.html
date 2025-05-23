@@ -10,78 +10,47 @@
     background-color: #0a0a0a;
     color: #00ccff;
     font-family: 'Orbitron', sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-  .hero, .footer {
     text-align: center;
-    margin-bottom: 40px;
-  }
-  .hero h1 {
-    font-size: 28px;
+    padding: 40px;
   }
   .btn {
-    margin-top: 12px;
-    padding: 10px 20px;
+    margin: 12px;
+    padding: 10px 24px;
     font-size: 16px;
-    font-weight: bold;
-    border: 2px solid;
     border-radius: 6px;
-    background-color: #111;
+    font-weight: bold;
     cursor: pointer;
+    background: #111;
+    border: 2px solid;
   }
-  .monte-btn {
-    border-color: #00ff00;
+  .monte {
     color: #00ff00;
+    border-color: #00ff00;
   }
-  .monte-btn:hover {
-    background-color: #00ff00;
-    color: #000;
-  }
-  .mylaie-btn {
-    border-color: #ffcc00;
+  .mylaie {
     color: #ffcc00;
-  }
-  .mylaie-btn:hover {
-    background-color: #ffcc00;
-    color: #000;
+    border-color: #ffcc00;
   }
 </style>
 </head>
 <body>
-<section class="hero">
+
 <h1>COMING SOON TO TRYaTECH</h1>
 <p>Innovation. Hustle. Mindset.</p>
-<input placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;" type="email"/><br/>
-<button onclick="alert('Thanks for signing up! Stay tuned.')" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br/>
-<a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br/>
-</section>
 
 <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
-  <div style="text-align: center;">
-    <strong style="color: #00ff00;">Monte - Hustle</strong><br/>
-    <button id="playMonteBtn" class="btn monte-btn">▶ Hear Monte</button>
+  <div>
+    <h2 style="color: #00ff00;">Monte - Hustle</h2>
+    <audio id="monteAudio" src="monte.mp3" preload="auto"></audio>
+    <button class="btn monte" onclick="document.getElementById('monteAudio').play()">▶ Hear Monte</button>
   </div>
-  <div style="text-align: center;">
-    <strong style="color: #ffcc00;">Mylaie - Vision</strong><br/>
-    <button id="playMylaieBtn" class="btn mylaie-btn">▶ Hear Mylaie</button>
+
+  <div>
+    <h2 style="color: #ffcc00;">Mylaie - Vision</h2>
+    <audio id="mylaieAudio" src="mylaie.mp3" preload="auto"></audio>
+    <button class="btn mylaie" onclick="document.getElementById('mylaieAudio').play()">▶ Hear Mylaie</button>
   </div>
 </div>
 
-<audio id="monteAudio" preload="auto">
-  <source src="monte.mp3" type="audio/mpeg"/>
-</audio>
-<audio id="mylaieAudio" preload="auto">
-  <source src="mylaie.mp3" type="audio/mpeg"/>
-</audio>
-
-<script>
-  document.getElementById("playMonteBtn").addEventListener("click", () => {
-    document.getElementById("monteAudio").play();
-  });
-  document.getElementById("playMylaieBtn").addEventListener("click", () => {
-    document.getElementById("mylaieAudio").play();
-  });
-</script>
 </body>
 </html>
