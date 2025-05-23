@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TRYaTECH iOS Voice Fix</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ccff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      background: #111;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .btn-monte {
+      border: 2px solid #00ccff;
+      color: #00ccff;
+    }
+    .btn-mylaie {
+      border: 2px solid #ffcc00;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRYaTECH Character Voices — iOS Strict Fix</h1>
+
+  <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <strong style="color: #00ccff;">Monte - Hustle</strong><br/>
+      <button class="btn-monte" onclick="playAudio('monte.mp3')">▶ Hear Monte</button>
+    </div>
+    <div style="text-align: center;">
+      <strong style="color: #ffcc00;">Mylaie - Vision</strong><br/>
+      <button class="btn-mylaie" onclick="playAudio('mylaie.mp3')">▶ Hear Mylaie</button>
+    </div>
+  </div>
+
+  <script>
+    async function playAudio(url) {
+      try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        source.start(0);
+      } catch (error) {
+        alert("Audio failed to play. Try again or check volume.");
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>
