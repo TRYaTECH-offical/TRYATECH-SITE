@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TRYaTECH Voices — Public Whyp.it Audio</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ccff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      background: #111;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .btn-monte {
+      border: 2px solid #00ccff;
+      color: #00ccff;
+    }
+    .btn-mylaie {
+      border: 2px solid #ffcc00;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRYaTECH Character Voices — Now Live</h1>
+
+  <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <strong style="color: #00ccff;">Monte - Hustle</strong><br/>
+      <button class="btn-monte" onclick="document.getElementById('monteAudio').play()">▶ Hear Monte</button>
+    </div>
+    <div style="text-align: center;">
+      <strong style="color: #ffcc00;">Mylaie - Vision</strong><br/>
+      <button class="btn-mylaie" onclick="document.getElementById('mylaieAudio').play()">▶ Hear Mylaie</button>
+    </div>
+  </div>
+
+  <!-- Public Whyp.it audio -->
+  <audio id="monteAudio" preload="auto">
+    <source src="https://whyp.it/tracks/282717/monte" type="audio/mp4" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="mylaieAudio" preload="auto">
+    <source src="https://whyp.it/tracks/282718/mylaie" type="audio/mp4" />
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
