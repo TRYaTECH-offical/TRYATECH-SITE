@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TRYaTECH Homepage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
     body {
@@ -27,32 +27,18 @@
       0%, 100% { text-shadow: 0 0 8px #00ccff; }
       50% { text-shadow: 0 0 18px #00ccff; }
     }
-    input, button {
-      font-family: 'Orbitron', sans-serif;
-    }
+    .slider-column { width: 45%; }
+    .slider-title { text-align: center; font-size: 20px; }
     .kids-slider-wrapper {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-around;
-      gap: 30px;
-    }
-    .slider-column {
-      width: 45%;
-    }
-    .slider-title {
-      text-align: center;
-      font-size: 20px;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 40px 0;
     }
     .slider-container {
       display: flex;
       align-items: center;
-    }
-    .slider-arrow {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 24px;
-      cursor: pointer;
     }
     .slider-track {
       display: flex;
@@ -61,19 +47,34 @@
       padding: 10px;
       scroll-behavior: smooth;
     }
+    .slider-arrow {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
     .slider-card {
       min-width: 160px;
       background: #111;
-      border-radius: 10px;
       border: 2px solid #00ccff;
+      border-radius: 10px;
       padding: 10px;
       text-align: center;
       flex-shrink: 0;
+      height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slider-card.girls {
+      border-color: #ff80ff;
+      color: #ff80ff;
     }
     .slider-card img {
       width: 100%;
-      height: auto;
-      border-radius: 6px;
+      max-height: 140px;
+      object-fit: contain;
       margin-bottom: 10px;
     }
     .footer a {
@@ -92,9 +93,6 @@
       .slider-column {
         width: 100%;
       }
-      .hero h1 {
-        font-size: 20px;
-      }
     }
   </style>
 </head>
@@ -108,16 +106,28 @@
   </section>
 
   <div style="text-align:center;">
-    <button onclick="toggleAudio()" style="margin-bottom:20px; padding:10px 20px;">▶ Play Intro</button>
+    <p>Background Sound:</p>
+    <button onclick="toggleAudio()" style="padding:10px 20px;">▶ Play Intro</button>
     <audio id="introAudio" preload="auto">
-      <source src="Monte voice.wav" type="audio/wav" />
+      <source src="Monte voice.wav" type="audio/wav"/>
     </audio>
   </div>
 
-  <div style="text-align:center; margin-top:20px;">
+  <div style="text-align:center; margin-top:30px;">
     <h2 id="dropTitle">Next Drop Countdown</h2>
     <div id="countdown" style="font-size:24px; margin-bottom:20px;"></div>
     <div id="quoteBox" style="font-style:italic; color:#0ff;">"System Loading… Prepare for greatness."</div>
+  </div>
+
+  <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <strong style="color: #00ccff;">Monte - Hustle</strong><br/>
+      <button onclick="document.getElementById('monteAudio').play()" style="margin-top:10px; padding:10px 20px; background:#111; color:#00ccff; border:2px solid #00ccff; font-weight:bold;">▶ Hear Monte</button>
+    </div>
+    <div style="text-align: center;">
+      <strong style="color: #ffcc00;">Mylaie - Vision</strong><br/>
+      <button onclick="document.getElementById('mylaieAudio').play()" style="margin-top:10px; padding:10px 20px; background:#111; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">▶ Hear Mylaie</button>
+    </div>
   </div>
 
   <section class="kids-slider-wrapper">
@@ -126,34 +136,34 @@
       <div class="slider-container">
         <button class="slider-arrow" onclick="scrollSlider('boysTrack', -1)">&lt;</button>
         <div class="slider-track" id="boysTrack">
-          <div class="slider-card"><img src="shirt1.png" alt="Startup Mode"><div>Startup Mode: ON</div></div>
-          <div class="slider-card"><img src="shirt2.png" alt="No Limits"><div>No Limits Detected</div></div>
-          <div class="slider-card"><img src="shirt3.png" alt="System Activated"><div>System Activated</div></div>
+          <div class="slider-card"><img src="https://via.placeholder.com/150" alt="Startup Mode"><div>Startup Mode: ON</div></div>
+          <div class="slider-card"><img src="https://via.placeholder.com/150" alt="No Limits"><div>No Limits Detected</div></div>
+          <div class="slider-card"><img src="https://via.placeholder.com/150" alt="System Activated"><div>System Activated</div></div>
         </div>
         <button class="slider-arrow" onclick="scrollSlider('boysTrack', 1)">&gt;</button>
       </div>
     </div>
     <div class="slider-column">
-      <h2 class="slider-title" style="color:#ff80ff;">TRYaTECH KIDS - GIRLS</h2>
+      <h2 class="slider-title girls-title">TRYaTECH KIDS - GIRLS</h2>
       <div class="slider-container">
         <button class="slider-arrow" onclick="scrollSlider('girlsTrack', -1)">&lt;</button>
         <div class="slider-track" id="girlsTrack">
-          <div class="slider-card"><img src="shirt4.png" alt="Future CEO"><div>Future CEO</div></div>
-          <div class="slider-card"><img src="shirt5.png" alt="Big Dreams"><div>Big Dreams Loading…</div></div>
-          <div class="slider-card"><img src="shirt6.png" alt="Future Starts"><div>The Future Starts With Me</div></div>
+          <div class="slider-card girls"><img src="https://via.placeholder.com/150" alt="Future CEO"><div>Future CEO</div></div>
+          <div class="slider-card girls"><img src="https://via.placeholder.com/150" alt="Big Dreams"><div>Big Dreams Loading…</div></div>
+          <div class="slider-card girls"><img src="https://via.placeholder.com/150" alt="Future Starts"><div>The Future Starts With Me</div></div>
         </div>
         <button class="slider-arrow" onclick="scrollSlider('girlsTrack', 1)">&gt;</button>
       </div>
     </div>
   </section>
 
-  <section class="footer">
-    <p>Follow us:</p>
-    <a href="https://www.shoptryatech.com">Shop</a>
-    <a href="about.html">About</a>
-    <a href="media.html">Media</a>
-    <a href="#" onclick="reloadQuote()">Reload</a>
-  </section>
+  <h2 class="section-title">Daily Motivation</h2>
+  <p style="text-align:center;">"You got this. Reload daily. Repeat for more." - TRYaTECH</p>
+
+  
+
+  <audio id="monteAudio" src="Monte_Hustle_30sec.wav"></audio>
+  <audio id="mylaieAudio" src="Mylaie_30sec.wav"></audio>
 
   <script>
     function toggleAudio() {
@@ -200,6 +210,7 @@
         box.style.opacity = 1;
       }, 500);
     }, 8000);
+
     function reloadQuote() {
       i = (i + 1) % quotes.length;
       document.getElementById("quoteBox").innerText = quotes[i];
@@ -219,5 +230,21 @@
       gsap.from(".footer a", { duration: 1, opacity: 0, y: 20, stagger: 0.2, delay: 2.2 });
     });
   </script>
+
+<section class="footer">
+  <p>Follow us:</p>
+  <div>
+    <a href="https://www.tiktok.com/@tryatech" target="_blank">TikTok</a>
+    <a href="https://www.facebook.com/tryatech" target="_blank">Facebook</a>
+    <a href="https://www.youtube.com/@TRYaTECH" target="_blank">YouTube</a>
+  </div>
+  <div style="margin-top: 10px;">
+    <a href="https://www.shoptryatech.com">Shop</a>
+    <a href="about.html">About</a>
+    <a href="media.html">Media</a>
+    <a href="#" onclick="reloadQuote()">Reload</a>
+  </div>
+</section>
+
 </body>
 </html>
