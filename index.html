@@ -133,6 +133,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
+
 <body>
 <section class="hero">
 <h1>COMING SOON TO TRYaTECH</h1>
@@ -158,13 +159,13 @@
   <div style="text-align: center;">
     <strong style="color: #00ccff;">Monte - Hustle</strong><br/>
     <button onclick="document.getElementById('monteAudio').play()" style="margin-top:10px; padding:10px 20px; background:#111; color:#00ccff; border:2px solid #00ccff; font-weight:bold;">
-      <span id="playMonteBtn">▶ Hear Monte</span>
+      ▶ Hear Monte
     </button>
   </div>
   <div style="text-align: center;">
     <strong style="color: #ffcc00;">Mylaie - Vision</strong><br/>
     <button onclick="document.getElementById('mylaieAudio').play()" style="margin-top:10px; padding:10px 20px; background:#111; color:#ffcc00; border:2px solid #ffcc00; font-weight:bold;">
-      <span id="playMylaieBtn">▶ Hear Mylaie</span>
+      ▶ Hear Mylaie
     </button>
   </div>
 </div>
@@ -365,11 +366,18 @@
 </script>
 
 <script>
-  window.addEventListener("DOMContentLoaded", function () {
-    gsap.from(".hero h1", { duration: 1, y: -40, opacity: 0, ease: "power2.out" });
-    gsap.from("#countdown", { duration: 1, scale: 0.8, opacity: 0, delay: 0.5, ease: "back.out(1.7)" });
-    gsap.from(".slider-title", { duration: 1, y: 30, opacity: 0, stagger: 0.2, delay: 1 });
-    gsap.from(".slider-card", { duration: 1, y: 40, opacity: 0, stagger: 0.1, delay: 1.5 });
+  window.addEventListener("DOMContentLoaded", () => {
+    gsap.from(".hero h1", { duration: 1, y: -40, opacity: 0 });
+    gsap.from(".hero p", { duration: 1, y: -20, opacity: 0, delay: 0.3 });
+    gsap.from("input[type='email'], button, a[href$='.pdf']", {
+      duration: 1, y: 20, opacity: 0, stagger: 0.2, delay: 0.5
+    });
+    gsap.from("#dropTitle, #countdown, #quoteBox", {
+      duration: 1, opacity: 0, y: 20, stagger: 0.2, delay: 1
+    });
+    gsap.from(".slider-title", { duration: 1, opacity: 0, y: 30, stagger: 0.2, delay: 1.5 });
+    gsap.from(".slider-card", { duration: 1, y: 40, opacity: 0, stagger: 0.1, delay: 1.8 });
+    gsap.from(".footer a", { duration: 1, opacity: 0, y: 20, stagger: 0.2, delay: 2.2 });
   });
 </script>
 </body>
