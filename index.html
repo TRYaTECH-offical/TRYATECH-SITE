@@ -101,14 +101,13 @@
 <a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br/>
 </section>
 <div style="text-align:center; margin-top:40px;">
-  <p>Background Sound:</p>
-  <button onclick="toggleAudio()" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Play / Pause</button>
-</div>
-
+<p>Background Sound:</p>
+<button onclick="toggleAudio()" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Play / Pause</button>
 <div style="text-align:center; margin-top:20px;">
   <h2>Next Drop Countdown</h2>
   <div id="countdown" style="font-size:24px; margin-bottom:20px;"></div>
-  <div id="quoteBox" style="font-style:italic; color:#0ff;">"System Loading… Prepare for greatness."</div>
+</div>
+
 </div>
 
 <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
@@ -154,40 +153,16 @@
 <h2 class="section-title">TRYaTECH KIDS Collection</h2>
 <p style="text-align:center;"><div style="color:#888; text-align:center;">Product preview section under development.</div></p>
 
-<section class="kids-slider-wrapper">
-<div class="slider-column">
-<h2 class="slider-title boys-title">TRYaTECH KIDS - BOYS</h2>
-<div class="slider-container">
-<button class="slider-arrow" onclick="scrollSlider('boysTrack', -1)">&lt;</button>
-<div class="slider-track" id="boysTrack">
-<div class="slider-card">Startup Mode: ON</div>
-<div class="slider-card">No Limits Detected</div>
-<div class="slider-card">System Activated</div>
-</div>
-<button class="slider-arrow" onclick="scrollSlider('boysTrack', 1)">&gt;</button>
-</div>
-</div>
-<div class="slider-column">
-<h2 class="slider-title girls-title">TRYaTECH KIDS - GIRLS</h2>
-<div class="slider-container">
-<button class="slider-arrow" onclick="scrollSlider('girlsTrack', -1)">&lt;</button>
-<div class="slider-track" id="girlsTrack">
-<div class="slider-card girls">Future CEO</div>
-<div class="slider-card girls">Big Dreams Loading</div>
-<div class="slider-card girls">The Future Starts With Me</div>
-</div>
-<button class="slider-arrow" onclick="scrollSlider('girlsTrack', 1)">&gt;</button>
-</div>
-</div>
-</section>
+
 
 <h2 class="section-title">Daily Motivation</h2>
+
 <p style="text-align:center;">"You got this. Reload daily. Repeat for more." - TRYaTECH</p>
 <section class="footer">
 <p>Follow us:</p>
 <div class="social-icons">
-<a href="https://www.tiktok.com/@tryatech" target="_blank"><img src="tiktok.jpeg" alt="TikTok" alt="TikTok" width="40" style="margin: 0 10px;"></a>
-<a href="https://www.tiktok.com/@tryatech" target="_blank"><img src="youtube.jpeg" alt="YouTube" alt="YouTube" width="40" style="margin: 0 10px;"></a>
+<a href="https://www.tiktok.com/@tryatech" target="_blank"><img alt="TikTok" src="tiktok.jpeg" style="margin: 0 10px;" width="40"/></a>
+<a href="https://www.tiktok.com/@tryatech" target="_blank"><img alt="YouTube" src="youtube.jpeg" style="margin: 0 10px;" width="40"/></a>
 </div>
 </section>
 <script>
@@ -237,7 +212,7 @@
     }
   </script>
 <audio id="monteAudio" preload="auto">
-<source src="monte.mp3" type="audio/mpeg"/>
+<source src="intro.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
 <audio id="mylaieAudio" preload="auto">
@@ -259,14 +234,25 @@
       track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
     }
   </script>
-
 <div style="position:fixed; bottom:0; width:100%; background:#111; color:#0ff; display:flex; justify-content:space-around; padding:10px 0; font-size:16px; z-index:999;">
-  <div>Shop</div>
-  <div>About</div>
-  <div>Media</div>
-  <div onclick="reloadQuote()">Reload</div>
+<div>Shop</div>
+<div>About</div>
+<div>Media</div>
+<div onclick="reloadQuote()">Reload</div>
 </div>
 
+<script>
+// Countdown (7 days from load)
+  var countDownDate = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
+  var countdownEl = document.getElementById("countdown");
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    if (distance < 0) {
+      clearInterval(x);
+      countdownEl.innerHTML = "LIVE NOW";
+    }
+</script>
 <script>
   // Countdown (7 days from load)
   var countDownDate = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
@@ -303,16 +289,7 @@
     i = (i + 1) % quotes.length;
     document.getElementById("quoteBox").innerText = quotes[i];
   }
-
-  // Audio toggle
-  function toggleAudio() {
-    var audio = document.getElementById("kidAudio");
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }
 </script>
+
 </body>
 </html>
