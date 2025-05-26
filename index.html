@@ -293,3 +293,46 @@
 
 </body>
 </html>
+
+<script>
+  function toggleAudio() {
+    var audio = document.getElementById("kidAudio");
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+
+  // Countdown
+  var countDownDate = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
+  var countdownEl = document.getElementById("countdown");
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    if (distance < 0) {
+      clearInterval(x);
+      countdownEl.innerHTML = "LIVE NOW";
+    } else {
+      var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var s = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = d + "d " + h + "h " + m + "m " + s + "s ";
+    }
+  }, 1000);
+
+  // Quotes
+  const quotes = [
+    '"System Loading… Prepare for greatness."',
+    '"You got this. Reload for more." —TRYaTECH',
+    '"Hustle Mode: Activated."',
+    '"Mindset is your master key."',
+    '"No limits detected."'
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % quotes.length;
+    document.getElementById("quoteBox").innerText = quotes[i];
+  }, 8000);
+</script>
