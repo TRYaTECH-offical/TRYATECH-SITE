@@ -100,6 +100,17 @@
 <button onclick="alert('Thanks for signing up! Stay tuned.')" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br/>
 <a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br/>
 </section>
+<div style="text-align:center; margin-top:40px;">
+  <p>Background Sound:</p>
+  <button onclick="toggleAudio()" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Play / Pause</button>
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+  <h2>Next Drop Countdown</h2>
+  <div id="countdown" style="font-size:24px; margin-bottom:20px;"></div>
+  <div id="quoteBox" style="font-style:italic; color:#0ff;">"System Loading… Prepare for greatness."</div>
+</div>
+
 <div style="display: flex; justify-content: center; gap: 60px; margin-top: 30px; flex-wrap: wrap;">
 <div style="text-align: center;">
 <strong style="color: #00ccff;">Monte - Hustle</strong><br/>
@@ -146,8 +157,10 @@
 <p style="text-align:center;">"You got this. Reload daily. Repeat for more." - TRYaTECH</p>
 <section class="footer">
 <p>Follow us:</p>
-<a href="https://www.tiktok.com/@tryatech" target="_blank">TikTok</a>
-<a href="https://www.youtube.com/@TRYaTECH" target="_blank">YouTube</a>
+<div class="social-icons">
+<a href="https://www.tiktok.com/@tryatech" target="_blank"><img src="tiktok.jpeg" alt="TikTok" width="40" style="margin: 0 10px;"></a>
+<a href="https://www.youtube.com/@TRYaTECH" target="_blank"><img src="youtube.jpeg" alt="YouTube" width="40" style="margin: 0 10px;"></a>
+</div>
 </section>
 <script>
     function scrollSlider(trackId, direction) {
@@ -157,7 +170,7 @@
     }
   </script>
 <audio autoplay="" id="kidAudio" preload="auto">
-<source src="Monte voice.wav" type="audio/wav"/>
+<source src="intro.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
 <script>
@@ -173,11 +186,11 @@
     });
   </script>
 <audio id="monteAudio" preload="auto">
-<source src="Monte voice.wav" type="audio/wav"/>
+<source src="intro.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
 <audio id="mylaieAudio" preload="auto">
-<source src="Mylaie.mp3" type="audio/mpeg"/>
+<source src="mylaie.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
 <script>
@@ -196,11 +209,11 @@
     }
   </script>
 <audio id="monteAudio" preload="auto">
-<source src="Monte voice.wav" type="audio/wav"/>
+<source src="intro.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
 <audio id="mylaieAudio" preload="auto">
-<source src="Mylaie.mp3" type="audio/mpeg"/>
+<source src="mylaie.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
   </audio>
 <script>
@@ -218,5 +231,60 @@
       track.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
     }
   </script>
+
+<div style="position:fixed; bottom:0; width:100%; background:#111; color:#0ff; display:flex; justify-content:space-around; padding:10px 0; font-size:16px; z-index:999;">
+  <div>Shop</div>
+  <div>About</div>
+  <div>Media</div>
+  <div onclick="reloadQuote()">Reload</div>
+</div>
+
+<script>
+  // Countdown (7 days from load)
+  var countDownDate = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
+  var countdownEl = document.getElementById("countdown");
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    if (distance < 0) {
+      clearInterval(x);
+      countdownEl.innerHTML = "LIVE NOW";
+    } else {
+      var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var s = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = d + "d " + h + "h " + m + "m " + s + "s ";
+    }
+  }, 1000);
+
+  // Quotes
+  const quotes = [
+    '"System Loading… Prepare for greatness."',
+    '"You got this. Reload for more." —TRYaTECH',
+    '"Hustle Mode: Activated."',
+    '"Mindset is your master key."',
+    '"No limits detected."'
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % quotes.length;
+    document.getElementById("quoteBox").innerText = quotes[i];
+  }, 8000);
+  function reloadQuote() {
+    i = (i + 1) % quotes.length;
+    document.getElementById("quoteBox").innerText = quotes[i];
+  }
+
+  // Audio toggle
+  function toggleAudio() {
+    var audio = document.getElementById("kidAudio");
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>
 </body>
 </html>
