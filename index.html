@@ -7,6 +7,13 @@
 <title>TRYaTECH Homepage</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;display=swap" rel="stylesheet"/>
 <style>
+        .glow {
+            animation: glowPulse 1.5s infinite alternate;
+        }
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff; }
+            to { text-shadow: 0 0 15px #00bfff, 0 0 30px #00bfff; }
+        }
     body {
       background-color: #0a0a0a;
       color: #00ccff;
@@ -94,6 +101,7 @@
 </head>
 <body>
 <audio id="kidAudio" preload="auto"><source src="intro.mp3" type="audio/mpeg"></audio>
+
 <section class="hero">
 <h1>COMING SOON TO TRYaTECH</h1>
 <p>Innovation. Hustle. Mindset.</p>
@@ -158,6 +166,7 @@
 
 <h2 class="section-title">Daily Motivation</h2>
 <div id="quoteBox" style="font-style:italic; color:#0ff; text-align:center;">"System Loading… Prepare for greatness."</div>
+
 
 
 
