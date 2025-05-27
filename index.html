@@ -360,5 +360,26 @@ function scrollSlider(trackId, direction) {
 }
 </script>  
     <script>
+     <script>
+const messages = [
+  "You got this. Reload daily. Repeat for more. – TRYaTECH",
+  "Mindset matters. Keep going. – TRYaTECH",
+  "Built not bought. Earn it daily. – TRYaTECH",
+  "Dream loud. Move smart. Win big. – TRYaTECH",
+  "Grind mode: ON. – TRYaTECH"
+];
+
+let currentIndex = 0;
+const messageElement = document.getElementById("dailyMessage");
+
+function showNextMessage() {
+  messageElement.textContent = messages[currentIndex];
+  currentIndex = (currentIndex + 1) % messages.length;
+}
+
+setInterval(showNextMessage, 5000); // Change every 5 seconds
+showNextMessage(); // Show first message right away
+</script>
+   
 </body>
 </html>
