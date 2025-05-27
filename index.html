@@ -211,7 +211,7 @@
 
 
 
-
+<button id="toggleSoundBtn" style="padding: 8px 16px; margin-top: 20px;">Mute Hover Sound</button>
 
 
 
@@ -308,6 +308,26 @@
           console.log("Autoplay blocked or user interaction required:", e);
         });
       });
+    });
+  });
+</script>
+    <script>
+  let hoverSoundMuted = false;
+
+  const toggleBtn = document.getElementById('toggleSoundBtn');
+  toggleBtn.addEventListener('click', () => {
+    hoverSoundMuted = !hoverSoundMuted;
+    toggleBtn.textContent = hoverSoundMuted ? "Unmute Hover Sound" : "Mute Hover Sound";
+  });
+
+  document.querySelectorAll('button, a').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (!hoverSoundMuted) {
+        hoverSound.currentTime = 0;
+        hoverSound.play().catch(e => {
+          console.log("Autoplay blocked or muted:", e);
+        });
+      }
     });
   });
 </script>
