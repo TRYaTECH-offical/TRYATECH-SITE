@@ -380,6 +380,94 @@ function showNextMessage() {
 setInterval(showNextMessage, 5000); // Change every 5 seconds
 showNextMessage(); // Show first message right away
 </script>
-   
+   <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  const quoteBox = document.getElementById("dailyMessage"); // make sure this ID exists
+  let quotes = [];
+  let quoteIndex = 0;
+
+  function updateQuote() {
+    if (quotes.length === 0) return;
+    quoteBox.textContent = quotes[quoteIndex];
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+  }
+
+  db.collection("motivationQuotes").onSnapshot(snapshot => {
+    quotes = snapshot.docs.map(doc => doc.data().text);
+    quoteIndex = 0;
+    updateQuote();
+    setInterval(updateQuote, 5000);
+  });
+</script>
+    <!-- Firebase SDK (MUST come before using firebase.) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "...",
+    ...
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  const quoteBox = document.getElementById("dailyMessage");
+  let quotes = [];
+  let quoteIndex = 0;
+
+  function updateQuote() {
+    if (quotes.length === 0) return;
+    quoteBox.textContent = quotes[quoteIndex];
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+  }
+
+  db.collection("motivationQuotes").onSnapshot(snapshot => {
+    quotes = snapshot.docs.map(doc => doc.data().text);
+    quoteIndex = 0;
+    updateQuote();
+    setInterval(updateQuote, 5000);
+  });
+</script>
+
+<!-- Display area -->
+<div id="dailyMessage"></d
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  const quoteBox = document.getElementById("dailyMessage");
+  let quotes = [];
+  let quoteIndex = 0;
+
+  function updateQuote() {
+    if (quotes.length === 0) return;
+    quoteBox.textContent = quotes[quoteIndex];
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+  }
+
+  db.collection("motivationQuotes").onSnapshot(snapshot => {
+    quotes = snapshot.docs.map(doc => doc.data().text);
+    quoteIndex = 0;
+    updateQuote();
+    setInterval(updateQuote, 5000);
+  });
+</script>
 </body>
 </html>
