@@ -135,9 +135,13 @@
 <section class="hero">
 <h1>COMING SOON TO TRYaTECH</h1>
 <p>Innovation. Hustle. Mindset.</p>
-<input placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;" type="email"/><br/>
-<button onclick="alert('Thanks for signing up! Stay tuned.')" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br/>
+<form id="emailForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <input id="emailInput" type="email" name="email" required placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;" />
+  <br/>
+  <button type="submit" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button>
+</form>
 
+<p id="notifyMessage" style="display:none; color:#00ccff; margin-top:12px;">Thanks for signing up! Stay tuned.</p>
 <a href="tiktok_strategy_guide.pdf" download onclick="showThankYou()" style="display:inline-block; margin-top:10px; padding:10px 24px; background:#111; color:#00ccff; border:2px solid #00ccff; font-weight:bold; text-decoration:none;">
   Download TikTok Strategy Guide
 </a>
@@ -261,6 +265,30 @@
       msg.style.display = "none";
     }, 4000);
   }
+</script>
+    <script>
+  const form = document.getElementById("emailForm");
+  const emailInput = document.getElementById("emailInput");
+  const msg = document.getElementById("notifyMessage");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        msg.style.display = "block";
+        emailInput.value = "";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 4000);
+      }
+    });
+  });
 </script>
 </body>
 </html>
