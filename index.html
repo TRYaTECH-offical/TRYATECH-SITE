@@ -352,5 +352,12 @@ a:hover {
     });
   });
 </script>
+  <script>
+function scrollSlider(trackId, direction) {
+  const track = document.getElementById(trackId);
+  const scrollAmount = 250; // adjust based on your card width
+  track.scrollLeft += direction * scrollAmount;
+}
+</script>  
 </body>
 </html>
