@@ -382,11 +382,7 @@ showNextMessage(); // Show first message right away
 </script>
    <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
-    <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"><
 
 <script>
   const firebaseConfig = {
@@ -414,11 +410,20 @@ showNextMessage(); // Show first message right away
     }
 
     db.collection("motivationQuotes").onSnapshot(snapshot => {
-      quotes = snapshot.docs.map(doc => doc.data().text);
-      console.log("Quotes loaded:", quotes);
-      quoteIndex = 0;
-      updateQuote();
-      setInterval(updateQuote, 5000);
+  quotes = snapshot.docs.map(doc => doc.data().text);
+
+  // Show result on screen for debug
+  if (quotes.length === 0) {
+    document.getElementById("dailyMessage").textContent = "No quotes found or access blocked.";
+  } else {
+    document.getElementById("dailyMessage").textContent = "Loaded " + quotes.length + " quotes.";
+  }
+
+  quoteIndex = 0;
+  updateQuote();
+  setInterval(updateQuote, 5000);
+});
+
     });
   });
 </script>
