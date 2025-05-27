@@ -8,6 +8,27 @@
 <title>TRYaTECH Homepage</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;display=swap" rel="stylesheet"/>
 <style>
+    button:hover,
+a:hover {
+  box-shadow: 0 0 12px #00ccff, 0 0 24px #00ccff;
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 10px #00ccff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ccff, 0 0 40px #00ccff;
+  }
+  100% {
+    box-shadow: 0 0 10px #00ccff;
+  }
+}
+
+.neon-glow {
+  animation: neonPulse 2s infinite;
+}
     body {
       background-color: #0a0a0a;
       color: #00ccff;
@@ -139,7 +160,7 @@
 <form id="emailForm" action="https://formspree.io/f/mgvkdney" method="POST">
   <input id="emailInput" type="email" name="email" required placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;" />
   <br/>
-  <button type="submit" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button>
+  <button type="submit" class="neon-glow" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button>
 </form>
 
 <p id="notifyMessage" style="display:none; color:#00ccff; margin-top:12px;">Thanks for signing up! Stay tuned.</p>
