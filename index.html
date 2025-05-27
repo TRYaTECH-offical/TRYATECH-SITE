@@ -290,5 +290,15 @@
     });
   });
 </script>
+  <script>
+  const hoverSound = new Audio('hover-sound.mp3'); // Match your file name
+
+  document.querySelectorAll('button, a').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      hoverSound.currentTime = 0;
+      hoverSound.play();
+    });
+  });
+</script>  
 </body>
 </html>
