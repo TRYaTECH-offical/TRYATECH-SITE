@@ -229,24 +229,34 @@
   Your browser does not support the audio element.
 </audio>
 
-
 <script>
-  document.getElementById("playMonteBtn").addEventListener("click", () => {
-    document.getElementById("monteAudio").play();
-  });
+  document.addEventListener("DOMContentLoaded", function () {
+    const intro = document.getElementById("introAudio");
+    const monte = document.getElementById("monteAudio");
+    const mylaie = document.getElementById("mylaieAudio");
 
-  document.getElementById("playMylaieBtn").addEventListener("click", () => {
-    document.getElementById("mylaieAudio").play();
-  });
-
-  function toggleAudio() {
-    var audio = document.getElementById("introAudio");
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
+    function stopAll() {
+      [intro, monte, mylaie].forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
     }
-  }
+
+    document.getElementById("playIntro").addEventListener("click", () => {
+      stopAll();
+      intro.play();
+    });
+
+    document.getElementById("playMonteBtn").addEventListener("click", () => {
+      stopAll();
+      monte.play();
+    });
+
+    document.getElementById("playMylaieBtn").addEventListener("click", () => {
+      stopAll();
+      mylaie.play();
+    });
+  });
 </script>
 
 </body>
