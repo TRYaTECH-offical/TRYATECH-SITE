@@ -429,6 +429,44 @@ showNextMessage(); // Show first message right away
 </script>
     <!-- Display area -->
 <div id="dailyMessage"></div>
+ <!-- Audio Buttons + Audio Tags -->
+<button onclick="playMonte()">🎧 Hear Monte</button>
+<audio id="monteAudio" src="monte-voice.mp3"></audio>
+
+<button onclick="playMylaie()">🎧 Hear Mylaie</button>
+<audio id="mylaieAudio" src="mylaie-voice.mp3"></audio>
+
+<!-- Script goes just before </body> -->
+<script>
+  const monteAudio = document.getElementById("monteAudio");
+  const mylaieAudio = document.getElementById("mylaieAudio");
+
+  function playMonte() {
+    if (!monteAudio.paused) {
+      monteAudio.pause();
+      monteAudio.currentTime = 0;
+    } else {
+      mylaieAudio.pause();
+      mylaieAudio.currentTime = 0;
+      monteAudio.play();
+    }
+  }
+
+  function playMylaie() {
+    if (!mylaieAudio.paused) {
+      mylaieAudio.pause();
+      mylaieAudio.currentTime = 0;
+    } else {
+      monteAudio.pause();
+      monteAudio.currentTime = 0;
+      mylaieAudio.play();
+    }
+  }
+</script>
+
+</body>
+</html>
+   
 
      
 
