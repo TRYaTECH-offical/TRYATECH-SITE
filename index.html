@@ -321,26 +321,6 @@ a:hover {
     });
   });
 </script>
-</script>
-    <script>
-  // Wait until the full page is loaded
-  window.addEventListener('DOMContentLoaded', () => {
-    const hoverSound = new Audio('hover.mp3');
-
-    // Optional: Preload the sound to reduce delay
-    hoverSound.preload = 'auto';
-
-    // Attach to all buttons and links
-    document.querySelectorAll('button, a').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        hoverSound.currentTime = 0;
-        hoverSound.play().catch(e => {
-          console.log("Autoplay blocked or user interaction required:", e);
-        });
-      });
-    });
-  });
-</script>
     <script>
   let hoverSoundMuted = false;
 
