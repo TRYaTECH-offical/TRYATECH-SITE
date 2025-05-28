@@ -228,7 +228,6 @@
   <source src="mylaie.mp3" type="audio/mpeg"/>
   Your browser does not support the audio element.
 </audio>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const intro = document.getElementById("introAudio");
@@ -242,20 +241,30 @@
       });
     }
 
-    document.getElementById("playIntro").addEventListener("click", () => {
-      stopAll();
-      intro.play();
-    });
+    const introBtn = document.getElementById("playIntro");
+    const monteBtn = document.getElementById("playMonteBtn");
+    const mylaieBtn = document.getElementById("playMylaieBtn");
 
-    document.getElementById("playMonteBtn").addEventListener("click", () => {
-      stopAll();
-      monte.play();
-    });
+    if (introBtn) {
+      introBtn.addEventListener("click", () => {
+        stopAll();
+        intro.play().catch(() => alert("Tap the screen to allow sound"));
+      });
+    }
 
-    document.getElementById("playMylaieBtn").addEventListener("click", () => {
-      stopAll();
-      mylaie.play();
-    });
+    if (monteBtn) {
+      monteBtn.addEventListener("click", () => {
+        stopAll();
+        monte.play().catch(() => alert("Tap the screen to allow sound"));
+      });
+    }
+
+    if (mylaieBtn) {
+      mylaieBtn.addEventListener("click", () => {
+        stopAll();
+        mylaie.play().catch(() => alert("Tap the screen to allow sound"));
+      });
+    }
   });
 </script>
 
