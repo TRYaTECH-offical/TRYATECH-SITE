@@ -248,6 +248,36 @@
     }
   }
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const intro = document.getElementById("introAudio");
+    const monte = document.getElementById("monteAudio");
+    const mylaie = document.getElementById("mylaieAudio");
 
+    function stopAll() {
+      [intro, monte, mylaie].forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    }
+
+    document.getElementById("playIntro").addEventListener("click", () => {
+      stopAll();
+      intro.play();
+    });
+
+    document.getElementById("playMonte").addEventListener("click", () => {
+      stopAll();
+      monte.play();
+    });
+
+    document.getElementById("playMylaie").addEventListener("click", () => {
+      stopAll();
+      mylaie.play();
+    });
+  });
+</script>
+
+    
 </body>
 </html>
