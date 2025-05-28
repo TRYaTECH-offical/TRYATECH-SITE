@@ -439,69 +439,14 @@ showNextMessage(); // Show first message right away
     <!-- Display area -->
 <div id="dailyMessage"></div>
  <!-- Audio Buttons + Audio Tags -->
-<button onclick="toggleAudio('monte')">🔊 Hear Monte</button>
-<button onclick="toggleAudio('mylaie')">🔊 Hear Mylaie</button>
 
-<audio id="monteAudio" src="audio/monte-voice.mp3" preload="auto"></audio>
-<audio id="mylaieAudio" src="audio/mylaie-voice.mp3" preload="auto"></audio>
+    <div id="audioButtons">
+  <button onclick="toggleAudio('monte')">🔊 Hear Monte</button>
+  <button onclick="toggleAudio('mylaie')">🔊 Hear Mylaie</button>
 
-
-
-    }
-  }
-
-  function playMylaie() {
-    if (!mylaieAudio.paused) {
-      mylaieAudio.pause();
-      mylaieAudio.currentTime = 0;
-    } else {
-      monteAudio.pause();
-      monteAudio.currentTime = 0;
-      mylaieAudio.play();
-    }
-  }
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const monteAudio = document.getElementById("monteAudio");
-    const mylaieAudio = document.getElementById("mylaieAudio");
-
-    function pauseAll() {
-      monteAudio.pause();
-      mylaieAudio.pause();
-      monteAudio.currentTime = 0;
-      mylaieAudio.currentTime = 0;
-    }
-
-    window.playMonte = function () {
-      pauseAll();
-      monteAudio.play();
-    };
-
-    window.playMylaie = function () {
-      pauseAll();
-      mylaieAudio.play();
-    };
-  });
-</script>
-    <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const monteAudio = document.getElementById("monteAudio");
-    const mylaieAudio = document.getElementById("mylaieAudio");
-function stopOther(audioToPlay) {
-  if (monteAudio !== audioToPlay) {
-    monteAudio.pause();
-    monteAudio.currentTime = 0;
-  }
-  if (mylaieAudio !== audioToPlay) {
-    mylaieAudio.pause();
-    mylaieAudio.currentTime = 0;
-  }
-
-  // 🔥 This was missing from inside the function!
-  audioToPlay.play();
-}
-    
+  <audio id="monteAudio" src="audio/monte-voice.mp3" preload="auto"></audio>
+  <audio id="mylaieAudio" src="audio/mylaie-voice.mp3" preload="auto"></audio>
+</div
 
     window.playMonte = function () {
       stopOther(monteAudio);
@@ -537,8 +482,8 @@ function stopOther(audioToPlay) {
       stopOther(mylaieAudio);
     });
   });
-</script> 
-    <script>
+        
+<script>
   function toggleAudio(character) {
     const audio = document.getElementById(`${character}Audio`);
     if (audio.paused) {
@@ -549,17 +494,7 @@ function stopOther(audioToPlay) {
     }
   }
 </script>
-    <script>
-  function toggleAudio(character) {
-    const audio = document.getElementById(`${character}Audio`);
-    if (audio.paused) {
-      audio.currentTime = 0;
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }
-</script>
+
 </body>
 </html>
    
