@@ -288,18 +288,6 @@ a:hover {
     });
   });
 </script>
-
-    
-
-  function toggleAudio() {
-    var audio = document.getElementById("introAudio");
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }
-</script>
 <script>
   function showThankYou() {
     const msg = document.getElementById("thankYouMessage");
@@ -451,13 +439,13 @@ showNextMessage(); // Show first message right away
     <!-- Display area -->
 <div id="dailyMessage"></div>
  <!-- Audio Buttons + Audio Tags -->
-<button onclick="toggleAudio('monte')">
-  🔊 Hear Monte
-<button onclick="toggleAudio('mylaie')">
-  🔊 Hear Mylaie
-</button>
-    <audio id="monteAudio" src="monte-voice.mp3" preload="auto"></audio>
-<audio id="mylaieAudio" src="mylaie-voice.mp3" preload="auto"></audio>
+<button onclick="toggleAudio('monte')">🔊 Hear Monte</button>
+<button onclick="toggleAudio('mylaie')">🔊 Hear Mylaie</button>
+
+<audio id="monteAudio" src="audio/monte-voice.mp3" preload="auto"></audio>
+<audio id="mylaieAudio" src="audio/mylaie-voice.mp3" preload="auto"></audio>
+
+
 
     }
   }
@@ -550,6 +538,17 @@ function stopOther(audioToPlay) {
     });
   });
 </script> 
+    <script>
+  function toggleAudio(character) {
+    const audio = document.getElementById(`${character}Audio`);
+    if (audio.paused) {
+      audio.currentTime = 0;
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>
     <script>
   function toggleAudio(character) {
     const audio = document.getElementById(`${character}Audio`);
