@@ -231,71 +231,18 @@ a:hover {
 <a href="https://www.youtube.com/@TRYaTECH" target="_blank">YouTube</a>
 </section>
 
-
-
-
 <button id="toggleSoundBtn" style="padding: 8px 16px; margin-top: 20px;">Mute Hover Sound</button>
-
-
-
-
 
 <div style="position:fixed; bottom:0; width:100%; background:#111; color:#0ff; display:flex; justify-content:space-around; padding:10px 0; font-size:16px; z-index:999;">
   <div>Shop</div>
-  <div>About</div>
-  <div>Media</div>
-  <div onclick="reloadQuote()">Reload</div>
-</div>
-
-<button id="playIntro">▶ Intro Music</button>
-<button id="playMonte">▶ Hear Monte</button>
-<button id="playMylaie">▶ Hear Mylaie</button>
-
-
-<audio id="introAudio" preload="auto">
-  <source src="intro.mp3" type="audio/mpeg"/>
-  Your browser does not support the audio element.
-</audio>
-<audio id="monteAudio" preload="auto">
-  <source src="monte.mp3" type="audio/mpeg"/>
-  Your browser does not support the audio element.
-</audio>
-<audio id="mylaieAudio" preload="auto">
-  <source src="mylaie.mp3" type="audio/mpeg"/>
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    
-      
-   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const introAudio = document.getElementById("introAudio");
-    const monteAudio = document.getElementById("monteAudio");
-    const mylaieAudio = document.getElementById("mylaieAudio");
-
-    const introBtn = document.getElementById("playIntro");
-    const monteBtn = document.getElementById("playMonte");
-    const mylaieBtn = document.getElementById("playMylaie");
-
-    const audios = [
-      { audio: introAudio, button: introBtn, label: "Intro Music" },
-      { audio: monteAudio, button: monteBtn, label: "Hear Monte" },
-      { audio: mylaieAudio, button: mylaieBtn, label: "Hear Mylaie" }
-    ];
-
+  
     function stopAll() {
       audios.forEach(({ audio, button, label }) => {
         if (!audio.paused) {
           audio.pause();
           audio.currentTime = 0;
         }
-        if (button) button.textContent = `▶ ${label}`;
-      });
-    }
-
-    audios.forEach(({ audio, button, label }) => {
+    
       if (button) {
         button.addEventListener("click", () => {
           const isPlaying = !audio.paused;
@@ -521,6 +468,52 @@ showNextMessage(); // Show first message right away
           button.textContent = `⏸ Pause ${label}`;
         }
       });
+    });
+  });
+</script>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const introAudio = document.getElementById("introAudio");
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
+
+    const introBtn = document.getElementById("playIntro");
+    const monteBtn = document.getElementById("playMonte");
+    const mylaieBtn = document.getElementById("playMylaie");
+
+    const audios = [
+      { audio: introAudio, button: introBtn, label: "Intro Music" },
+      { audio: monteAudio, button: monteBtn, label: "Hear Monte" },
+      { audio: mylaieAudio, button: mylaieBtn, label: "Hear Mylaie" }
+    ];
+
+    function stopAll() {
+      audios.forEach(({ audio, button, label }) => {
+        if (!audio.paused) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+        if (button) button.textContent = `▶ ${label}`;
+      });
+    }
+
+    audios.forEach(({ audio, button, label }) => {
+      if (button) {
+        button.addEventListener("click", () => {
+          const isPlaying = !audio.paused;
+
+          stopAll();
+
+          if (!isPlaying) {
+            audio.play().catch(error => {
+              console.error("Playback failed:", error);
+              alert("Audio playback failed. Try clicking the page first or check file name.");
+            });
+            button.textContent = `⏸ Pause ${label}`;
+          }
+        });
+      }
     });
   });
 </script>
