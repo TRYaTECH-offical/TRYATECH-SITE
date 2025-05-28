@@ -449,25 +449,13 @@ showNextMessage(); // Show first message right away
     <!-- Display area -->
 <div id="dailyMessage"></div>
  <!-- Audio Buttons + Audio Tags -->
-<button onclick="playMonte()">🎧 Hear Monte</button>
-<audio id="monteAudio" src="monte-voice.mp3"></audio>
+<button id="playMonteBtn">🎧 Hear Monte</button>
+<audio id="monteAudio" src="monte-voice.mp3" preload="auto"></audio>
 
-<button onclick="playMylaie()">🎧 Hear Mylaie</button>
+<button id="playMylaieBtn">🎧 Hear Mylaie</button>
+<audio id="mylaieAudio" src="mylaie-voice.mp3" preload="auto"></audio>
 <audio id="mylaieAudio" src="mylaie-voice.mp3"></audio>
 
-<!-- Script goes just before </body> -->
-<script>
-  const monteAudio = document.getElementById("monteAudio");
-  const mylaieAudio = document.getElementById("mylaieAudio");
-
-  function playMonte() {
-    if (!monteAudio.paused) {
-      monteAudio.pause();
-      monteAudio.currentTime = 0;
-    } else {
-      mylaieAudio.pause();
-      mylaieAudio.currentTime = 0;
-      monteAudio.play();
     }
   }
 
@@ -532,7 +520,33 @@ function stopOther(audioToPlay) {
       stopOther(mylaieAudio);
     };
   });
-</scrip
+</script
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
+
+    function stopOther(audioToPlay) {
+      if (monteAudio !== audioToPlay) {
+        monteAudio.pause();
+        monteAudio.currentTime = 0;
+      }
+      if (mylaieAudio !== audioToPlay) {
+        mylaieAudio.pause();
+        mylaieAudio.currentTime = 0;
+      }
+      audioToPlay.play();
+    }
+
+    document.getElementById("playMonteBtn").addEventListener("click", () => {
+      stopOther(monteAudio);
+    });
+
+    document.getElementById("playMylaieBtn").addEventListener("click", () => {
+      stopOther(mylaieAudio);
+    });
+  });
+</script> 
 </body>
 </html>
    
