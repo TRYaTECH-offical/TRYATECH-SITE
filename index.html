@@ -267,9 +267,9 @@ a:hover {
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const monteAudio = document.getElementById("monteAudio");
-    const mylaieAudio = document.getElementById("mylaieAudio");
-<script>
+    
+      
+   <script>
   document.addEventListener("DOMContentLoaded", function () {
     const introAudio = document.getElementById("introAudio");
     const monteAudio = document.getElementById("monteAudio");
@@ -291,6 +291,29 @@ a:hover {
           audio.pause();
           audio.currentTime = 0;
         }
+        if (button) button.textContent = `▶ ${label}`;
+      });
+    }
+
+    audios.forEach(({ audio, button, label }) => {
+      if (button) {
+        button.addEventListener("click", () => {
+          const isPlaying = !audio.paused;
+
+          stopAll();
+
+          if (!isPlaying) {
+            audio.play().catch(error => {
+              console.error("Playback failed:", error);
+              alert("Audio playback failed. Try clicking the page first or check file name.");
+            });
+            button.textContent = `⏸ Pause ${label}`;
+          }
+        });
+      }
+    });
+  });
+</script>
         if (button) button.textContent = `▶ ${label}`;
       });
     }
