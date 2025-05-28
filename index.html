@@ -451,14 +451,13 @@ showNextMessage(); // Show first message right away
     <!-- Display area -->
 <div id="dailyMessage"></div>
  <!-- Audio Buttons + Audio Tags -->
-<button id="playMonteBtn">Hear Monte <i class="fa-solid fa-volume-high" style="margin-left: 6px;"></i></button>
-
-<audio id="monteAudio" src="monte-voice.mp3" preload="auto"></audio>
-
-<button id="playMylaieBtn">Hear Mylaie <i class="fa-solid fa-volume-high" style="margin-left: 6px;"></i></button>
+<button onclick="toggleAudio('monte')">
+  🔊 Hear Monte
+<button onclick="toggleAudio('mylaie')">
+  🔊 Hear Mylaie
+</button>
+    <audio id="monteAudio" src="monte-voice.mp3" preload="auto"></audio>
 <audio id="mylaieAudio" src="mylaie-voice.mp3" preload="auto"></audio>
-
-
 
     }
   }
@@ -551,6 +550,17 @@ function stopOther(audioToPlay) {
     });
   });
 </script> 
+    <script>
+  function toggleAudio(character) {
+    const audio = document.getElementById(`${character}Audio`);
+    if (audio.paused) {
+      audio.currentTime = 0;
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>
 </body>
 </html>
    
