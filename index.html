@@ -221,7 +221,7 @@
   Your browser does not support the audio element.
 </audio>
 <audio id="monteAudio" preload="auto">
-  <source src="monte.m4a" type="audio/mp4"/>
+  <source src="monte.mp3" type="audio/mpeg"/>
   Your browser does not support the audio element.
 </audio>
 <audio id="mylaieAudio" preload="auto">
@@ -231,14 +231,7 @@
 
 
 <script>
-  document.getElementById("playMonteBtn").addEventListener("click", () => {
-    document.getElementById("monteAudio").play();
-  });
-
-  document.getElementById("playMylaieBtn").addEventListener("click", () => {
-    document.getElementById("mylaieAudio").play();
-  });
-
+  
   function toggleAudio() {
     var audio = document.getElementById("introAudio");
     if (audio.paused) {
@@ -288,6 +281,53 @@
     }
 
     if (monteBtn
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const introAudio = document.getElementById("introAudio");
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
+
+    const introBtn = document.getElementById("playIntro");
+    const monteBtn = document.getElementById("playMonte");
+    const mylaieBtn = document.getElementById("playMylaie");
+
+    const audios = [
+      { audio: introAudio, button: introBtn, label: "Intro Music" },
+      { audio: monteAudio, button: monteBtn, label: "Hear Monte" },
+      { audio: mylaieAudio, button: mylaieBtn, label: "Hear Mylaie" }
+    ];
+
+    function stopAll() {
+      audios.forEach(({ audio, button, label }) => {
+        if (!audio.paused) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+        if (button) {
+          button.textContent = `▶ ${label}`;
+        }
+      });
+    }
+
+    audios.forEach(({ audio, button, label }) => {
+      if (button && audio) {
+        button.addEventListener("click", () => {
+          const isPlaying = !audio.paused;
+          stopAll(); // stop all before doing anything
+
+          if (!isPlaying) {
+            audio.play().catch(err => {
+              console.error("Playback failed:", err);
+              alert("Tap the screen first to allow audio.");
+            });
+            button.textContent = `⏸ Pause ${label}`;
+          }
+        });
+      }
+    });
+  });
+</script>
+        
 
 </body>
 </html>
