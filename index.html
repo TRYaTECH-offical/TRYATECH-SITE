@@ -4,6 +4,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    .glow {
+  box-shadow: 0 0 12px 2px #00ccff;
+  transition: box-shadow 0.3s ease;
+}
+    .glow {
+  box-shadow: 0 0 10px 4px #00ccff;
+  transition: box-shadow 0.3s ease;
+}
 <title>TRYaTECH Homepage</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -130,10 +138,7 @@
 }
 
 </style>
-    .glow {
-  box-shadow: 0 0 12px 2px #00ccff;
-  transition: box-shadow 0.3s ease;
-}
+
 </head>
 <body>
 <section class="hero">
@@ -259,10 +264,40 @@
         audio.currentTime = 0;
       });
     }
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hoverSound = document.getElementById("hoverSound");
+  const hoverButtons = [document.getElementById("playMonteBtn"), document.getElementById("playMylaieBtn")];
 
+  hoverButtons.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      hoverSound.currentTime = 0;
+      hoverSound.play();
+      btn.classList.add("glow");
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      btn.classList.remove("glow");
+    });
+  });
+});
+</script
     const introBtn = document.getElementById("playIntro");
     const monteBtn = document.getElementById("playMonteBtn");
     const mylaieBtn = document.getElementById("playMylaieBtn");
+const hoverSound = document.getElementById("hoverSound");
+
+function attachHoverSound(button) {
+  if (!button) return;
+  button.addEventListener("mouseenter", () => {
+    hoverSound.currentTime = 0;
+    hoverSound.play().catch(() => {});
+  });
+}
+
+attachHoverSound(playIntroBtn);
+attachHoverSound(playMonteBtn);
+attachHoverSound(playMylaieBtn);
 
     if (introBtn) {
       introBtn.addEventListener("click", () => {
