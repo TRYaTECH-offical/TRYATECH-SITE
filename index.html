@@ -440,24 +440,6 @@ showNextMessage(); // Show first message right away
 <div id="dailyMessage"></div>
  <!-- Audio Buttons + Audio Tags -->
 
-    <div id="audioButtons">
-  <button onclick="toggleAudio('monte')">🔊 Hear Monte</button>
-  <button onclick="toggleAudio('mylaie')">🔊 Hear Mylaie</button>
-
-  <audio id="monteAudio" src="audio/monte-voice.mp3" preload="auto"></audio>
-  <audio id="mylaieAudio" src="audio/mylaie-voice.mp3" preload="auto"></audio>
-</div
-
-    window.playMonte = function () {
-      stopOther(monteAudio);
-    };
-
-
-    document.getElementById("playMylaieBtn").addEventListener("click", () => {
-      stopOther(mylaieAudio);
-    });
-  });
-        
    <script>
   function toggleAudio(character) {
     const audio = document.getElementById(`${character}Audio`);
