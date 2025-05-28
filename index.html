@@ -269,23 +269,51 @@ a:hover {
   document.addEventListener("DOMContentLoaded", function () {
     const monteAudio = document.getElementById("monteAudio");
     const mylaieAudio = document.getElementById("mylaieAudio");
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const introAudio = document.getElementById("introAudio");
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
 
-    function stopOther(audioToPlay) {
-      if (monteAudio !== audioToPlay) {
-        monteAudio.pause();
-        monteAudio.currentTime = 0;
-      }
-      if (mylaieAudio !== audioToPlay) {
-        mylaieAudio.pause();
-        mylaieAudio.currentTime = 0;
-      }
-      audioToPlay.play();
+    const introBtn = document.getElementById("playIntro");
+    const monteBtn = document.getElementById("playMonte");
+    const mylaieBtn = document.getElementById("playMylaie");
+
+    const audios = [
+      { audio: introAudio, button: introBtn, label: "Intro Music" },
+      { audio: monteAudio, button: monteBtn, label: "Hear Monte" },
+      { audio: mylaieAudio, button: mylaieBtn, label: "Hear Mylaie" }
+    ];
+
+    function stopAll() {
+      audios.forEach(({ audio, button, label }) => {
+        if (!audio.paused) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+        if (button) button.textContent = `▶ ${label}`;
+      });
     }
 
-    document.getElementById("playMonteBtn").addEventListener("click", () => {
-      stopOther(monteAudio);
-    });
+    audios.forEach(({ audio, button, label }) => {
+      if (button) {
+        button.addEventListener("click", () => {
+          const isPlaying = !audio.paused;
 
+          stopAll();
+
+          if (!isPlaying) {
+            audio.play().catch(error => {
+              console.error("Playback failed:", error);
+            });
+            button.textContent = `⏸ Pause ${label}`;
+          }
+        });
+      }
+    });
+  });
+</script>
+    
     document.getElementById("playMylaieBtn").addEventListener("click", () => {
       stopOther(mylaieAudio);
     });
