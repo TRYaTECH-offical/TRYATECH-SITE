@@ -452,31 +452,6 @@ showNextMessage(); // Show first message right away
       stopOther(monteAudio);
     };
 
-    window.playMylaie = function () {
-      stopOther(mylaieAudio);
-    };
-  });
-</script
-   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const monteAudio = document.getElementById("monteAudio");
-    const mylaieAudio = document.getElementById("mylaieAudio");
-
-    function stopOther(audioToPlay) {
-      if (monteAudio !== audioToPlay) {
-        monteAudio.pause();
-        monteAudio.currentTime = 0;
-      }
-      if (mylaieAudio !== audioToPlay) {
-        mylaieAudio.pause();
-        mylaieAudio.currentTime = 0;
-      }
-      audioToPlay.play();
-    }
-
-    document.getElementById("playMonteBtn").addEventListener("click", () => {
-      stopOther(monteAudio);
-    });
 
     document.getElementById("playMylaieBtn").addEventListener("click", () => {
       stopOther(mylaieAudio);
