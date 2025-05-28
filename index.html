@@ -247,6 +247,9 @@ a:hover {
   <div onclick="reloadQuote()">Reload</div>
 </div>
 
+<button id="playIntro">▶ Intro Music</button>
+<button id="playMonte">▶ Hear Monte</button>
+<button id="playMylaie">▶ Hear Mylaie</button>
 
 
 <audio id="introAudio" preload="auto">
@@ -430,6 +433,45 @@ showNextMessage(); // Show first message right away
       audio.pause();
     }
   }
+</script>
+    
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const introAudio = document.getElementById("introAudio");
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
+
+    const introBtn = document.getElementById("playIntro");
+    const monteBtn = document.getElementById("playMonte");
+    const mylaieBtn = document.getElementById("playMylaie");
+
+    const audios = [
+      { audio: introAudio, button: introBtn, label: "Intro Music" },
+      { audio: monteAudio, button: monteBtn, label: "Hear Monte" },
+      { audio: mylaieAudio, button: mylaieBtn, label: "Hear Mylaie" }
+    ];
+
+    function stopAll() {
+      audios.forEach(({ audio, button, label }) => {
+        audio.pause();
+        audio.currentTime = 0;
+        button.textContent = `▶ ${label}`;
+      });
+    }
+
+    audios.forEach(({ audio, button, label }) => {
+      button.addEventListener("click", () => {
+        const isPlaying = !audio.paused;
+
+        stopAll(); // Stop anything currently playing
+
+        if (!isPlaying) {
+          audio.play();
+          button.textContent = `⏸ Pause ${label}`;
+        }
+      });
+    });
+  });
 </script>
 </body>
 </html>
