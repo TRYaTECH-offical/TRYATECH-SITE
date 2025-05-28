@@ -249,35 +249,37 @@
   }
 </script>
 <script>
+  <script>
   document.addEventListener("DOMContentLoaded", function () {
     const intro = document.getElementById("introAudio");
     const monte = document.getElementById("monteAudio");
     const mylaie = document.getElementById("mylaieAudio");
 
-    function stopAll() {
+    const stopAll = () => {
       [intro, monte, mylaie].forEach(audio => {
-        audio.pause();
-        audio.currentTime = 0;
+        if (!audio.paused) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
       });
-    }
+    };
 
     document.getElementById("playIntro").addEventListener("click", () => {
-      stopAll();
+      stopAll(); // Stop Monte & Mylaie
       intro.play();
     });
 
     document.getElementById("playMonte").addEventListener("click", () => {
-      stopAll();
+      stopAll(); // Stop Intro & Mylaie
       monte.play();
     });
 
     document.getElementById("playMylaie").addEventListener("click", () => {
-      stopAll();
+      stopAll(); // Stop Intro & Monte
       mylaie.play();
     });
   });
 </script>
-
     
 </body>
 </html>
