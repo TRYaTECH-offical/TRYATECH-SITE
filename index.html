@@ -463,7 +463,29 @@ showNextMessage(); // Show first message right away
     }
   }
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
 
+    function pauseAll() {
+      monteAudio.pause();
+      mylaieAudio.pause();
+      monteAudio.currentTime = 0;
+      mylaieAudio.currentTime = 0;
+    }
+
+    window.playMonte = function () {
+      pauseAll();
+      monteAudio.play();
+    };
+
+    window.playMylaie = function () {
+      pauseAll();
+      mylaieAudio.play();
+    };
+  });
+</script>
 </body>
 </html>
    
