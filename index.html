@@ -486,6 +486,34 @@ showNextMessage(); // Show first message right away
     };
   });
 </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
+function stopOther(audioToPlay) {
+  if (monteAudio !== audioToPlay) {
+    monteAudio.pause();
+    monteAudio.currentTime = 0;
+  }
+  if (mylaieAudio !== audioToPlay) {
+    mylaieAudio.pause();
+    mylaieAudio.currentTime = 0;
+  }
+
+  // 🔥 This was missing from inside the function!
+  audioToPlay.play();
+}
+    
+
+    window.playMonte = function () {
+      stopOther(monteAudio);
+    };
+
+    window.playMylaie = function () {
+      stopOther(mylaieAudio);
+    };
+  });
+</scrip
 </body>
 </html>
    
