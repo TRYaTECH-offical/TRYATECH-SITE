@@ -135,15 +135,15 @@
 <section class="hero">
 <h1>COMING SOON TO TRYaTECH</h1>
 <p>Innovation. Hustle. Mindset.</p>
-
-<form id="notifyForm">
-  <input type="email" name="email" placeholder="Enter your email" required
-         style="width: 250px; padding: 10px; margin:10px 0;">
-  <button type="submit"
-          style="padding:10px 20px; background:#00ccff; border:none; color:#000;">
-    Notify Me
-  </button>
+    
+<form id="notifyForm" action="https://formspree.io/f/mgykdney" method="POST">
+  <input type="email" name="email" placeholder="Enter your email" required style="width: 250px; padding:10px; margin:10px 0;" />
+  <button type="submit" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button>
+  <p id="smsuccessMsg" style="color:#00ccff; display:none; margin-top:10px;">
+    ✅ Thanks for signing up! Stay tuned.
+  </p>
 </form>
+
 
 <p id="formSuccessMsg" style="color:#00ccff; display:none; margin-top:10px;">
   ✅ Thanks for signing up! Stay tuned.
