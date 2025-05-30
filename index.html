@@ -258,6 +258,28 @@
       audio.pause();
     }
   }
-</script>
     
+  <!-- Your other HTML content -->
+
+  <!-- 🔊 Audio element (place BEFORE script) -->
+  <audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
+
+  <!-- 🧠 Script goes here -->
+  <script>
+    const hoverSound = document.getElementById('hoverSound');
+
+    // Apply to all buttons
+    document.querySelectorAll("button").forEach(button => {
+      button.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+
+      button.addEventListener("click", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+  </script>
+</body>
 </html>
