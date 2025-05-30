@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TRYaTECH Homepage</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRYaTECH Homepage</title>
+ 
+  <!-- Orbitron Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+ 
+  <!-- Styling -->https://outlook.live.com/mail/0/inbox/id/AQMkADAwATdiZmYAZC04MWEwLTJlYmQtMDACLTAwCgBGAAADGoC402FV20CnHRLJC2OfigcABw31I8Iu8UG6ysEyVccPAgAAAgEMAAAABw31I8Iu8UG6ysEyVccPAgAIRkXmqwAAAA%3D%3D
+  <style>
     body {
       background-color: #0a0a0a;
       color: #00ccff;
@@ -14,6 +17,62 @@
       margin: 0;
       padding: 20px;
     }
+ 
+    .glow {
+      box-shadow: 0 0 10px 4px #00ccff;
+      border-radius: 50%;
+      transition: box-shadow 0.3s ease;
+    }
+ 
+    .glow-button {
+      background: #00ccff;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 30px #00ccff;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+ 
+    .glow-button:hover {
+      box-shadow: 0 0 20px #00ccff, 0 0 40px #00ccff, 0 0 60px #00ccff;
+    }
+ 
+    .hero_footer {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+ 
+  <h1>TRYaTECH Homepage</h1>
+ 
+  <!-- Example Glow Button -->
+  <button class="glow-button">NOTIFY ME</button>
+</body>
+</html>
+.glow-blue {
+  box-shadow: 0 0 15px 4px #00ccff;
+  transition: box-shadow 0.3s ease;
+}
+.glow-yellow {
+  box-shadow: 0 0 15px 4px #ffcc00;
+  transition: box-shadow 0.3s ease;
+}
+.glow-button {
+  background: #00ccff;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff, 0 0 40px #00ccff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.glow-button:hover {
+  box-shadow: 0 0 20px #00ccff, 0 0 40px #00ccff, 0 0 60px #00ccff;
+}
     .hero, .footer {
       text-align: center;
       margin-bottom: 40px;
@@ -107,11 +166,20 @@
   border: 2px solid #00ccff;
   border-radius: 10px;
 }
-
-
 /* Hero Glow Animation */
 .hero h1 {
   animation: glowPulse 1.5s ease-in-out infinite;
+}
+attachments.
+
+/* Fade-in effect for launch message */
+.fade-in {
+  animation: fadeIn 2s ease-in forwards;
+}
+ 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @keyframes glowPulse {
   0%, 100% { text-shadow: 0 0 8px #00ccff; }
@@ -128,13 +196,21 @@
   text-shadow: 0 0 10px #00ccff;
   color: #ffffff;
 }
-
 </style>
 </head>
 <body>
 <section class="hero">
 <h1>COMING SOON TO TRYaTECH</h1>
 <p>Innovation. Hustle. Mindset.</p>
+    <form id="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <input type="email" name="email" required placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;" />
+  <br>
+  <button type="submit" class="hover-sound" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button>
+</form>
+<div id="thank-you" style="display:none; color:#00ccff; margin-top:10px;">Thanks for signing up! Stay tuned. 🔔</div>
+
+    
+    
 <input placeholder="Enter your email" style="padding:10px; margin:10px 0; width:250px;" type="email"/><br/>
 <button onclick="alert('Thanks for signing up! Stay tuned.')" style="padding:10px 20px; background:#00ccff; border:none; color:#000;">Notify Me</button><br/>
 <a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br/>
