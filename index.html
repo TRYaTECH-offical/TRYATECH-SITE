@@ -234,11 +234,12 @@
   <source src="monte.mp3" type="audio/mpeg" />
   Your browser does not support the audio element.
 </audio>
+    
 <audio id="mylaieAudio" preload="auto">
   <source src="mylaie.mp3" type="audio/mpeg"/>
   Your browser does not support the audio element.
 </audio>
-
+<button onclick="document.getElementById('monteAudio').play()">Test Monte</button>
 
 <script>
   document.getElementById("playMonteBtn").addEventListener("click", () => {
