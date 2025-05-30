@@ -243,24 +243,21 @@
 
 <script>
   document.getElementById("playMonteBtn").addEventListener("click", () => {
-    document.getElementById("monteAudio").play();
-  });
-
+    document.getElementById("monteAudio").play().catch(e => console.log("Monte Error:", e));
   document.getElementById("playMylaieBtn").addEventListener("click", () => {
     document.getElementById("mylaieAudio").play();
   });
-
-  function toggleAudio() {
-    var audio = document.getElementById("introAudio");
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  }
-    
+document.getElementById("monteAudio").play().catch(e => console.log("Monte Error:", e));
+  
   <!-- Your other HTML content -->
-
+function toggleAudio() {
+  var audio = document.getElementById("introAudio");
+  if (audio.paused) {
+    audio.play().catch(e => console.log("Intro Error:", e));
+  } else {
+    audio.pause();
+  }
+}
   <!-- 🔊 Audio element (place BEFORE script) -->
   <audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
 
