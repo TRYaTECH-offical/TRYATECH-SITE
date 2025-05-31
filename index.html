@@ -136,10 +136,8 @@
 <h1>COMING SOON TO TRYaTECH</h1>
 <p>Innovation. Hustle. Mindset.</p>
     
-<form action="https://formspree.io/f/manjwldp" method="POST">
-    <input type="hidden" name="_replyto">
-<input type="hidden" name="_subject" value="New Notify Me Signup!">
-<input type="hidden" name="_format" value="json">
+<form id="notifyForm" action="https://formspree.io/f/manjwldp" method="POST">
+  <input type="hidden" name="_format" value="json" />
 
   <input
     type="email"
@@ -155,7 +153,8 @@
     Notify Me
   </button>
 </form>
-    <p id="smSuccessMsg" style="color:#00ccff; display:none; margin-top:10px;">
+
+<p id="smSuccessMsg" style="color:#00ccff; display:none; margin-top:10px;">
   ✅ Thanks for signing up! Stay tuned.
 </p>
 <a href="tiktok_strategy_guide.pdf" style="display:inline-block; margin-top:10px; padding:8px 20px; background:#333; color:#00ccff; border:1px solid #00ccff; text-decoration:none;">Download TikTok Strategy Guide</a><br/>
@@ -273,31 +272,30 @@ function toggleAudio() {
 
   <!-- 🧠 Script goes here -->
   <script>
-    
   document.addEventListener("DOMContentLoaded", function () {
-      const hoverSound = document.getElementById('hoverSound');
-    const form = document.querySelector('form');
-    const msg = document.getElementById('smSuccessMsg');
+    const form = document.getElementById("notifyForm");
+    const msg = document.getElementById("smSuccessMsg");
 
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      const data = new FormData(form);
 
+      const data = new FormData(form);
       const res = await fetch(form.action, {
-        method: 'POST',
+        method: "POST",
         body: data,
-        headers: { 'Accept': 'application/json' }
+        headers: { "Accept": "application/json" }
       });
 
       if (res.ok) {
-        msg.style.display = 'block';
+        msg.style.display = "block";
         form.reset();
       } else {
         alert("There was a problem. Please try again.");
       }
     });
   });
-</script
+</script>
+
 
 </body>
 </html>
