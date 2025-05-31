@@ -136,7 +136,7 @@
 <h1>COMING SOON TO TRYaTECH</h1>
 <p>Innovation. Hustle. Mindset.</p>
     
-<form id="notifyForm" action="https://formspree.io/f/manjwldp" method="POST">
+<form id="notifyForm" method="POST">
   <input type="hidden" name="_format" value="json" />
 
   <input
@@ -281,7 +281,7 @@ function toggleAudio() {
       e.preventDefault();
 
       const data = new FormData(form);
-      const res = await fetch(form.action, {
+      const res = await fetch("https://formspree.io/f/manjwldp", {
         method: "POST",
         body: data,
         headers: { "Accept": "application/json" }
