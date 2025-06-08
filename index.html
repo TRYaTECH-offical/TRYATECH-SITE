@@ -110,7 +110,7 @@
 
 
 /* Hero Glow Animation */
-.hero h1 {
+.hero h1 {https://kdp.amazon.com/en_US/title-setup/paperback/6D4QZPT5PYB/content
   animation: glowPulse 1.5s ease-in-out infinite;
 }
 @keyframes glowPulse {
@@ -126,7 +126,7 @@
 /* Link Hover Glow */
 .footer a:hover {
   text-shadow: 0 0 10px #00ccff;
-  color: #ffffff;
+  color: #ffffff;https://kdp.amazon.com/en_US/title-setup/paperback/6D4QZPT5PYB/content
 }
 
 </style>
@@ -244,24 +244,23 @@
   <source src="mylaie.mp3" type="audio/mpeg"/>
   Your browser does not support the audio element.
 </audio>
-
+ <button onclick="toggleMonteAudio()">🔊 Hear Monte</button>
 <script>
   document.getElementById("playMonteBtn").addEventListener("click", () => {
     document.getElementById("monteAudio").play().catch(e => console.log("Monte Error:", e));
   document.getElementById("playMylaieBtn").addEventListener("click", () => {
-    document.getElementById("mylaieAudio").play();
-  });
-document.getElementById("monteAudio").play().catch(e => console.log("Monte Error:", e));
-  
-  <!-- Your other HTML content -->
-function toggleAudio() {
-  var audio = document.getElementById("introAudio");
-  if (audio.paused) {
-    audio.play().catch(e => console.log("Intro Error:", e));
-  } else {
-    audio.pause();
+    document.getElementById("mylaieAudio").
+        
+        </script>
+  function toggleMonteAudio() {
+    const audio = document.getElementById("monteAudio");
+    if (audio.paused) {
+      audio.play().catch(e => console.log("Monte Error:", e));
+    } else {
+      audio.pause();
+    }
   }
-}
+</script>
   <!-- 🔊 Audio element (place BEFORE script) -->
   <audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
 
