@@ -244,14 +244,27 @@
   <source src="mylaie.mp3" type="audio/mpeg"/>
   Your browser does not support the audio element.
 </audio>
- <button onclick="toggleMonteAudio()">🔊 Hear Monte</button>
-<script>
-  document.getElementById("playMonteBtn").addEventListener("click", () => {
-    document.getElementById("monteAudio").play().catch(e => console.log("Monte Error:", e));
-  document.getElementById("playMylaieBtn").addEventListener("click", () => {
-    document.getElementById("mylaieAudio").
-        
-        </script>
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const monteBtn = document.getElementById("playMonteBtn");
+    const monteAudio = document.getElementById("monteAudio");
+
+    monteBtn.addEventListener("click", () => {
+      if (monteAudio.paused) {
+        monteAudio.play().catch(e => console.log("Monte Error:", e));
+      } else {
+        monteAudio.pause();
+      }
+    });
+
+    const mylaieBtn = document.getElementById("playMylaieBtn");
+    const mylaieAudio = document.getElementById("mylaieAudio");
+
+    mylaieBtn.addEventListener("click", () => {
+      mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
+    });
+  });
+</script>
   function toggleMonteAudio() {
     const audio = document.getElementById("monteAudio");
     if (audio.paused) {
