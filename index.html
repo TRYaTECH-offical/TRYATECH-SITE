@@ -246,6 +246,7 @@
     const monteBtn = document.getElementById("playMonteBtn");
     const monteAudio = document.getElementById("monteAudio");
 const introaudio = document.getElementById("IntroAudio");
+      introAudio.play().catch(e=> console.log("Intro Error:",e));
     monteBtn.addEventListener("click", () => {
       if (monteAudio.paused) {
         monteAudio.play().catch(e => console.log("Monte Error:", e));
