@@ -292,27 +292,26 @@
   </a>
 </section>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const monteBtn = document.getElementById("playMonteBtn");
-    const mylaieBtn = document.getElementById("playMylaieBtn");
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const monteBtn = document.getElementById("playMonteBtn");
+  const mylaieBtn = document.getElementById("playMylaieBtn");
 
-    const introAudio = document.getElementById("introAudio");
-    const monteAudio = document.getElementById("monteAudio");
-    const mylaieAudio = document.getElementById("mylaieAudio");
+  const introAudio = document.getElementById("introAudio");
+  const monteAudio = document.getElementById("monteAudio");
+  const mylaieAudio = document.getElementById("mylaieAudio");
 
-    // ✅ Pause all audio except the one clicked
-    function stopAllExcept(activeAudio) {
-      [introAudio, monteAudio, mylaieAudio].forEach(audio => {
-        if (audio !== activeAudio) {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-      });
-    }
+  // ✅ Stop all audio except the one clicked
+  function stopAllExcept(activeAudio) {
+    [introAudio, monteAudio, mylaieAudio].forEach(audio => {
+      if (audio !== activeAudio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+  }
 
-  // ✅ Allowed tags where intro can be toggled (safe areas)
-function isClickSafeForIntro(e) {
-      // ✅ Define what clicks should NOT trigger the intro
+  // ✅ Define tags/IDs that should NOT trigger intro
   function isBlockedClick(e) {
     const blockedTags = ["button", "a", "input", "img", "label", "select", "textarea"];
     const blockedIds = ["playMonteBtn", "playMylaieBtn", "boysSlider", "girlsSlider"];
@@ -323,7 +322,7 @@ function isClickSafeForIntro(e) {
     return blockedTags.includes(tag) || blockedIds.includes(id);
   }
 
-  // ✅ Play or pause the intro ONLY if click is safe
+  // ✅ Handle safe background intro play/pause
   function handleIntroToggle(e) {
     if (isBlockedClick(e)) return;
 
@@ -335,7 +334,7 @@ function isClickSafeForIntro(e) {
     }
   }
 
-  // ✅ First safe click starts intro, after that it toggles on safe clicks
+  // ✅ Intro plays on first safe background click only
   window.addEventListener("click", function playIntroOnce(e) {
     if (!isBlockedClick(e)) {
       handleIntroToggle(e);
@@ -344,7 +343,7 @@ function isClickSafeForIntro(e) {
     }
   });
 
-  // 🎧 MONTE - play or pause with button
+  // ✅ Monte play/pause
   monteBtn.addEventListener("click", () => {
     if (monteAudio.paused) {
       stopAllExcept(monteAudio);
@@ -354,7 +353,7 @@ function isClickSafeForIntro(e) {
     }
   });
 
-  // 🎧 MYLAIE - play or pause with button
+  // ✅ Mylaie play/pause
   mylaieBtn.addEventListener("click", () => {
     if (mylaieAudio.paused) {
       stopAllExcept(mylaieAudio);
@@ -364,7 +363,7 @@ function isClickSafeForIntro(e) {
     }
   });
 });
-      </script>
+</script>
 
   
 </body>
