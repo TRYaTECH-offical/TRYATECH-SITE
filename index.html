@@ -310,16 +310,24 @@
       });
     }
 
-    // 🔊 INTRO — plays on first tap only
-    window.addEventListener("click", function playIntroOnce() {
-      if (introAudio.paused) {
-        stopAllExcept(introAudio);
-        introAudio.play().catch(e => console.log("Intro Error:", e));
-      } else {
-        introAudio.pause();
-      }
-      window.removeEventListener("click", playIntroOnce);
-    });
+   // 🔊 INTRO — plays on first interaction, toggle enabled
+function handleIntroToggle() {
+  if (introAudio.paused) {
+    stopAllExcept(introAudio);
+    introAudio.play().catch(e => console.log("Intro Error:", e));
+  } else {
+    introAudio.pause();
+  }
+}
+
+// Set up first click to enable intro
+window.addEventListener("click", function introFirstClick() {
+  handleIntroToggle();
+  // After first interaction, keep the same toggle handler
+  window.removeEventListener("click", introFirstClick);
+  window.addEventListener("click", handleIntroToggle);
+});
+ 
 
     // 🔊 MONTE — toggle play/pause
     monteBtn.addEventListener("click", () => {
