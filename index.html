@@ -347,6 +347,51 @@
     }
   });
 </script>
+    <script>
+  const introAudio = document.getElementById("introAudio");
+  const monteAudio = document.getElementById("monteAudio");
+  const mylaieAudio = document.getElementById("mylaieAudio");
+
+  const introBtn = document.getElementById("playIntroBtn");
+  const monteBtn = document.getElementById("playMonteBtn");
+  const mylaieBtn = document.getElementById("playMylaieBtn");
+
+  function stopAllExcept(activeAudio) {
+    [introAudio, monteAudio, mylaieAudio].forEach(audio => {
+      if (audio !== activeAudio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+  }
+
+  introBtn.addEventListener("click", () => {
+    if (introAudio.paused) {
+      stopAllExcept(introAudio);
+      introAudio.play().catch(e => console.log("Intro Error:", e));
+    } else {
+      introAudio.pause();
+    }
+  });
+
+  monteBtn.addEventListener("click", () => {
+    if (monteAudio.paused) {
+      stopAllExcept(monteAudio);
+      monteAudio.play().catch(e => console.log("Monte Error:", e));
+    } else {
+      monteAudio.pause();
+    }
+  });
+
+  mylaieBtn.addEventListener("click", () => {
+    if (mylaieAudio.paused) {
+      stopAllExcept(mylaieAudio);
+      mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
+    } else {
+      mylaieAudio.pause();
+    }
+  });
+</script>
 </body>
 
 </html>
