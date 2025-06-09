@@ -355,7 +355,77 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const monteBtn = document.getElementById("playMonteBtn");
+  const mylaieBtn = document.getElementById("playMylaieBtn");
+  const introAudio = document.getElementById("introAudio");
+  const monteAudio = document.getElementById("monteAudio");
+  const mylaieAudio = document.getElementById("mylaieAudio");
 
+  // Stop all audio except the one clicked
+  function stopAllExcept(activeAudio) {
+    [introAudio, monteAudio, mylaieAudio].forEach(audio => {
+      if (audio !== activeAudio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+  }
+
+  // Tags and IDs that should NOT trigger intro
+  function isBlockedClick(e) {
+    const blockedTags = ["button", "a", "input", "img", "label", "select", "textarea"];
+    const blockedIds = ["playMonteBtn", "playMylaieBtn", "boysSlider", "girlsSlider"];
+    const tag = e.target.tagName.toLowerCase();
+    const id = e.target.id;
+    return blockedTags.includes(tag) || blockedIds.includes(id);
+  }
+
+  // Handle safe click for intro toggle
+  function handleIntroToggle(e) {
+    if (isBlockedClick(e)) return;
+
+    if (introAudio.paused) {
+      stopAllExcept(introAudio);
+      introAudio.play().catch(err => console.log("Intro Error:", err));
+    } else {
+      introAudio.pause();
+    }
+  }
+
+  // Only play intro on first safe background click
+  function playIntroOnce(e) {
+    if (!isBlockedClick(e)) {
+      handleIntroToggle(e);
+      window.removeEventListener("click", playIntroOnce);
+      window.addEventListener("click", handleIntroToggle);
+    }
+  }
+
+  window.addEventListener("click", playIntroOnce);
+
+  // Monte button
+  monteBtn.addEventListener("click", () => {
+    if (monteAudio.paused) {
+      stopAllExcept(monteAudio);
+      monteAudio.play().catch(e => console.log("Monte Error:", e));
+    } else {
+      monteAudio.pause();
+    }
+  });
+
+  // Mylaie button
+  mylaieBtn.addEventListener("click", () => {
+    if (mylaieAudio.paused) {
+      stopAllExcept(mylaieAudio);
+      mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
+    } else {
+      mylaieAudio.pause();
+    }
+  });
+});
+</script>
   
 </body>
 </html>
