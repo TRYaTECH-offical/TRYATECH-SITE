@@ -366,55 +366,6 @@ function isClickSafeForIntro(e) {
 });
       </script>
 
-  const tag = e.target.tagName.toLowerCase();
-  const blockedTags = ["button", "a", "input", "img", "label", "select", "textarea"];
-
-  const blockedIds = ["playMonteBtn", "playMylaieBtn", "boysSlider", "girlsSlider"];
-  const clickedId = e.target.id;
-
-  return !blockedTags.includes(tag) && !blockedIds.includes(clickedId);
-}
-
-// 🔊 Handle intro toggle on allowed clicks only
-function handleIntroToggle(e) {
-  if (!isClickSafeForIntro(e)) return;
-
-  if (introAudio.paused) {
-    stopAllExcept(introAudio);
-    introAudio.play().catch(err => console.log("Intro Error:", err));
-  } else {
-    introAudio.pause();
-  }
-}
-
-// ⏯️ Set up initial + future intro control
-window.addEventListener("click", function playIntroOnce(e) {
-  handleIntroToggle(e);
-  window.removeEventListener("click", playIntroOnce);
-  window.addEventListener("click", handleIntroToggle);
-});
-
-    // 🔊 MONTE — toggle play/pause
-    monteBtn.addEventListener("click", () => {
-      if (monteAudio.paused) {
-        stopAllExcept(monteAudio);
-        monteAudio.play().catch(e => console.log("Monte Error:", e));
-      } else {
-        monteAudio.pause();
-      }
-    });
-
-    // 🔊 MYLAIE — toggle play/pause
-    mylaieBtn.addEventListener("click", () => {
-      if (mylaieAudio.paused) {
-        stopAllExcept(mylaieAudio);
-        mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
-      } else {
-        mylaieAudio.pause();
-      }
-    });
-  });
-</script>
-
+  
 </body>
 </html>
