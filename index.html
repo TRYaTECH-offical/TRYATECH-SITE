@@ -394,16 +394,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Only play intro on first safe background click
-  function playIntroOnce(e) {
-    if (!isBlockedClick(e)) {
-      handleIntroToggle(e);
-      window.removeEventListener("click", playIntroOnce);
-      window.addEventListener("click", handleIntroToggle);
-    }
+  // ✅ Only play intro on first safe background click
+function playIntroOnce(e) {
+  if (!isBlockedClick(e)) {
+    handleIntroToggle(e); // play or pause intro
+    window.removeEventListener("click", playIntroOnce); // remove this setup
+    window.addEventListener("click", handleIntroToggle); // now allow toggling
   }
+}
 
-  window.addEventListener("click", playIntroOnce);
+window.addEventListener("click", playIntroOnce); // ✅ Set up the first intro play
+
 
   // Monte button
   monteBtn.addEventListener("click", () => {
