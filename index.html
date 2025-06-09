@@ -284,22 +284,7 @@
     Access Creator Kits
   </a>
 </section>
-<script>
-  const introAudio = document.getElementById("introAudio");
-  const monteAudio = document.getElementById("monteAudio");
-  const mylaieAudio = document.getElementById("mylaieAudio");
 
-  const monteBtn = document.getElementById("playMonteBtn");
-  const mylaieBtn = document.getElementById("playMylaieBtn");
-
-  function stopAllExcept(active) {
-    [introAudio, monteAudio, mylaieAudio].forEach(audio => {
-      if (audio !== active) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-    });
-  }
 
   function isBlockedClick(e) {
     const blockedTags = ["button", "a", "input", "img", "label", "select", "textarea"];
@@ -308,7 +293,6 @@
     const id = e.target.id;
     return blockedTags.includes(tag) || blockedIds.includes(id);
   }
-
   
     <script>
   const introAudio = document.getElementById("introAudio");
