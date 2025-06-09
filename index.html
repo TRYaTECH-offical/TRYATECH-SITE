@@ -285,15 +285,7 @@
   </a>
 </section>
 
-</script>
-  function isBlockedClick(e) {
-    const blockedTags = ["button", "a", "input", "img", "label", "select", "textarea"];
-    const blockedIds = ["playMonteBtn", "playMylaieBtn", "boysSlider", "girlsSlider"];
-    const tag = e.target.tagName.toLowerCase();
-    const id = e.target.id;
-    return blockedTags.includes(tag) || blockedIds.includes(id);
-  }
-  
+<script>
   const introAudio = document.getElementById("introAudio");
   const monteAudio = document.getElementById("monteAudio");
   const mylaieAudio = document.getElementById("mylaieAudio");
@@ -338,6 +330,7 @@
     }
   });
 </script>
+</bod
 </body>
 
 </html>
