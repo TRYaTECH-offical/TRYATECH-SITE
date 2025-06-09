@@ -241,51 +241,7 @@
     <audio id="mylaieAudio" preload="auto">
   <source src="https://shoptryatech.com/mylaie.mp3" type="audio/mpeg" />
 </audio>
- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const monteBtn = document.getElementById("playMonteBtn");
-    const mylaieBtn = document.getElementById("playMylaieBtn");
-
-    const introAudio = document.getElementById("introAudio");
-    const monteAudio = document.getElementById("monteAudio");
-    const mylaieAudio = document.getElementById("mylaieAudio");
-
-    // ✅ Stop all audio before playing any one
-    function stopAllAudio() {
-      introAudio.pause();
-      introAudio.currentTime = 0;
-
-      monteAudio.pause();
-      monteAudio.currentTime = 0;
-
-      mylaieAudio.pause();
-      mylaieAudio.currentTime = 0;
-    }
-
-    // 🔊 Play intro on first user interaction
-    window.addEventListener("click", function playIntroOnce() {
-      stopAllAudio();
-      introAudio.play().catch(e => console.log("Intro Error:", e));
-      window.removeEventListener("click", playIntroOnce);
-    });
-
-    // 🔊 Monte
-    monteBtn.addEventListener("click", () => {
-      if (monteAudio.paused) {
-        stopAllAudio();
-        monteAudio.play().catch(e => console.log("Monte Error:", e));
-      } else {
-        monteAudio.pause();
-      }
-    });
-
-    // 🔊 Mylaie
-    mylaieBtn.addEventListener("click", () => {
-      stopAllAudio();
-      mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
-    });
-  });
-</script>
+ 
   function toggleMonteAudio() {
     const audio = document.getElementById("monteAudio");
     if (audio.paused) {
@@ -335,7 +291,57 @@
     Access Creator Kits
   </a>
 </section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const monteBtn = document.getElementById("playMonteBtn");
+    const mylaieBtn = document.getElementById("playMylaieBtn");
 
+    const introAudio = document.getElementById("introAudio");
+    const monteAudio = document.getElementById("monteAudio");
+    const mylaieAudio = document.getElementById("mylaieAudio");
+
+    // ✅ Pause all audio except the one clicked
+    function stopAllExcept(activeAudio) {
+      [introAudio, monteAudio, mylaieAudio].forEach(audio => {
+        if (audio !== activeAudio) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+    }
+
+    // 🔊 INTRO — plays on first tap only
+    window.addEventListener("click", function playIntroOnce() {
+      if (introAudio.paused) {
+        stopAllExcept(introAudio);
+        introAudio.play().catch(e => console.log("Intro Error:", e));
+      } else {
+        introAudio.pause();
+      }
+      window.removeEventListener("click", playIntroOnce);
+    });
+
+    // 🔊 MONTE — toggle play/pause
+    monteBtn.addEventListener("click", () => {
+      if (monteAudio.paused) {
+        stopAllExcept(monteAudio);
+        monteAudio.play().catch(e => console.log("Monte Error:", e));
+      } else {
+        monteAudio.pause();
+      }
+    });
+
+    // 🔊 MYLAIE — toggle play/pause
+    mylaieBtn.addEventListener("click", () => {
+      if (mylaieAudio.paused) {
+        stopAllExcept(mylaieAudio);
+        mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
+      } else {
+        mylaieAudio.pause();
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
