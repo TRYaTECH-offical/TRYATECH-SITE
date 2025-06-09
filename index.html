@@ -319,15 +319,15 @@
     }
   }
 
-  function playIntroOnce(e) {
-    if (!isBlockedClick(e)) {
-      handleIntroToggle(e);
-      window.removeEventListener("click", playIntroOnce);
-      window.addEventListener("click", handleIntroToggle);
-    }
+  introBtn.addEventListener("click", () => {
+  if (introAudio.paused) {
+    stopAllExcept(introAudio);
+    introAudio.play().catch(err => console.log("Intro Error:", err));
+  } else {
+    introAudio.pause();
   }
-
-  window.addEventListener("click", playIntroOnce);
+});
+  
 
   monteBtn.addEventListener("click", () => {
     if (monteAudio.paused) {
