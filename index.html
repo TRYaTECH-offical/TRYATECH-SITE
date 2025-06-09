@@ -303,7 +303,7 @@
     });
   }
 
-  introBtn.addEventListener("click", () => {
+  introBtn?.addEventListener("click", () => {
     if (introAudio.paused) {
       stopAllExcept(introAudio);
       introAudio.play().catch(e => console.log("Intro Error:", e));
