@@ -309,44 +309,7 @@
     return blockedTags.includes(tag) || blockedIds.includes(id);
   }
 
-  function handleIntroToggle(e) {
-    if (isBlockedClick(e)) return;
-    if (introAudio.paused) {
-      stopAllExcept(introAudio);
-      introAudio.play().catch(err => console.log("Intro Error:", err));
-    } else {
-      introAudio.pause();
-    }
-  }
-
-  introBtn.addEventListener("click", () => {
-  if (introAudio.paused) {
-    stopAllExcept(introAudio);
-    introAudio.play().catch(err => console.log("Intro Error:", err));
-  } else {
-    introAudio.pause();
-  }
-});
   
-
-  monteBtn.addEventListener("click", () => {
-    if (monteAudio.paused) {
-      stopAllExcept(monteAudio);
-      monteAudio.play().catch(e => console.log("Monte Error:", e));
-    } else {
-      monteAudio.pause();
-    }
-  });
-
-  mylaieBtn.addEventListener("click", () => {
-    if (mylaieAudio.paused) {
-      stopAllExcept(mylaieAudio);
-      mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
-    } else {
-      mylaieAudio.pause();
-    }
-  });
-</script>
     <script>
   const introAudio = document.getElementById("introAudio");
   const monteAudio = document.getElementById("monteAudio");
