@@ -242,15 +242,6 @@
   <source src="https://shoptryatech.com/mylaie.mp3" type="audio/mpeg" />
 </audio>
  
-  function toggleMonteAudio() {
-    const audio = document.getElementById("monteAudio");
-    if (audio.paused) {
-      audio.play().catch(e => console.log("Monte Error:", e));
-    } else {
-      audio.pause();
-    }
-  }
-</script>
   <!-- 🔊 Audio element (place BEFORE script) -->
   <audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
 
