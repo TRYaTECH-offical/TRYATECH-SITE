@@ -314,49 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return blockedIds.includes(id) || blockedTags.includes(tag);
   }
 
-  // Safe toggle of intro on background clicks
-  function handleIntroToggle() {
-    if (introAudio.paused) {
-      stopAllExcept(introAudio);
-      introAudio.play().catch(err => console.log("Intro Error:", err));
-    } else {
-      introAudio.pause();
-    }
-  }
 
-  // Play intro on first valid click only
-  function playIntroOnce(e) {
-    if (!isBlockedClick(e)) {
-      handleIntroToggle();
-      window.removeEventListener("click", playIntroOnce);
-      window.addEventListener("click", e => {
-        if (!isBlockedClick(e)) handleIntroToggle();
-      });
-    }
-  }
-
-  window.addEventListener("click", playIntroOnce);
-
-  // Monte toggle
-  monteBtn.addEventListener("click", () => {
-    if (monteAudio.paused) {
-      stopAllExcept(monteAudio);
-      monteAudio.play().catch(e => console.log("Monte Error:", e));
-    } else {
-      monteAudio.pause();
-    }
-  });
-
-  // Mylaie toggle
-  mylaieBtn.addEventListener("click", () => {
-    if (mylaieAudio.paused) {
-      stopAllExcept(mylaieAudio);
-      mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
-    } else {
-      mylaieAudio.pause();
-    }
-  });
-});
 
   // Stop all audio except the one clicked
   function stopAllExcept(activeAudio) {
