@@ -310,11 +310,16 @@
       });
     }
 
-   // 🔊 INTRO — plays on first click to background, then toggles on background only
+   // 🔊 INTRO — toggle only if click is on clean page area (not slider/buttons/etc)
 function handleIntroToggle(e) {
-  // Don't run if clicking a control button (like Monte or Mylaie)
-  const isAudioButton = e.target.id === "playMonteBtn" || e.target.id === "playMylaieBtn";
-  if (isAudioButton) return;
+  const tag = e.target.tagName.toLowerCase();
+  const blockTags = ["button", "a", "input", "img", "label", "select", "textarea"];
+
+  // ✅ ALSO block elements from kids sliders (you can customize these IDs/classes)
+  const blockedById = ["boysSlider", "girlsSlider"];
+  const clickedId = e.target.id;
+
+  if (blockTags.includes(tag) || blockedById.includes(clickedId)) return;
 
   if (introAudio.paused) {
     stopAllExcept(introAudio);
@@ -324,7 +329,7 @@ function handleIntroToggle(e) {
   }
 }
 
-// First user click triggers intro and sets up future toggle
+// 🔁 Set up one-time and future toggling
 window.addEventListener("click", function playIntroOnce(e) {
   handleIntroToggle(e);
   window.removeEventListener("click", playIntroOnce);
