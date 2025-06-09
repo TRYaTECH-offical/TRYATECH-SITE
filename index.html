@@ -293,7 +293,7 @@
   const introBtn = document.getElementById("playIntroBtn");
   const monteBtn = document.getElementById("playMonteBtn");
   const mylaieBtn = document.getElementById("playMylaieBtn");
-
+const introAudio = document.getElementById("introAudio");
   function stopAllExcept(activeAudio) {
     [introAudio, monteAudio, mylaieAudio].forEach(audio => {
       if (audio !== activeAudio) {
