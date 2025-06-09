@@ -312,6 +312,60 @@
 
   // ✅ Allowed tags where intro can be toggled (safe areas)
 function isClickSafeForIntro(e) {
+      // ✅ Define what clicks should NOT trigger the intro
+  function isBlockedClick(e) {
+    const blockedTags = ["button", "a", "input", "img", "label", "select", "textarea"];
+    const blockedIds = ["playMonteBtn", "playMylaieBtn", "boysSlider", "girlsSlider"];
+
+    const tag = e.target.tagName.toLowerCase();
+    const id = e.target.id;
+
+    return blockedTags.includes(tag) || blockedIds.includes(id);
+  }
+
+  // ✅ Play or pause the intro ONLY if click is safe
+  function handleIntroToggle(e) {
+    if (isBlockedClick(e)) return;
+
+    if (introAudio.paused) {
+      stopAllExcept(introAudio);
+      introAudio.play().catch(err => console.log("Intro Error:", err));
+    } else {
+      introAudio.pause();
+    }
+  }
+
+  // ✅ First safe click starts intro, after that it toggles on safe clicks
+  window.addEventListener("click", function playIntroOnce(e) {
+    if (!isBlockedClick(e)) {
+      handleIntroToggle(e);
+      window.removeEventListener("click", playIntroOnce);
+      window.addEventListener("click", handleIntroToggle);
+    }
+  });
+
+  // 🎧 MONTE - play or pause with button
+  monteBtn.addEventListener("click", () => {
+    if (monteAudio.paused) {
+      stopAllExcept(monteAudio);
+      monteAudio.play().catch(e => console.log("Monte Error:", e));
+    } else {
+      monteAudio.pause();
+    }
+  });
+
+  // 🎧 MYLAIE - play or pause with button
+  mylaieBtn.addEventListener("click", () => {
+    if (mylaieAudio.paused) {
+      stopAllExcept(mylaieAudio);
+      mylaieAudio.play().catch(e => console.log("Mylaie Error:", e));
+    } else {
+      mylaieAudio.pause();
+    }
+  });
+});
+      </script>
+
   const tag = e.target.tagName.toLowerCase();
   const blockedTags = ["button", "a", "input", "img", "label", "select", "textarea"];
 
