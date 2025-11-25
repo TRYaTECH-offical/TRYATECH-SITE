@@ -728,5 +728,107 @@
             <button class="btn-primary" type="submit">Send inspection request</button>
             <span>Or email directly: <a href="mailto:xc
 
+/* =========================================
+   TRYaTECH INSPECTION SERVICES — LAYOUT POLISH
+   Paste this at the BOTTOM of your <style> tag
+========================================= */
 
-Get Outlook for iOS
+/* 1) Global text comfort: better line-height + max width */
+main p {
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* 2) Keep all main content in a nice centered column */
+.ins-hero-layout,
+.who-we-work-with,
+.ins-section,
+.ins-snapshot {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(24px, 4vw, 40px);
+  padding-right: clamp(24px, 4vw, 40px);
+}
+
+/* 3) Align hero text + lower “Extra set of eyes…” text
+      so they share the same left edge */
+.ins-hero-copy,
+.who-we-work-with {
+  margin-left: 0;                  /* rely on the padding above */
+  max-width: 720px;
+}
+
+/* 4) Vertical breathing between sections */
+.ins-hero-layout {
+  padding-top: clamp(32px, 6vh, 56px);
+  padding-bottom: clamp(28px, 5vh, 48px);
+  row-gap: 32px;
+}
+
+.ins-snapshot {
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.who-we-work-with {
+  padding-top: clamp(32px, 7vh, 56px);
+  padding-bottom: clamp(40px, 8vh, 72px);
+}
+
+/* 5) Button + glow polish (keeps things consistent) */
+.ins-cta-row a,
+.ins-cta-row button {
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.45);
+}
+
+.ins-cta-row a:hover,
+.ins-cta-row button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(0, 245, 255, 0.75);
+}
+
+/* 6) Snapshot card spacing + glow refinement */
+.ins-snapshot-title {
+  margin-bottom: 8px;
+  text-shadow:
+    0 0 6px #00b7ff,
+    0 0 14px #0070d6;
+}
+
+.ins-snapshot-label {
+  margin-bottom: 12px;
+}
+
+.ins-snapshot-grid {
+  row-gap: 12px;
+}
+
+.ins-pill {
+  box-shadow:
+    0 0 14px rgba(0, 245, 255, 0.35),
+    0 10px 28px rgba(0, 0, 0, 0.7);
+}
+
+/* 7) Responsive tweaks for tablets/phones */
+@media (max-width: 880px) {
+  .ins-hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
+  }
+
+  .ins-hero-copy {
+    order: 1;
+  }
+
+  .ins-snapshot {
+    order: 2;
+  }
+
+  main p {
+    max-width: 100%;
+  }
+}
+
+
