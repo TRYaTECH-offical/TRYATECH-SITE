@@ -12,6 +12,237 @@
 
   <style>
     :root {
+      /* ---------- TRYaTECH Inspection hero + snapshot ---------- */
+
+:root {
+  --ins-bg-card: rgba(6, 19, 44, 0.98);
+  --ins-bg-card-soft: rgba(10, 29, 64, 0.96);
+  --ins-border-glow: rgba(0, 245, 255, 0.45);
+  --ins-cyan: #00f5ff;
+  --ins-cyan-soft: rgba(0, 245, 255, 0.18);
+  --ins-pink: #ff4ffb;
+  --ins-text-main: #f6f7ff;
+  --ins-text-muted: #9aa3c2;
+  --ins-radius-lg: 24px;
+  --ins-shadow-strong: 0 0 40px rgba(0, 245, 255, 0.35);
+  --ins-shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+/* Keep the main page tight and centered */
+.ins-page-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+}
+
+/* HERO WRAPPER */
+.ins-hero {
+  margin-top: 24px;
+}
+
+.ins-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* LEFT SIDE: MAIN COPY */
+.ins-hero-copy {
+  background: radial-gradient(circle at top left, rgba(0,245,255,0.20), transparent 55%)
+              , var(--ins-bg-card);
+  border-radius: var(--ins-radius-lg);
+  padding: 32px 28px 28px;
+  box-shadow: var(--ins-shadow-soft);
+  border: 1px solid rgba(255,255,255,0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.ins-hero-copy::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 20% 0, rgba(0,245,255,0.28), transparent 60%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.ins-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* EYEBROW & TITLE */
+.ins-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ins-text-muted);
+  margin-bottom: 10px;
+}
+
+.ins-title {
+  font-size: 32px;
+  line-height: 1.18;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  color: var(--ins-text-main);
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.ins-title span {
+  display: block;
+  font-size: 30px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--ins-cyan);
+  text-shadow:
+    0 0 12px rgba(0, 245, 255, 0.85),
+    0 0 30px rgba(0, 245, 255, 0.55),
+    0 0 60px rgba(0, 110, 255, 0.7);
+}
+
+/* SUBTEXT + BULLETS */
+.ins-subtitle {
+  font-size: 14px;
+  color: var(--ins-text-muted);
+  max-width: 520px;
+  margin-bottom: 14px;
+}
+
+.ins-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: var(--ins-text-main);
+}
+
+.ins-bullets li {
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.ins-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--ins-cyan);
+}
+
+/* CTA BUTTONS */
+.ins-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+
+/* Glowing main CTA */
+.btn-primary {
+  background: linear-gradient(130deg, #00f5ff, #4d7bff, #ff4ffb);
+  color: #030712;
+  box-shadow:
+    0 0 18px rgba(0, 245, 255, 0.8),
+    0 0 38px rgba(0, 96, 255, 0.75);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--ins-shadow-strong);
+}
+
+/* Ghost secondary CTA */
+.btn-ghost {
+  background: radial-gradient(circle at top, rgba(0,245,255,0.08), transparent 60%);
+  color: var(--ins-text-main);
+  border-color: var(--ins-border-glow);
+  box-shadow: 0 0 16px var(--ins-cyan-soft);
+}
+
+.btn-ghost:hover {
+  background: rgba(6,19,44,0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 0 26px rgba(0,245,255,0.45);
+}
+
+/* ============================
+   SECTION 2 — SNAP CARDS
+============================ */
+
+.section-2 {
+  padding: 80px 0;
+  display: grid;
+  place-items: center;
+  background: #020b18;
+}
+
+.snap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+/* Card */
+.snap-card {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(0, 162, 255, 0.25);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 22px rgba(0, 162, 255, 0.18);
+  transition: 0.3s ease;
+}
+
+.snap-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 28px rgba(0, 162, 255, 0.38);
+}
+
+/* Card Title Glow */
+.snap-title {
+  font-size: 22px;
+  font-family: "Orbitron", system-ui;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #00aaff;
+  text-shadow:
+    0 0 8px #00aaff,
+    0 0 16px #0077cc;
+}
+
+/* Card Text */
+.snap-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #d0d0d0;
+}
+
+Get Outlook for iOS
+}
       --bg: #020615;
       --bg-elevated: #071322;
       --card: #071a2d;
