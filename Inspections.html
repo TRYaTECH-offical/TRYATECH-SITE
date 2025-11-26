@@ -1083,3 +1083,48 @@ main p {
   color: #050810;
   box-shadow: 0 0 18px rgba(0, 255, 255, 0.85);
 }
+</style>
+</head>
+<body>
+
+<!-- (Optional) If your main layout had a <main> tag earlier, close it here -->
+</main>
+
+<!-- Paste the modal-opening script -->
+<script>
+  (function () {
+    const openBtn  = document.getElementById('open-inspection-modal');
+    const modal    = document.getElementById('inspection-modal');
+    const closeBtn = document.getElementById('close-inspection-modal');
+
+    if (!openBtn || !modal || !closeBtn) return;
+
+    function openModal(event) {
+      event.preventDefault();
+      modal.classList.add('inspection-modal--open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('inspection-modal--open');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (event) {
+      if (event.target.classList.contains('inspection-modal__backdrop')) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeModal();
+    });
+  })();
+</script>
+
+</body>
+</html>
+     
