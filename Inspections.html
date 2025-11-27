@@ -51,7 +51,100 @@
 }
     }
     
-    
+    /* === TRYaTECH premium refinements === */
+
+/* 1) Subtle left-side glow behind important copy */
+.section-body {
+  position: relative;
+}
+
+.section-body::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 10%;
+  bottom: 10%;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom,
+    rgba(140, 226, 255, 0),
+    rgba(140, 226, 255, 0.7),
+    rgba(140, 226, 255, 0)
+  );
+  opacity: 0.7;
+}
+
+/* 2) Tighter spacing + alignment for the main text columns */
+.section-shell {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.section-shell .section-body {
+  max-width: 620px;
+}
+
+/* 3) Very light separators between major sections */
+.section-shell + .section-shell {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* 4) Soft fade-in animation for hero + body text */
+@keyframes trya-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* apply on load – subtle only */
+.hero-card,
+.section-shell .section-body,
+.section-shell .service-list,
+.section-shell .contact-card {
+  opacity: 0;
+  animation: trya-fade-up 0.8s ease-out forwards;
+}
+
+/* slight stagger using nth-of-type so everything doesn’t move at once */
+.section-shell:nth-of-type(2) .section-body { animation-delay: 0.1s; }
+.section-shell:nth-of-type(3) .section-body { animation-delay: 0.2s; }
+.section-shell:nth-of-type(4) .section-body { animation-delay: 0.3s; }
+
+/* 5) Mobile readability tweaks */
+@media (max-width: 768px) {
+  .section-shell {
+    padding-inline: 16px;
+  }
+
+  .section-shell .section-body {
+    max-width: none;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .service-list li {
+    line-height: 1.6;
+  }
+
+  .hero-card-title,
+  .hero-card-label {
+    font-size: 0.8rem;
+  }
+
+  .contact-card,
+  .contact-email {
+    font-size: 0.9rem;
+  }
+}
+
 
     * {
       box-sizing: border-box;
