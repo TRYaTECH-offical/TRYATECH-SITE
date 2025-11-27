@@ -710,7 +710,7 @@
       </div>
 
       <!-- Snapshot card -->
-      <aside class="hero-card" aria-label="Inspection snapshot">
+      <aside class="hero-card" aria-label="Inspection snapshot"https://github.com/TRYaTECH-offical/TRYATECH-SITE/edit/main/Inspections.html>
         <div class="hero-card-label">Inspection snapshot</div>
         <div class="hero-card-title">What TRYaTECH inspects</div>
 
@@ -796,57 +796,47 @@
         </div>
       </div>
     </section>
-
-    <!-- REQUEST AN INSPECTION MODAL -->
-<div class="inspection-modal-overlay" id="inspectionModal">
+   
+    <script>
+      <!-- REQUEST AN INSPECTION MODAL -->
+<div id="inspectionModal" class="inspection-modal-overlay">
   <div class="inspection-modal-box">
     <span class="inspection-modal-close" id="closeInspectionModal">&times;</span>
 
     <h3>Request an Inspection</h3>
-    <p>
-      Fill out the quick form and TRYaTECH will reply with availability, pricing,
-      and next-step details for your project.
-    </p>
+    <p>Fill out the quick form and TRYaTECH will reply with availability, pricing, and next-step details.</p>
 
-    
     <form id="inspectionForm" class="inspection-modal-form" novalidate>
-  <div>
-    <label for="inspection-name">Full Name</label>
-    <input id="inspection-name" name="name" type="text"
-           placeholder="Your name" required>
-  </div>
+      <div>
+        <label for="inspection-name">Full Name</label>
+        <input id="inspection-name" type="text" placeholder="Your name" required>
+      </div>
 
-  <div>
-    <label for="inspection-email">Email</label>
-    <input id="inspection-email" name="email" type="email"
-           placeholder="you@example.com" required>
-  </div>
+      <div>
+        <label for="inspection-email">Email</label>
+        <input id="inspection-email" type="email" placeholder="you@example.com" required>
+      </div>
 
-  <div>
-    <label for="inspection-location">Property Location</label>
-    <input id="inspection-location" name="location" type="text"
-           placeholder="City / site address" required>
-  </div>
+      <div>
+        <label for="inspection-location">Property Location</label>
+        <input id="inspection-location" type="text" placeholder="City / Site address" required>
+      </div>
 
-  <div>
-    <label for="inspection-notes">Project Details</label>
-    <textarea id="inspection-notes" name="details"
-              placeholder="Type of inspection, timeline, lender/investor needs..."
-              required></textarea>
-  </div>
+      <div>
+        <label for="inspection-notes">Project Details</label>
+        <textarea id="inspection-notes" name="details" placeholder="Type of inspection, timeline, lender/investor needs..." required></textarea>
+      </div>
 
-  <button type="submit" class="inspection-modal-submit">
-    Submit Request
-  </button>
+      <button type="submit" class="inspection-modal-submit">Submit Request</button>
+    </form>
 
-  <!-- Success message -->
-  <div id="inspectionSuccess" class="inspection-modal-success" aria-live="polite">
-    Request sent. TRYaTECH will email you with availability and pricing.
-  </div>
-</form>
+    <!-- Success message -->
+    <div id="inspectionSuccess" class="inspection-modal-success" aria-live="polite">
+      Request sent. TRYaTECH will email you with availability and pricing.
+    </div>
   </div>
 </div>
-    <script>
+
  <script>
 document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('inspectionModal');
@@ -908,7 +898,53 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+    </script>
+    <script>
+  const modal    = document.getElementById('inspectionModal');
+  const openBtn  = document.getElementById('openInspectionModal');
+  const closeBtn = document.getElementById('closeInspectionModal');
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    if (modal) {
+      modal.classList.add('active');
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('active');
+    }
+  }
+
+  // Open modal when hero button is clicked
+  if (openBtn) {
+    openBtn.addEventListener('click', openModal);
+  }
+
+  // Close modal with X
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Close modal by clicking outside the box
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Close with ESC key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
 </script>
+</script>
+    
   </body>
 </html>
 
