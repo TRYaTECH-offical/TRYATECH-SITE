@@ -793,31 +793,42 @@
       and next-step details for your project.
     </p>
 
-    <form class="inspection-modal-form">
-      <div>
-        <label for="inspection-name">Full Name</label>
-        <input id="inspection-name" type="text" placeholder="Your name" required>
-      </div>
+    
+    <form id="inspectionForm" class="inspection-modal-form" novalidate>
+  <div>
+    <label for="inspection-name">Full Name</label>
+    <input id="inspection-name" name="name" type="text"
+           placeholder="Your name" required>
+  </div>
 
-      <div>
-        <label for="inspection-email">Email</label>
-        <input id="inspection-email" type="email" placeholder="you@example.com" required>
-      </div>
+  <div>
+    <label for="inspection-email">Email</label>
+    <input id="inspection-email" name="email" type="email"
+           placeholder="you@example.com" required>
+  </div>
 
-      <div>
-        <label for="inspection-location">Property Location</label>
-        <input id="inspection-location" type="text" placeholder="City / Site address">
-      </div>
+  <div>
+    <label for="inspection-location">Property Location</label>
+    <input id="inspection-location" name="location" type="text"
+           placeholder="City / site address" required>
+  </div>
 
-      <div>
-        <label for="inspection-notes">Project Details</label>
-        <textarea id="inspection-notes" placeholder="Type of inspection, timeline, lender/investor needs..."></textarea>
-      </div>
+  <div>
+    <label for="inspection-notes">Project Details</label>
+    <textarea id="inspection-notes" name="details"
+              placeholder="Type of inspection, timeline, lender/investor needs..."
+              required></textarea>
+  </div>
 
-      <button type="submit" class="inspection-modal-submit">
-        Submit Request
-      </button>
-    </form>
+  <button type="submit" class="inspection-modal-submit">
+    Submit Request
+  </button>
+
+  <!-- Success message -->
+  <div id="inspectionSuccess" class="inspection-modal-success" aria-live="polite">
+    Request sent. TRYaTECH will email you with availability and pricing.
+  </div>
+</form>
   </div>
 </div>
     <script>
