@@ -4,36 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TRYaTECH Inspection Services</title>
-  <meta name="description" content="TRYaTECH independent construction and commercial inspection services for developers, lenders, and property owners in Florida." />
 
-  <!-- Basic styling (self-contained so it looks good even without your main CSS) -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg-dark: #05060a;
-      --bg-light: #0b0d14;
-      --accent: #1f8fff;
-      --accent-soft: rgba(31, 143, 255, 0.15);
-      --text-main: #f1f5f9;
-      --text-muted: #9ca3af;
-      --border-subtle: #1f2933;
-      --card-bg: #0f172a;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.5);
-      --radius-lg: 14px;
-      --radius-full: 999px;
-      --max-width: 1080px;
+      --bg: #020615;
+      --bg-elevated: #071322;
+      --card: #071a2d;
+      --card-soft: #0b2236;
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --accent: #15d1ff;
+      --accent-soft: rgba(21, 209, 255, 0.18);
+      --accent-strong: #00b3ff;
+      --text-main: #f5f7ff;
+      --text-muted: #a4b0c4;
+      --pill-bg: rgba(7, 27, 56, 0.9);
+      --shadow-card: 0 22px 60px rgba(0, 0, 0, 0.65);
+      --radius-lg: 22px;
+      --radius-pill: 999px;
+      --spacing-section: 72px;
+      --nav-height: 72px;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
+      background: radial-gradient(circle at top, #071931 0, #020615 50%, #000 100%);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
-      color: var(--text-main);
-      line-height: 1.6;
+      min-height: 100vh;
     }
 
     a {
@@ -45,642 +56,677 @@
       text-decoration: underline;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    /* Layout */
 
-    /* Header / nav */
-    header {
-      border-bottom: 1px solid var(--border-subtle);
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .nav-container {
-      max-width: var(--max-width);
+    .page-shell {
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 0 16px 64px;
+    }
+
+    /* Top nav */
+
+    .top-nav {
+      height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      padding: 16px 16px 0;
+      max-width: 1180px;
+      margin: 0 auto;
     }
 
-    .brand {
+    .brand-lockup {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
+      gap: 10px;
     }
 
     .brand-mark {
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-      background: radial-gradient(circle at top left, #38bdf8, #1f2937 55%, #020617 100%);
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 30% 20%, #4ff3ff, #004cff 60%, #001637 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: #e5e7eb;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8);
+      box-shadow: 0 0 18px rgba(21, 209, 255, 0.7);
+      font-family: "Orbitron", system-ui;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.06em;
     }
 
-    .brand span {
-      color: #e5e7eb;
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
     }
 
-    .brand small {
-      display: block;
-      font-size: 0.65rem;
-      font-weight: 500;
-      color: var(--text-muted);
+    .brand-text span:first-child {
+      font-family: "Orbitron", system-ui;
+      font-size: 14px;
       letter-spacing: 0.16em;
+    }
+
+    .brand-text span:last-child {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.9rem;
+      gap: 20px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
     .nav-links a {
       color: var(--text-muted);
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: all 0.16s ease;
-      text-decoration: none;
-      white-space: nowrap;
+      padding-bottom: 6px;
+      border-bottom: 2px solid transparent;
     }
 
     .nav-links a:hover {
       color: var(--text-main);
-      border-color: rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.8);
     }
 
-    .nav-links a.nav-cta {
-      background: linear-gradient(135deg, var(--accent), #38bdf8);
-      color: #0b1020;
-      font-weight: 600;
-      border-color: transparent;
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.7);
-    }
-
-    .nav-links a.nav-cta:hover {
-      filter: brightness(1.05);
-      transform: translateY(-0.5px);
-      box-shadow: 0 14px 40px rgba(37, 99, 235, 0.9);
-    }
-
-    /* Main content */
-    main {
-      flex: 1;
-    }
-
-    .section {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem;
+    .nav-links a.is-active {
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     /* Hero */
+
+    main {
+      margin-top: 8px;
+    }
+
+    section {
+      scroll-margin-top: calc(var(--nav-height) + 20px);
+    }
+
     .hero {
+      margin-top: 12px;
+      padding: 28px 22px 28px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, #122a4c 0, #071322 35%, #020615 80%);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 2.25rem;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 32px;
       align-items: center;
-      padding-top: 3rem;
-      padding-bottom: 2.5rem;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.18rem 0.55rem;
-      border-radius: var(--radius-full);
-      background: var(--accent-soft);
-      border: 1px solid rgba(56, 189, 248, 0.5);
-      color: #bae6fd;
-      font-size: 0.75rem;
-      letter-spacing: 0.10em;
+    .hero-copy-eyebrow {
+      font-size: 11px;
       text-transform: uppercase;
-      margin-bottom: 0.9rem;
+      letter-spacing: 0.26em;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
     }
 
-    .hero-tag-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    .hero-title {
+      font-family: "Orbitron", system-ui;
+      font-size: clamp(28px, 4vw, 34px);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
     }
 
-    .hero h1 {
-      font-size: clamp(2.3rem, 3vw + 1.4rem, 3rem);
-      line-height: 1.1;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero h1 span.accent {
-      background: linear-gradient(135deg, #60a5fa, #a855f7);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 0.98rem;
+    .hero-sub {
+      font-size: 14px;
       color: var(--text-muted);
-      max-width: 34rem;
-      margin-bottom: 1.25rem;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 18px;
     }
 
-    .hero-keypoints {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem 1.25rem;
-      font-size: 0.86rem;
-      color: #cbd5f5;
-      margin-bottom: 1.4rem;
+    .hero-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
-    .hero-keypoints span {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+    .hero-bullets li {
+      margin-bottom: 6px;
     }
 
-    .hero-keypoints svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
+    .hero-bullets li::before {
+      content: "▹";
+      color: var(--accent);
+      margin-right: 6px;
     }
 
-    .hero-cta-row {
+    .hero-ctas {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin-bottom: 0.8rem;
+      gap: 12px;
     }
 
-    .btn {
+    .btn-primary,
+    .btn-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: var(--radius-full);
-      font-size: 0.9rem;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
       border: 1px solid transparent;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.16s ease;
+      white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #38bdf8);
-      color: #020617;
-      font-weight: 600;
-      box-shadow: 0 12px 35px rgba(37, 99, 235, 0.8);
+      background: linear-gradient(135deg, var(--accent-strong), #5df5ff);
+      color: #020615;
+      box-shadow: 0 0 18px rgba(21, 209, 255, 0.6);
     }
 
     .btn-primary:hover {
-      filter: brightness(1.04);
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.95);
+      filter: brightness(1.05);
       text-decoration: none;
     }
 
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
+    .btn-secondary {
+      background: rgba(5, 16, 36, 0.9);
+      border-color: rgba(255, 255, 255, 0.14);
       color: var(--text-main);
     }
 
-    .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.6);
+    .btn-secondary:hover {
+      border-color: var(--accent);
       text-decoration: none;
     }
 
-    .hero-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
+    /* Hero right – snapshot card */
 
     .hero-card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.98));
+      background: rgba(7, 22, 45, 0.95);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
-      padding: 1.4rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top, rgba(59, 130, 246, 0.23), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .hero-card-inner {
-      position: relative;
-      z-index: 1;
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
     }
 
     .hero-card-label {
-      font-size: 0.75rem;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
     }
 
     .hero-card-title {
-      font-size: 1.05rem;
+      font-size: 13px;
       font-weight: 600;
-      margin-bottom: 0.6rem;
+      margin-bottom: 14px;
     }
 
     .hero-card-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin-bottom: 0.9rem;
-      font-size: 0.8rem;
+      gap: 12px 18px;
+      font-size: 12px;
     }
 
-    .hero-card-metric span.label {
+    .hero-card-metric {
+      padding: 10px 10px;
+      border-radius: 14px;
+      background: var(--card-soft);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .metric-label {
       display: block;
-      font-size: 0.75rem;
+      font-size: 11px;
       color: var(--text-muted);
-      margin-bottom: 0.15rem;
+      margin-bottom: 4px;
     }
 
-    .hero-card-metric span.value {
-      font-weight: 600;
-      font-size: 0.92rem;
+    .metric-value {
+      display: block;
+      font-weight: 500;
     }
 
-    .hero-card-divider {
-      height: 1px;
-      background: linear-gradient(to right, rgba(148, 163, 184, 0), rgba(148, 163, 184, 0.8), rgba(148, 163, 184, 0));
-      margin: 0.6rem 0 0.8rem;
-    }
-
-    .hero-card-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      font-size: 0.72rem;
-    }
-
-    .badge {
-      padding: 0.18rem 0.6rem;
+    .metric-tag {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 9px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.7);
-    }
-
-    /* Sections */
-    .section-title {
-      font-size: 1.15rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .pill {
-      padding: 0.2rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #e5e7eb;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .grid.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 1rem 1.1rem;
-      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.8);
-      font-size: 0.88rem;
-    }
-
-    .card h3 {
-      font-size: 0.98rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .card ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .card ul li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.35rem;
-      color: #e5e7eb;
-      font-size: 0.86rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .card ul li::before {
-      content: "•";
-      color: #38bdf8;
-      font-size: 1rem;
-      line-height: 1;
-      margin-top: 0.05rem;
-    }
-
-    .highlight {
-      color: #e5e7eb;
-    }
-
-    /* Contact section */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
-      gap: 1.75rem;
-    }
-
-    .contact-details p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.6rem;
-    }
-
-    .contact-info-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      margin-bottom: 0.8rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-info-row span.label {
-      font-size: 0.78rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--text-muted);
     }
 
-    .contact-info-row a {
-      font-weight: 500;
+    /* Sections */
+
+    .section-heading {
+      font-size: 18px;
+      margin: 0 0 6px;
+      font-weight: 600;
     }
 
-    .contact-note {
-      font-size: 0.78rem;
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+    }
+
+    .section-body {
+      font-size: 13px;
       color: var(--text-muted);
-      margin-top: 0.3rem;
+      max-width: 760px;
+      line-height: 1.7;
     }
 
-    .contact-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1rem 1.1rem;
-      font-size: 0.86rem;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    .section-shell {
+      margin-top: var(--spacing-section);
     }
 
-    .contact-box h3 {
-      font-size: 0.98rem;
-      margin-bottom: 0.4rem;
+    /* Service areas */
+
+    .service-areas-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.6fr);
+      gap: 24px;
+      align-items: flex-start;
     }
 
-    .contact-box p {
-      color: var(--text-muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .contact-list {
+    .service-list {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 12px 0 0;
+      font-size: 13px;
+      color: var(--text-main);
     }
 
-    .contact-list li {
-      margin-bottom: 0.4rem;
+    .service-list li {
+      margin-bottom: 4px;
+    }
+
+    .service-list li::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 7px;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 18px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .contact-card strong {
+      color: var(--text-main);
+    }
+
+    .contact-email {
+      margin-top: 10px;
+    }
+
+    /* Request form */
+
+    .request-form-shell {
+      margin-top: 40px;
+      padding: 22px 20px 24px;
+      border-radius: var(--radius-lg);
+      background: rgba(4, 15, 32, 0.96);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+    }
+
+    .request-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 16px;
+    }
+
+    .form-row-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 12px;
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(4, 15, 32, 0.9);
+      color: var(--text-main);
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 1px solid var(--accent);
+      box-shadow: 0 0 0 1px rgba(21, 209, 255, 0.35);
+    }
+
+    .form-footnote {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .request-form-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .request-form-actions .btn-primary {
+      padding-inline: 26px;
+    }
+
+    .request-form-actions span {
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
     /* Footer */
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 1.1rem 1.25rem 1.4rem;
-      font-size: 0.75rem;
+
+    .page-foot {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      font-size: 11px;
       color: var(--text-muted);
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 840px) {
+    /* Responsive */
+
+    @media (max-width: 860px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
+        padding: 22px 18px 20px;
       }
 
       .hero-card {
         order: -1;
       }
 
-      .hero-keypoints {
+      .service-areas-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
-      .contact-grid {
+      .request-form-grid {
         grid-template-columns: minmax(0, 1fr);
       }
+    }
 
-      .grid.two {
-        grid-template-columns: minmax(0, 1fr);
+    @media (max-width: 640px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        height: auto;
       }
 
-      .nav-container {
+      .nav-links {
+        font-size: 11px;
         flex-wrap: wrap;
+      }
+
+      .hero-title {
+        font-size: 24px;
+      }
+
+      .hero {
+        margin-top: 10px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .page-shell {
+        padding-inline: 12px;
+      }
+
+      .section-shell {
+        margin-top: 52px;
       }
     }
   </style>
 </head>
-<body>
-<div class="page">
-  <!-- Header / nav -->
-  <header>
-    <div class="nav-container">
-      <a href="/" class="brand">
-        <div class="brand-mark">T</div>
-        <span>TRYaTECH<br /><small>Inspection Services</small></span>
-      </a>
 
-      <nav class="nav-links">
-        <!-- Update these hrefs to match your actual file names / paths -->
-        <a href="/">Shop</a>
-        <a href="/about.html">About</a>
-        <a href="/media.html">Media</a>
-        <!-- New active link for inspections -->
-        <a href="/inspections.html" class="nav-cta">Inspection Services</a>
-      </nav>
+<body>
+  <!-- Top navigation -->
+  <header class="top-nav">
+    <div class="brand-lockup">
+      <div class="brand-mark">T</div>
+      <div class="brand-text">
+        <span>TRYaTECH</span>
+        <span>Inspection Services</span>
+      </div>
     </div>
+
+    <nav class="nav-links">
+      <a href="/index.html">Shop</a>
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#media">Media</a>
+      <a href="#" class="is-active">Inspection Services</a>
+    </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="section hero">
+  <main class="page-shell">
+    <!-- HERO -->
+    <section class="hero" id="top">
       <div>
-        <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          <span>Independent inspections for real projects</span>
-        </div>
+        <div class="hero-copy-eyebrow">Independent inspections for real projects</div>
+        <h1 class="hero-title">TRYaTECH Inspection Services</h1>
 
-        <h1>
-          TRYaTECH <span class="accent">Inspection Services</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          Independent construction and commercial property inspections for developers, lenders,
-          and owners in Florida. Fast photo reports, clear checklists, and reliable
-          documentation you can send straight to your bank, investor, or project team.
+        <p class="hero-sub">
+          High-clarity commercial inspections and visual documentation for owners, lenders, asset managers,
+          and national brands across Florida. Clean, verifiable photos you can send directly to your bank,
+          investor, or project team.
         </p>
 
-        <div class="hero-keypoints">
-          <span>
-            <!-- check icon -->
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
-            </svg>
-            Commercial inspection experience with national brands
-          </span>
-          <span>
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
-            </svg>
-            Same-day photo documentation & PDF reports
-          </span>
-          <span>
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
-            </svg>
-            Ideal for banks, hard-money lenders & investors
-          </span>
-          <span>
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
-            </svg>
-            Serving Tampa Bay, Bradenton, Ellenton, Sarasota & nearby areas
-          </span>
-        </div>
+        <ul class="hero-bullets">
+          <li>Fast turnaround on real-world inspection work.</li>
+          <li>Same-day photo documentation &amp; PDF-ready reports in most cases.</li>
+          <li>Ideal for banks, hard-money lenders, investors, and franchise owners.</li>
+        </ul>
 
-        <div class="hero-cta-row">
-          <a class="btn btn-primary" href="#request-form">
-  Request an inspection
-</a>
-            Request an inspection
-          </a>
-          <a class="btn btn-ghost" href="#contact">
-            See service areas & contact
-          </a>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="#request-form">Request an inspection</a>
+          <a class="btn-secondary" href="#service-areas">See service areas &amp; contact</a>
         </div>
-        <p class="hero-note">
-          Need a sample report or rate sheet? Include that in your email request and we’ll send it over.
-        </p>
       </div>
 
-      <!-- Side card -->
-      <aside class="hero-card" aria-label="Service summary">
-        <div class="hero-card-inner">
-          <div class="hero-card-label">Inspection snapshot</div>
-          <div class="hero-card-title">What TRYaTECH inspects</div>
+      <!-- Snapshot card -->
+      <aside class="hero-card" aria-label="Inspection snapshot">
+        <div class="hero-card-label">Inspection snapshot</div>
+        <div class="hero-card-title">What TRYaTECH inspects</div>
 
-          <div class="hero-card-grid">
-            <div class="hero-card-metric">
-              <span class="label">Construction</span>
-              <span class="value">Progress, punchlist & phase photos</span>
-            </div>
-            <div class="hero-card-metric">
-              <span class="label">Commercial</span>
-              <span class="value">Retail, restaurant & plaza walk-throughs</span>
-            </div>
-            <div class="hero-card-metric">
-              <span class="label">Lenders</span>
-              <span class="value">Draw inspections & rehab verification</span>
-            </div>
-            <div class="hero-card-metric">
-              <span class="label">Investors</span>
-              <span class="value">Before/after & rental turnover photos</span>
-            </div>
+        <div class="hero-card-grid">
+          <div class="hero-card-metric">
+            <span class="metric-label">Construction</span>
+            <span class="metric-value">Progress, punchlist &amp; phase photos</span>
+            <span class="metric-tag">Jobsite-ready</span>
           </div>
 
-          <div class="hero-card-divider"></div>
+          <div class="hero-card-metric">
+            <span class="metric-label">Lenders</span>
+            <span class="metric-value">Draw inspections &amp; rehab verification</span>
+            <span class="metric-tag">Photo-driven reports</span>
+          </div>
 
-          <div class="hero-card-badges">
-            <span class="badge">Independent third-party</span>
-            <span class="badge">Photo-driven reports</span>
-            <span class="badge">Fast turnaround</span>
-            <span class="badge">Florida based</span>
+          <div class="hero-card-metric">
+            <span class="metric-label">Commercial</span>
+            <span class="metric-value">Retail, restaurant &amp; plaza walk-throughs</span>
+            <span class="metric-tag">On-location</span>
+          </div>
+
+          <div class="hero-card-metric">
+            <span class="metric-label">Investors</span>
+            <span class="metric-value">Before/after &amp; rental turnover photos</span>
+            <span class="metric-tag">Florida based</span>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- Who we serve / services -->
-    <section class="section">
-      <h2 class="section-title">Who we work with</h2>
-      <p class="section-subtitle">
-        TRYaTECH focuses on being the extra set of eyes for people who need reliable documentation on real-world assets.
+    <!-- WHO WE WORK WITH -->
+    <section class="section-shell" id="who-we-work-with">
+      <div class="section-eyebrow">Who we work with</div>
+      <h2 class="section-heading">Extra set of eyes for people who need reliable documentation</h2>
+      <p class="section-body">
+        TRYaTECH supports developers, contractors, retail brands, restaurant owners, investors, property
+        managers, and banks who need clear, unbiased documentation on real-world assets.
+        <br><br>
+        Whether you’re validating rehab work, tracking construction progress, or preparing a package for
+        underwriting, you get inspection photos that read like proof — not guesses.
+      </p>
+    </section>
+
+    <!-- SERVICE AREAS & CONTACT -->
+    <section class="section-shell" id="service-areas">
+      <div class="section-eyebrow">Service areas &amp; contact</div>
+      <div class="service-areas-grid">
+        <div>
+          <h2 class="section-heading">Currently serving Florida projects</h2>
+          <p class="section-body">
+            Field inspections and photo documentation are available in the metro areas below, with select
+            travel available by request.
+          </p>
+
+          <ul class="service-list">
+            <li>Tampa Bay</li>
+            <li>Brandon &amp; Riverview</li>
+            <li>Ellenton, Bradenton &amp; nearby areas</li>
+            <li>Sarasota &amp; surrounding markets</li>
+            <li>Other Florida locations by request</li>
+          </ul>
+        </div>
+
+        <div class="contact-card">
+          <strong>Contact TRYaTECH</strong>
+          <p>
+            Email for availability, pricing, or a sample report. Include the property type, location,
+            and any deadlines in your message and you’ll receive a focused response instead of a generic reply.
+          </p>
+
+          <div class="contact-email">
+            <strong>Email:</strong><br>
+            <a href="mailto:xcv1cxt@msn.com?subject=TRYaTECH Inspection Request">xcv1cxt@msn.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUEST FORM -->
+    <section class="section-shell" id="request-form">
+      <div class="section-eyebrow">Request an inspection</div>
+      <h2 class="section-heading">Request an inspection online</h2>
+      <p class="section-body">
+        Fill out this quick form and TRYaTECH will reply with availability and pricing for your project.
+        Most inspection photo sets are delivered same-day or next-day once a site visit is confirmed.
       </p>
 
-      <div class="pill-row">
-        <span
+      <div class="request-form-shell">
+        <!--
+          This form uses mailto: so submissions open the visitor's email client with the details in the body.
+          You can replace this later with a real backend endpoint when you're ready.
+        -->
+        <form action="mailto:xcv1cxt@msn.com?subject=TRYaTECH Inspection Request" method="POST" enctype="text/plain">
+          <div class="request-form-grid">
+            <div class="form-row-full">
+              <label for="rf_name">Full name</label>
+              <input id="rf_name" name="Full name" type="text" required />
+            </div>
+
+            <div>
+              <label for="rf_email">Email</label>
+              <input id="rf_email" name="Email" type="email" required />
+            </div>
+
+            <div>
+              <label for="rf_phone">Phone</label>
+              <input id="rf_phone" name="Phone" type="tel" />
+            </div>
+
+            <div class="form-row-full">
+              <label for="rf_company">Company (optional)</label>
+              <input id="rf_company" name="Company" type="text" />
+            </div>
+
+            <div class="form-row-full">
+              <label for="rf_address">Property address</label>
+              <input id="rf_address" name="Property address" type="text" />
+            </div>
+
+            <div>
+              <label for="rf_city">City / area</label>
+              <input id="rf_city" name="City / area" type="text" />
+            </div>
+
+            <div>
+              <label for="rf_type">Type of inspection</label>
+              <select id="rf_type" name="Inspection type">
+                <option value="">Select one…</option>
+                <option>Construction progress / punchlist</option>
+                <option>Draw inspection / rehab verification</option>
+                <option>Retail / restaurant / plaza walk-through</option>
+                <option>Before / after &amp; rental turnover photos</option>
+                <option>Other (describe below)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="rf_deadline">Preferred date or deadline</label>
+              <input id="rf_deadline" name="Preferred date / deadline" type="text" placeholder="Example: by Dec 10" />
+            </div>
+
+            <div class="form-row-full">
+              <label for="rf_notes">Project details / notes</label>
+              <textarea id="rf_notes" name="Project details / notes" placeholder="Tell TRYaTECH what you need documented: how many photos, special access instructions, construction stage, lender requirements, etc."></textarea>
+            </div>
+          </div>
+
+          <div class="request-form-actions">
+            <button class="btn-primary" type="submit">Send inspection request</button>
+            <span>Or email directly: <a href="mailto:xc
+
 
 Get Outlook for iOS
