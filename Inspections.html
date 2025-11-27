@@ -826,13 +826,13 @@ Get Outlook for iOS
   </script>
     <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const modal      = document.getElementById('inspectionModal');
-    const openBtn    = document.getElementById('openInspectionModal');
-    const closeBtn   = document.getElementById('closeInspectionModal');
-    const form       = document.getElementById('inspectionForm');
-    const successBox = document.getElementById('inspectionSuccess');
+    const modal     = document.getElementById('inspectionModal');
+    const openBtn   = document.getElementById('openInspectionModal');
+    const closeBtn  = document.getElementById('closeInspectionModal');
+    const form      = document.getElementById('inspectionForm');
 
     function openModal(e) {
+      // prevent page from jumping when clicking the hero link
       if (e) e.preventDefault();
       if (modal) {
         modal.classList.add('is-active');
@@ -841,27 +841,30 @@ Get Outlook for iOS
     }
 
     function closeModal() {
-  if (modal) {
-    modal.classList.remove('active');
-  }
-
-  // Clear the form fields whenever the modal closes
-  if (form) {
-    form.reset();
-  }
-}
+      if (modal) {
+        modal.classList.remove('is-active');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      // always clear the form when the modal closes
+      if (form) {
+        form.reset();
+      }
+    }
 
     // Open modal when hero button is clicked
-    if (openBtn && modal) {
+    if (openBtn) {
       openBtn.addEventListener('click', openModal);
     }
 
-    // Close modal with X
+    // Close modal with X button
     if (closeBtn) {
-      closeBtn.addEventListener('click', closeModal);
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        closeModal();
+      });
     }
 
-    // Close modal by clicking outside the card
+    // Close modal by clicking on the dark overlay (outside the box)
     if (modal) {
       modal.addEventListener('click', function (e) {
         if (e.target === modal) {
@@ -870,26 +873,26 @@ Get Outlook for iOS
       });
     }
 
-    // Close with ESC key
+    // Close modal with ESC key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         closeModal();
       }
     });
 
-    // Form submit -> show “request sent” message, then auto-close
-    if (form && successBox) {
+    // After form submits (mailto opens), auto-close the modal
+    if (form) {
       form.addEventListener('submit', function () {
-        // let the mailto open, but still show confirmation
-        successBox.classList.add('is-active');
+        // DON'T preventDefault – we want mailto: to work normally
         setTimeout(function () {
-          successBox.classList.remove('is-active');
           closeModal();
-        }, 2600);
+        }, 500); // small delay so button feels responsive
       });
     }
   });
 </script>
+
+Get Outlook for iOS
 
 </body>
 </html>
