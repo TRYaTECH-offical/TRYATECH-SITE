@@ -532,137 +532,118 @@
         margin-top: 52px;
       }
     }
-   
+   /* === REQUEST AN INSPECTION MODAL === */
 
-/* === Inspection Modal Card === */
-.inspection-modal__content {
-    position: relative;
-    max-width: 720px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 2rem 2.5rem;
-    border-radius: 18px;
-    background: rgba(5, 10, 20, 0.96);
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.35);
-    color: #f5f7ff;
-    animation: modal-fade-in 0.35s ease-out;
-}
-
-/* Title */
-.inspection-modal__content h2 {
-    margin-top: 0;
-    margin-bottom: 0.75rem;
-    font-size: 1.6rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-align: left;
-    color: #00eaff;
-}
-
-/* Intro paragraph */
-.inspection-modal__intro {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    font-size: 1rem;
-    opacity: 0.85;
-}
-
-/* Close button (X) */
-.inspection-modal__close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(0, 255, 255, 0.15);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    color: #00eaff;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.inspection-modal__close:hover {
-    background: rgba(0, 255, 255, 0.25);
-    transform: scale(1.08);
-}
-
-/* Animation */
-@keyframes modal-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-  
-
-
-
-/* Optional: form styling inside modal */
-#inspection-form .form-row {
-  margin-bottom: 1rem;
-}
-
-#inspection-form label {
-  display: block;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.25rem;
-  opacity: 0.8;
-}
-
-#inspection-form input,
-#inspection-form textarea,
-#inspection-form select {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 255, 255, 0.5);
-  background: rgba(10, 15, 30, 0.9);
-  color: #f5f7ff;
-  font-size: 0.9rem;
-}
-
-#inspection-form textarea {
-  border-radius: 16px;
-  min-height: 120px;
-  resize: vertical;
-}
-
-#inspection-form .submit-button {
-  margin-top: 0.75rem;
-  width: 100%;
-  padding: 0.9rem 1.2rem;
-  border-radius: 999px;
-  border: none;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: linear-gradient(90deg, #00f5ff, #00c3ff);
-  color: #050810;
-  box-shadow: 0 0 18px rgba(0, 255, 255, 0.85);
-}
-    /* === Inspection Modal Wrapper === */
-.inspection-modal {
+.inspection-modal-overlay {
   position: fixed;
   inset: 0;
-  display: none;           /* hidden by default */
+  background: rgba(0, 0, 0, 0.85); /* dark overlay but not pure black */
+  display: none;                   /* hidden by default */
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  font-family: inherit;
 }
 
-.inspection-modal--open {
+.inspection-modal-overlay.active {
+  display: flex;                   /* show when active */
+}
+
+.inspection-modal-box {
+  width: 90%;
+  max-width: 480px;
+  background: #041321;             /* deep navy TRYaTECH style */
+  border-radius: 16px;
+  padding: 24px 20px 28px;
+  box-shadow: 0 0 32px rgba(0, 255, 255, 0.35);
+  border: 1px solid rgba(0, 255, 255, 0.35);
+  color: #e6fbff;
+  text-align: left;
+  position: relative;
+}
+
+.inspection-modal-box h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.inspection-modal-box p {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #b8d7ff;
+}
+
+/* Close button (X) */
+.inspection-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #66f1ff;
+}
+
+/* Form fields */
+.inspection-modal-form {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inspection-modal-form label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9fdcff;
+}
+
+.inspection-modal-form input,
+.inspection-modal-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(159, 220, 255, 0.4);
+  background: rgba(3, 13, 24, 0.95);
+  color: #e6fbff;
+  font-size: 0.9rem;
+}
+
+.inspection-modal-form input::placeholder,
+.inspection-modal-form textarea::placeholder {
+  color: #6ea0c5;
+}
+
+.inspection-modal-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Submit button (match your glowing button style) */
+.inspection-modal-submit {
+  margin-top: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00f5ff, #00b4ff);
+  color: #02101c;
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.5);
+}
+
+.inspection-modal-submit:hover {
+  box-shadow: 0 0 26px rgba(0, 245, 255, 0.8);
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .inspection-modal-box {
+    padding: 20px 16px 24px;
+  }
 }
   </style>
 </head>
@@ -801,48 +782,77 @@
       </div>
     </section>
 
-    <!-- Inspection Modal -->
-<div id="inspection-modal" class="inspection-modal" aria-hidden="true">
-  <div class="inspection-modal__backdrop"></div>
+    <!-- REQUEST AN INSPECTION MODAL -->
+<div class="inspection-modal-overlay" id="inspectionModal">
+  <div class="inspection-modal-box">
+    <span class="inspection-modal-close" id="closeInspectionModal">&times;</span>
 
-  <div class="inspection-modal__content" role="dialog" aria-modal="true" aria-labelledby="inspection-title">
-    <button
-  type="button"
-  id="close-inspection-modal"
-  class="inspection-modal__close"
-  aria-label="Close inspection form"
->
-  &times;
-</button>
-  </div>
-
-    <h2 id="inspection-title">Request an inspection online</h2>
-    <p class="inspection-modal__intro">
-      Fill out this quick form and TRYaTECH will reply with availability and pricing for your project.
-      Most inspection photo sets are delivered same-day or next-day once a site visit is confirmed.
+    <h3>Request an Inspection</h3>
+    <p>
+      Fill out the quick form and TRYaTECH will reply with availability, pricing,
+      and next-step details for your project.
     </p>
 
-    <!-- Your EXISTING form fields go here -->
-    <form id="inspection-form">
-      <!-- Example; keep your real fields -->
-      <div class="form-row">
-        <label>Full name</label>
-        <input type="text" name="fullName" required>
+    <form class="inspection-modal-form">
+      <div>
+        <label for="inspection-name">Full Name</label>
+        <input id="inspection-name" type="text" placeholder="Your name" required>
       </div>
 
-      <div class="form-row">
-        <label>Email</label>
-        <input type="email" name="email" required>
+      <div>
+        <label for="inspection-email">Email</label>
+        <input id="inspection-email" type="email" placeholder="you@example.com" required>
       </div>
 
-      <!-- ...paste ALL your current inputs, textareas, etc... -->
+      <div>
+        <label for="inspection-location">Property Location</label>
+        <input id="inspection-location" type="text" placeholder="City / Site address">
+      </div>
 
-      <button type="submit" class="submit-button">
-        SEND INSPECTION REQUEST
+      <div>
+        <label for="inspection-notes">Project Details</label>
+        <textarea id="inspection-notes" placeholder="Type of inspection, timeline, lender/investor needs..."></textarea>
+      </div>
+
+      <button type="submit" class="inspection-modal-submit">
+        Submit Request
       </button>
     </form>
   </div>
 </div>
+    <script>
+  // Open + close logic for REQUEST AN INSPECTION modal
+  document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('inspectionModal');
+    const openBtn = document.getElementById('openInspectionModal'); // your button
+    const closeBtn = document.getElementById('closeInspectionModal');
+
+    if (openBtn && modal && closeBtn) {
+      openBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        modal.classList.add('active');
+      });
+
+      closeBtn.addEventListener('click', function () {
+        modal.classList.remove('active');
+      });
+
+      // Click outside the box closes modal
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+
+      // ESC key closes modal
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          modal.classList.remove('active');
+        }
+      });
+    }
+  });
+</script>
   </body>
 
 
