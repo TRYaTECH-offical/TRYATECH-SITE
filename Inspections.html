@@ -856,38 +856,55 @@
     const form       = document.getElementById('inspectionForm');
     const successBox = document.getElementById('inspectionSuccess');
 
-    function closeModal() {
-      if (modal) modal.classList.remove('active');
-    }
-
-    if (openBtn && modal && closeBtn) {
-      // Open modal
-      openBtn.addEventListener('click', function (e) {
-        e.preventDefault();
+    function openModal() {
+      if (modal) {
         modal.classList.add('active');
         if (successBox) successBox.classList.remove('active');
-      });
+      }
+    }
 
-      // Close with X
-      closeBtn.addEventListener('click', closeModal);
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
 
-      // Click outside box closes modal
-      modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeModal();
-      });
-
-      // ESC key closes modal
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
+    // Open modal
+    if (openBtn) {
+      openBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
       });
     }
 
-    // Handle form submit: validate, then show success and auto-close
+    // Close modal (X button)
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        closeModal();
+      });
+    }
+
+    // Click outside modal
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    // ESC closes modal
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Submit form
     if (form && successBox) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Use browser’s built-in validation
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
@@ -895,13 +912,6 @@
 
         // Show success message
         successBox.classList.add('active');
-
-        // Auto close after short delay
-        setTimeout(function () {
-          successBox.classList.remove('active');
-          closeModal();
-          form.reset();
-        }, 2400);
       });
     }
   });
