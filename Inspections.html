@@ -841,11 +841,15 @@ Get Outlook for iOS
     }
 
     function closeModal() {
-      if (modal) {
-        modal.classList.remove('is-active');
-        modal.setAttribute('aria-hidden', 'true');
-      }
-    }
+  if (modal) {
+    modal.classList.remove('active');
+  }
+
+  // Clear the form fields whenever the modal closes
+  if (form) {
+    form.reset();
+  }
+}
 
     // Open modal when hero button is clicked
     if (openBtn && modal) {
