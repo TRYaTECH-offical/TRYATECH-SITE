@@ -847,34 +847,61 @@
   </div>
 </div>
     <script>
-  // Open + close logic for REQUEST AN INSPECTION modal
+ 
+<script>
   document.addEventListener('DOMContentLoaded', function () {
-    const modal = document.getElementById('inspectionModal');
-    const openBtn = document.getElementById('openInspectionModal'); // your button
-    const closeBtn = document.getElementById('closeInspectionModal');
+    const modal      = document.getElementById('inspectionModal');
+    const openBtn    = document.getElementById('openInspectionModal');
+    const closeBtn   = document.getElementById('closeInspectionModal');
+    const form       = document.getElementById('inspectionForm');
+    const successBox = document.getElementById('inspectionSuccess');
+
+    function closeModal() {
+      if (modal) modal.classList.remove('active');
+    }
 
     if (openBtn && modal && closeBtn) {
+      // Open modal
       openBtn.addEventListener('click', function (e) {
         e.preventDefault();
         modal.classList.add('active');
+        if (successBox) successBox.classList.remove('active');
       });
 
-      closeBtn.addEventListener('click', function () {
-        modal.classList.remove('active');
-      });
+      // Close with X
+      closeBtn.addEventListener('click', closeModal);
 
-      // Click outside the box closes modal
+      // Click outside box closes modal
       modal.addEventListener('click', function (e) {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-        }
+        if (e.target === modal) closeModal();
       });
 
       // ESC key closes modal
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-          modal.classList.remove('active');
+        if (e.key === 'Escape') closeModal();
+      });
+    }
+
+    // Handle form submit: validate, then show success and auto-close
+    if (form && successBox) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Use browser’s built-in validation
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
         }
+
+        // Show success message
+        successBox.classList.add('active');
+
+        // Auto close after short delay
+        setTimeout(function () {
+          successBox.classList.remove('active');
+          closeModal();
+          form.reset();
+        }, 2400);
       });
     }
   });
