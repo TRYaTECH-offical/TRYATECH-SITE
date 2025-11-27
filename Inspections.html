@@ -527,6 +527,116 @@
         margin-top: 52px;
       }
     }
+    /* === Request Inspection Modal === */
+.inspection-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+}
+
+.inspection-modal-overlay.is-active {
+  display: flex;
+}
+
+.inspection-modal-card {
+  position: relative;
+  max-width: 720px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px 24px 20px;
+  border-radius: 18px;
+  background: rgba(5, 15, 36, 0.98);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.35);
+  color: #f5f7ff;
+}
+
+.inspection-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #00eaff;
+}
+
+.inspection-modal-title {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inspection-modal-intro {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  color: #cdd5ff;
+}
+
+.inspection-modal-form .form-row {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inspection-modal-form label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.inspection-modal-form input,
+.inspection-modal-form textarea {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 234, 255, 0.55);
+  background: rgba(2, 8, 24, 0.95);
+  color: #f5f7ff;
+}
+
+.inspection-modal-form textarea {
+  border-radius: 18px;
+}
+
+.inspection-modal-submit {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00f5ff, #00b4ff);
+  color: #021021;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+}
+
+.inspection-modal-submit:hover {
+  box-shadow: 0 0 26px rgba(0, 245, 255, 0.85);
+}
+
+.inspection-modal-success {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #00eaff;
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.inspection-modal-success.is-active {
+  opacity: 1;
+}
+
+Get Outlook for iOS
   </style>
 </head>
 
@@ -654,79 +764,130 @@
         </div>
       </div>
     </section>
+    <!-- REQUEST FORM MODAL (hidden until button is clicked) -->
+<div id="inspectionModal" class="inspection-modal-overlay" aria-hidden="true">
+  <div class="inspection-modal-card">
+    <button
+      type="button"
+      id="closeInspectionModal"
+      class="inspection-modal-close"
+      aria-label="Close inspection form"
+    >&times;</button>
 
-    <!-- REQUEST FORM -->
-    <section class="section-shell" id="request-form">
-      <div class="section-eyebrow">Request an inspection</div>
-      <h2 class="section-heading">Request an inspection online</h2>
-      <p class="section-body">
-        Fill out this quick form and TRYaTECH will reply with availability and pricing for your project.
-        Most inspection photo sets are delivered same-day or next-day once a site visit is confirmed.
-      </p>
+    <h3 class="inspection-modal-title">Request an inspection</h3>
+    <p class="inspection-modal-intro">
+      Fill out this quick form and TRYaTECH will reply with availability and pricing.
+      Most inspection photo sets are delivered same-day or next-day once a site visit is confirmed.
+    </p>
 
-      <div class="request-form-shell">
-        <!--
-          This form uses mailto: so submissions open the visitor's email client with the details in the body.
-          You can replace this later with a real backend endpoint when you're ready.
-        -->
-        <form action="mailto:xcv1cxt@msn.com?subject=TRYaTECH Inspection Request" method="POST" enctype="text/plain">
-          <div class="request-form-grid">
-            <div class="form-row-full">
-              <label for="rf_name">Full name</label>
-              <input id="rf_name" name="Full name" type="text" required />
-            </div>
+    <form
+      id="inspectionForm"
+      class="inspection-modal-form"
+      action="mailto:xcv1cxt@msn.com?subject=TRYaTECH Inspection Request"
+      method="POST"
+      enctype="text/plain"
+    >
+      <div class="form-row">
+        <label for="rf_name">Full name</label>
+        <input id="rf_name" name="Full name" type="text" required />
+      </div>
 
-            <div>
-              <label for="rf_email">Email</label>
-              <input id="rf_email" name="Email" type="email" required />
-            </div>
+      <div class="form-row">
+        <label for="rf_email">Email</label>
+        <input id="rf_email" name="Email" type="email" required />
+      </div>
 
-            <div>
-              <label for="rf_phone">Phone</label>
-              <input id="rf_phone" name="Phone" type="tel" />
-            </div>
+      <div class="form-row">
+        <label for="rf_phone">Phone</label>
+        <input id="rf_phone" name="Phone" type="tel" />
+      </div>
 
-            <div class="form-row-full">
-              <label for="rf_company">Company (optional)</label>
-              <input id="rf_company" name="Company" type="text" />
-            </div>
+      <div class="form-row">
+        <label for="rf_location">Property location</label>
+        <input id="rf_location" name="Property location" type="text" />
+      </div>
 
-            <div class="form-row-full">
-              <label for="rf_address">Property address</label>
-              <input id="rf_address" name="Property address" type="text" />
-            </div>
+      <div class="form-row">
+        <label for="rf_details">Inspection details</label>
+        <textarea id="rf_details" name="Inspection details" rows="4"></textarea>
+      </div>
 
-            <div>
-              <label for="rf_city">City / area</label>
-              <input id="rf_city" name="City / area" type="text" />
-            </div>
+      <button type="submit" class="inspection-modal-submit">
+        Send inspection request
+      </button>
+    </form>
 
-            <div>
-              <label for="rf_type">Type of inspection</label>
-              <select id="rf_type" name="Inspection type">
-                <option value="">Select one…</option>
-                <option>Construction progress / punchlist</option>
-                <option>Draw inspection / rehab verification</option>
-                <option>Retail / restaurant / plaza walk-through</option>
-                <option>Before / after &amp; rental turnover photos</option>
-                <option>Other (describe below)</option>
-              </select>
-            </div>
+    <div id="inspectionSuccess" class="inspection-modal-success" aria-live="polite">
+      Request sent. TRYaTECH will email you with availability and pricing.
+    </div>
+  </div>
+</div>
 
-            <div>
-              <label for="rf_deadline">Preferred date or deadline</label>
-              <input id="rf_deadline" name="Preferred date / deadline" type="text" placeholder="Example: by Dec 10" />
-            </div>
+  </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const modal      = document.getElementById('inspectionModal');
+    const openBtn    = document.getElementById('openInspectionModal');
+    const closeBtn   = document.getElementById('closeInspectionModal');
+    const form       = document.getElementById('inspectionForm');
+    const successBox = document.getElementById('inspectionSuccess');
 
-            <div class="form-row-full">
-              <label for="rf_notes">Project details / notes</label>
-              <textarea id="rf_notes" name="Project details / notes" placeholder="Tell TRYaTECH what you need documented: how many photos, special access instructions, construction stage, lender requirements, etc."></textarea>
-            </div>
-          </div>
+    function openModal(e) {
+      if (e) e.preventDefault();
+      if (modal) {
+        modal.classList.add('is-active');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+    }
 
-          <div class="request-form-actions">
-            <button class="btn-primary" type="submit">Send inspection request</button>
-            <span>Or email directly: <a href="mailto:xc
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove('is-active');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }
 
+    // Open modal when hero button is clicked
+    if (openBtn && modal) {
+      openBtn.addEventListener('click', openModal);
+    }
 
-Get Outlook for iOS
+    // Close modal with X
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close modal by clicking outside the card
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    // Close with ESC key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Form submit -> show “request sent” message, then auto-close
+    if (form && successBox) {
+      form.addEventListener('submit', function () {
+        // let the mailto open, but still show confirmation
+        successBox.classList.add('is-active');
+        setTimeout(function () {
+          successBox.classList.remove('is-active');
+          closeModal();
+        }, 2600);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
+
+    
