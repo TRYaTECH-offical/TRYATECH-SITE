@@ -638,7 +638,22 @@
 .inspection-modal-submit:hover {
   box-shadow: 0 0 26px rgba(0, 245, 255, 0.8);
 }
+/* Success message under the form */
+.inspection-modal-success {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(0, 255, 180, 0.12);
+  border: 1px solid rgba(0, 255, 180, 0.6);
+  color: #c9ffed;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  display: none;                /* HIDE BY DEFAULT */
+}
 
+.inspection-modal-success.active {
+  display: block;               /* Show only when JS adds .active */
+}
 /* Mobile tweaks */
 @media (max-width: 480px) {
   .inspection-modal-box {
