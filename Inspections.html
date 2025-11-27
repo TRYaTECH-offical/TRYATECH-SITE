@@ -4,47 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TRYaTECH Inspection Services</title>
+  <meta name="description" content="TRYaTECH independent construction and commercial inspection services for developers, lenders, and property owners in Florida." />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+  <!-- Basic styling (self-contained so it looks good even without your main CSS) -->
   <style>
     :root {
-      --bg: #020615;
-      --bg-elevated: #071322;
-      --card: #071a2d;
-      --card-soft: #0b2236;
-      --border-soft: rgba(255, 255, 255, 0.06);
-      --accent: #15d1ff;
-      --accent-soft: rgba(21, 209, 255, 0.18);
-      --accent-strong: #00b3ff;
-      --text-main: #f5f7ff;
-      --text-muted: #a4b0c4;
-      --pill-bg: rgba(7, 27, 56, 0.9);
-      --shadow-card: 0 22px 60px rgba(0, 0, 0, 0.65);
-      --radius-lg: 22px;
-      --radius-pill: 999px;
-      --spacing-section: 72px;
-      --nav-height: 72px;
+      --bg-dark: #05060a;
+      --bg-light: #0b0d14;
+      --accent: #1f8fff;
+      --accent-soft: rgba(31, 143, 255, 0.15);
+      --text-main: #f1f5f9;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --card-bg: #0f172a;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.5);
+      --radius-lg: 14px;
+      --radius-full: 999px;
+      --max-width: 1080px;
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    html, body {
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at top, #071931 0, #020615 50%, #000 100%);
-      color: var(--text-main);
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
-      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
     }
 
     a {
@@ -56,1170 +45,642 @@
       text-decoration: underline;
     }
 
-    /* Layout */
-
-    .page-shell {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 16px 64px;
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Top nav */
+    /* Header / nav */
+    header {
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
 
-    .top-nav {
-      height: var(--nav-height);
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 16px 0;
-      max-width: 1180px;
-      margin: 0 auto;
+      gap: 1.5rem;
     }
 
-    .brand-lockup {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
 
     .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: radial-gradient(circle at 30% 20%, #4ff3ff, #004cff 60%, #001637 100%);
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: radial-gradient(circle at top left, #38bdf8, #1f2937 55%, #020617 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 18px rgba(21, 209, 255, 0.7);
-      font-family: "Orbitron", system-ui;
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 0.06em;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8);
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
+    .brand span {
+      color: #e5e7eb;
     }
 
-    .brand-text span:first-child {
-      font-family: "Orbitron", system-ui;
-      font-size: 14px;
-      letter-spacing: 0.16em;
-    }
-
-    .brand-text span:last-child {
-      font-size: 11px;
+    .brand small {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 500;
       color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
     }
 
     .nav-links a {
       color: var(--text-muted);
-      padding-bottom: 6px;
-      border-bottom: 2px solid transparent;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
-    }
-
-    .nav-links a.is-active {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* Hero */
-
-    main {
-      margin-top: 8px;
-    }
-
-    section {
-      scroll-margin-top: calc(var(--nav-height) + 20px);
-    }
-
-    .hero {
-      margin-top: 12px;
-      padding: 28px 22px 28px;
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top left, #122a4c 0, #071322 35%, #020615 80%);
-      box-shadow: var(--shadow-card);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
-      gap: 32px;
-      align-items: center;
-    }
-
-    .hero-copy-eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.26em;
-      color: var(--accent-soft);
-      margin-bottom: 8px;
-    }
-
-    .hero-title {
-      font-family: "Orbitron", system-ui;
-      font-size: clamp(28px, 4vw, 34px);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin: 0 0 10px;
-    }
-
-    .hero-sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-
-    .hero-bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 22px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .hero-bullets li {
-      margin-bottom: 6px;
-    }
-
-    .hero-bullets li::before {
-      content: "▹";
-      color: var(--accent);
-      margin-right: 6px;
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 22px;
-      border-radius: var(--radius-pill);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
       border: 1px solid transparent;
-      cursor: pointer;
+      transition: all 0.16s ease;
       text-decoration: none;
       white-space: nowrap;
     }
 
+    .nav-links a:hover {
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-links a.nav-cta {
+      background: linear-gradient(135deg, var(--accent), #38bdf8);
+      color: #0b1020;
+      font-weight: 600;
+      border-color: transparent;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.7);
+    }
+
+    .nav-links a.nav-cta:hover {
+      filter: brightness(1.05);
+      transform: translateY(-0.5px);
+      box-shadow: 0 14px 40px rgba(37, 99, 235, 0.9);
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 2.25rem;
+      align-items: center;
+      padding-top: 3rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: var(--radius-full);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #bae6fd;
+      font-size: 0.75rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 3vw + 1.4rem, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero h1 span.accent {
+      background: linear-gradient(135deg, #60a5fa, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-keypoints {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem 1.25rem;
+      font-size: 0.86rem;
+      color: #cbd5f5;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-keypoints span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-keypoints svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.16s ease;
+    }
+
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-strong), #5df5ff);
-      color: #020615;
-      box-shadow: 0 0 18px rgba(21, 209, 255, 0.6);
+      background: linear-gradient(135deg, var(--accent), #38bdf8);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 12px 35px rgba(37, 99, 235, 0.8);
     }
 
     .btn-primary:hover {
-      filter: brightness(1.05);
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.95);
       text-decoration: none;
     }
 
-    .btn-secondary {
-      background: rgba(5, 16, 36, 0.9);
-      border-color: rgba(255, 255, 255, 0.14);
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
       color: var(--text-main);
     }
 
-    .btn-secondary:hover {
-      border-color: var(--accent);
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.6);
       text-decoration: none;
     }
 
-    /* Hero right – snapshot card */
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
 
     .hero-card {
-      background: rgba(7, 22, 45, 0.95);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.98));
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 18px 18px 16px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(59, 130, 246, 0.23), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-card-label {
-      font-size: 11px;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 4px;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
     }
 
     .hero-card-title {
-      font-size: 13px;
+      font-size: 1.05rem;
       font-weight: 600;
-      margin-bottom: 14px;
+      margin-bottom: 0.6rem;
     }
 
     .hero-card-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px 18px;
-      font-size: 12px;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.8rem;
     }
 
-    .hero-card-metric {
-      padding: 10px 10px;
-      border-radius: 14px;
-      background: var(--card-soft);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .metric-label {
+    .hero-card-metric span.label {
       display: block;
-      font-size: 11px;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 0.15rem;
     }
 
-    .metric-value {
-      display: block;
-      font-weight: 500;
+    .hero-card-metric span.value {
+      font-weight: 600;
+      font-size: 0.92rem;
     }
 
-    .metric-tag {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 2px 9px;
+    .hero-card-divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(148, 163, 184, 0), rgba(148, 163, 184, 0.8), rgba(148, 163, 184, 0));
+      margin: 0.6rem 0 0.8rem;
+    }
+
+    .hero-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-size: 0.72rem;
+    }
+
+    .badge {
+      padding: 0.18rem 0.6rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    /* Sections */
+    .section-title {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill {
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1.1rem;
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.8);
+      font-size: 0.88rem;
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.35rem;
+      color: #e5e7eb;
+      font-size: 0.86rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: #38bdf8;
+      font-size: 1rem;
+      line-height: 1;
+      margin-top: 0.05rem;
+    }
+
+    .highlight {
+      color: #e5e7eb;
+    }
+
+    /* Contact section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 1.75rem;
+    }
+
+    .contact-details p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-info-row span.label {
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--text-muted);
     }
 
-/* =========================================
-   TRYaTECH INSPECTION SERVICES — LAYOUT POLISH
-   Paste this at the BOTTOM of your <style> tag
-========================================= */
-
-    /* Sections */
-
-    .section-heading {
-      font-size: 18px;
-      margin: 0 0 6px;
-      font-weight: 600;
+    .contact-info-row a {
+      font-weight: 500;
     }
 
-    .section-eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent-soft);
-      margin-bottom: 6px;
-    }
-
-    .section-body {
-      font-size: 13px;
+    .contact-note {
+      font-size: 0.78rem;
       color: var(--text-muted);
-      max-width: 760px;
-      line-height: 1.7;
+      margin-top: 0.3rem;
     }
 
-    .section-shell {
-      margin-top: var(--spacing-section);
+    .contact-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      font-size: 0.86rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
     }
 
-    /* Service areas */
-
-    .service-areas-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.6fr);
-      gap: 24px;
-      align-items: flex-start;
+    .contact-box h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
     }
 
-    .service-list {
+    .contact-box p {
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-list {
       list-style: none;
       padding: 0;
-      margin: 12px 0 0;
-      font-size: 13px;
-      color: var(--text-main);
+      margin: 0;
     }
 
-    .service-list li {
-      margin-bottom: 4px;
-    }
-
-    .service-list li::before {
-      content: "•";
-      color: var(--accent);
-      margin-right: 7px;
-    }
-
-    .contact-card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 16px 18px 14px;
-      font-size: 13px;
-      color: var(--text-muted);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
-    }
-
-    .contact-card strong {
-      color: var(--text-main);
-    }
-
-    .contact-email {
-      margin-top: 10px;
-    }
-
-    /* Request form */
-
-    .request-form-shell {
-      margin-top: 40px;
-      padding: 22px 20px 24px;
-      border-radius: var(--radius-lg);
-      background: rgba(4, 15, 32, 0.96);
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
-    }
-
-    .request-form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px 16px;
-    }
-
-    .form-row-full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      font-size: 12px;
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text-muted);
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 9px 11px;
-      border-radius: 9px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(4, 15, 32, 0.9);
-      color: var(--text-main);
-      font-size: 13px;
-      font-family: inherit;
-    }
-
-    textarea {
-      min-height: 96px;
-      resize: vertical;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: 1px solid var(--accent);
-      box-shadow: 0 0 0 1px rgba(21, 209, 255, 0.35);
-    }
-
-    .form-footnote {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .request-form-actions {
-      margin-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .request-form-actions .btn-primary {
-      padding-inline: 26px;
-    }
-
-    .request-form-actions span {
-      font-size: 11px;
-      color: var(--text-muted);
+    .contact-list li {
+      margin-bottom: 0.4rem;
     }
 
     /* Footer */
-
-    .page-foot {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      font-size: 11px;
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.25rem 1.4rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
     }
 
-    /* Responsive */
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
 
-    @media (max-width: 860px) {
+    @media (max-width: 840px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        padding: 22px 18px 20px;
       }
 
       .hero-card {
         order: -1;
       }
 
-      .service-areas-grid {
+      .hero-keypoints {
         grid-template-columns: minmax(0, 1fr);
       }
 
-      .request-form-grid {
+      .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
-    }
 
-    @media (max-width: 640px) {
-      .top-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        height: auto;
+      .grid.two {
+        grid-template-columns: minmax(0, 1fr);
       }
 
-      .nav-links {
-        font-size: 11px;
+      .nav-container {
         flex-wrap: wrap;
       }
-
-      .hero-title {
-        font-size: 24px;
-      }
-
-      .hero {
-        margin-top: 10px;
-      }
-
-      .hero-ctas {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .page-shell {
-        padding-inline: 12px;
-      }
-
-      .section-shell {
-        margin-top: 52px;
-      }
     }
-   /* === REQUEST AN INSPECTION MODAL === */
-
-.inspection-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85); /* dark overlay but not pure black */
-  display: none;                   /* hidden by default */
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.inspection-modal-overlay.active {
-  display: flex;                   /* show when active */
-}
-
-.inspection-modal-box {
-  width: 90%;
-  max-width: 480px;
-  background: #041321;             /* deep navy TRYaTECH style */
-  border-radius: 16px;
-  padding: 24px 20px 28px;
-  box-shadow: 0 0 32px rgba(0, 255, 255, 0.35);
-  border: 1px solid rgba(0, 255, 255, 0.35);
-  color: #e6fbff;
-  text-align: left;
-  position: relative;
-}
-
-.inspection-modal-box h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.25rem;
-  letter-spacing: 0.04em;
-}
-
-.inspection-modal-box p {
-  margin: 0 0 16px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #b8d7ff;
-}
-
-/* Close button (X) */
-.inspection-modal-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: #66f1ff;
-}
-
-/* Form fields */
-.inspection-modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.inspection-modal-form label {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #9fdcff;
-}
-
-.inspection-modal-form input,
-.inspection-modal-form textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(159, 220, 255, 0.4);
-  background: rgba(3, 13, 24, 0.95);
-  color: #e6fbff;
-  font-size: 0.9rem;
-}
-
-.inspection-modal-form input::placeholder,
-.inspection-modal-form textarea::placeholder {
-  color: #6ea0c5;
-}
-
-.inspection-modal-form textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-
-/* Submit button (match your glowing button style) */
-.inspection-modal-submit {
-  margin-top: 8px;
-  padding: 12px 20px;
-  border-radius: 999px;
-  border: none;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: linear-gradient(90deg, #00f5ff, #00b4ff);
-  color: #02101c;
-  box-shadow: 0 0 18px rgba(0, 245, 255, 0.5);
-}
-
-.inspection-modal-submit:hover {
-  box-shadow: 0 0 26px rgba(0, 245, 255, 0.8);
-}
-/* Success message under the form */
-.inspection-modal-success {
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: rgba(0, 255, 180, 0.12);
-  border: 1px solid rgba(0, 255, 180, 0.6);
-  color: #c9ffed;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  display: none;                /* HIDE BY DEFAULT */
-}
-
-.inspection-modal-success.active {
-  display: block;               /* Show only when JS adds .active */
-}
-/* Mobile tweaks */
-@media (max-width: 480px) {
-  .inspection-modal-box {
-    padding: 20px 16px 24px;
-  }
-}
   </style>
 </head>
-
 <body>
-  <!-- Top navigation -->
-  <header class="top-nav">
-    <div class="brand-lockup">
-      <div class="brand-mark">T</div>
-      <div class="brand-text">
-        <span>TRYaTECH</span>
-        <span>Inspection Services</span>
-      </div>
+<div class="page">
+  <!-- Header / nav -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <div class="brand-mark">T</div>
+        <span>TRYaTECH<br /><small>Inspection Services</small></span>
+      </a>
+
+      <nav class="nav-links">
+        <!-- Update these hrefs to match your actual file names / paths -->
+        <a href="/">Shop</a>
+        <a href="/about.html">About</a>
+        <a href="/media.html">Media</a>
+        <!-- New active link for inspections -->
+        <a href="/inspections.html" class="nav-cta">Inspection Services</a>
+      </nav>
     </div>
-
-    <nav class="nav-links">
-      <a href="/index.html">Shop</a>
-      <a href="/index.html#about">About</a>
-      <a href="/index.html#media">Media</a>
-      <a href="#" class="is-active">Inspection Services</a>
-    </nav>
   </header>
-  <h1 class="hero-title">TRYaTECH Inspection Services</h1>
 
-        <p class="hero-sub">
-           High-clarity commercial inspections and visual documentation for owners, lenders, asset managers,
-           and national brands across Florida. Clean, verifiable photos you can send directly to your bank,
-           investor, or project team.
+  <main>
+    <!-- Hero -->
+    <section class="section hero">
+      <div>
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          <span>Independent inspections for real projects</span>
+        </div>
+
+        <h1>
+          TRYaTECH <span class="accent">Inspection Services</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Independent construction and commercial property inspections for developers, lenders,
+          and owners in Florida. Fast photo reports, clear checklists, and reliable
+          documentation you can send straight to your bank, investor, or project team.
         </p>
 
-        <ul class="hero-bullets">
-          <li>Fast turnaround on real-world inspection work.</li>
-          <li>Same-day photo documentation &amp; PDF-ready reports in most cases.</li>
-          <li>Ideal for banks, hard-money lenders, investors, and franchise owners.</li>
-        </ul>
+        <div class="hero-keypoints">
+          <span>
+            <!-- check icon -->
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
+            </svg>
+            Commercial inspection experience with national brands
+          </span>
+          <span>
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
+            </svg>
+            Same-day photo documentation & PDF reports
+          </span>
+          <span>
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
+            </svg>
+            Ideal for banks, hard-money lenders & investors
+          </span>
+          <span>
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path fill="currentColor" d="M7.667 14.5 3.5 10.333l1.414-1.414 2.753 2.753 7.419-7.419L16.5 5.667z" />
+            </svg>
+            Serving Tampa Bay, Bradenton, Ellenton, Sarasota & nearby areas
+          </span>
+        </div>
 
-  <main class="page-shell">
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div>
-        <div class="hero-copy-eyebrow">Independent inspections for real projects</div>
-     
-        <div class="hero-ctas">
-          <a href="#" id="openInspectionModal" class="btn-primary">
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="#request-form">
   Request an inspection
 </a>
-          <a class="btn-secondary" href="#service-areas">See service areas &amp; contact</a>
+            Request an inspection
+          </a>
+          <a class="btn btn-ghost" href="#contact">
+            See service areas & contact
+          </a>
         </div>
+        <p class="hero-note">
+          Need a sample report or rate sheet? Include that in your email request and we’ll send it over.
+        </p>
       </div>
 
-      <!-- Snapshot card -->
-      <aside class="hero-card" aria-label="Inspection snapshot"https://github.com/TRYaTECH-offical/TRYATECH-SITE/edit/main/Inspections.html>
-        <div class="hero-card-label">Inspection snapshot</div>
-        <div class="hero-card-title">What TRYaTECH inspects</div>
+      <!-- Side card -->
+      <aside class="hero-card" aria-label="Service summary">
+        <div class="hero-card-inner">
+          <div class="hero-card-label">Inspection snapshot</div>
+          <div class="hero-card-title">What TRYaTECH inspects</div>
 
-        <div class="hero-card-grid">
-          <div class="hero-card-metric">
-            <span class="metric-label">Construction</span>
-            <span class="metric-value">Progress, punchlist &amp; phase photos</span>
-            <span class="metric-tag">Jobsite-ready</span>
+          <div class="hero-card-grid">
+            <div class="hero-card-metric">
+              <span class="label">Construction</span>
+              <span class="value">Progress, punchlist & phase photos</span>
+            </div>
+            <div class="hero-card-metric">
+              <span class="label">Commercial</span>
+              <span class="value">Retail, restaurant & plaza walk-throughs</span>
+            </div>
+            <div class="hero-card-metric">
+              <span class="label">Lenders</span>
+              <span class="value">Draw inspections & rehab verification</span>
+            </div>
+            <div class="hero-card-metric">
+              <span class="label">Investors</span>
+              <span class="value">Before/after & rental turnover photos</span>
+            </div>
           </div>
 
-          <div class="hero-card-metric">
-            <span class="metric-label">Lenders</span>
-            <span class="metric-value">Draw inspections &amp; rehab verification</span>
-            <span class="metric-tag">Photo-driven reports</span>
-          </div>
+          <div class="hero-card-divider"></div>
 
-          <div class="hero-card-metric">
-            <span class="metric-label">Commercial</span>
-            <span class="metric-value">Retail, restaurant &amp; plaza walk-throughs</span>
-            <span class="metric-tag">On-location</span>
-          </div>
-
-          <div class="hero-card-metric">
-            <span class="metric-label">Investors</span>
-            <span class="metric-value">Before/after &amp; rental turnover photos</span>
-            <span class="metric-tag">Florida based</span>
+          <div class="hero-card-badges">
+            <span class="badge">Independent third-party</span>
+            <span class="badge">Photo-driven reports</span>
+            <span class="badge">Fast turnaround</span>
+            <span class="badge">Florida based</span>
           </div>
         </div>
-     
+      </aside>
+    </section>
 
-    <!-- Investors card -->
-
-      
-      </div>
-    </article>
-  </div>
-</section>
-
-    <section class="section-shell" id="who-we-work-with">
-      <div class="section-eyebrow">Who we work with:</div>
-          <li>TRYaTECH supports developers, contractors, retail brands, restaurant owners, investors, property
-        managers, and banks who need clear, unbiased documentation on real-world assets.<li>
-        <br><br>
-         <li>Whether you’re validating rehab work, tracking construction progress, or preparing a package for
-        underwriting, you get inspection photos that read like proof — not guesses.<li>
-           </ul>
-      <h2 class="section-heading">Extra set of eyes for people who need reliable documentation.</h2>
-      <p class="section-body">
+    <!-- Who we serve / services -->
+    <section class="section">
+      <h2 class="section-title">Who we work with</h2>
+      <p class="section-subtitle">
+        TRYaTECH focuses on being the extra set of eyes for people who need reliable documentation on real-world assets.
       </p>
-    </section>
-  <!-- WHO WE WORK WITH -->
-    <!-- SERVICE AREAS & CONTACT -->
-    <section class="section-shell" id="service-areas">
-      <div class="section-eyebrow">Service areas &amp; contact</div>
-      <div class="service-areas-grid">
-        <div>
-          <h2 class="section-heading">Currently serving Florida projects</h2>
-          <p class="section-body">
-            Field inspections and photo documentation are available in the metro areas below, with select
-            travel available by request.
-          </p>
 
-          <ul class="service-list">
-            <li>Tampa Bay</li>
-            <li>Brandon &amp; Riverview</li>
-            <li>Ellenton, Bradenton &amp; nearby areas</li>
-            <li>Sarasota &amp; surrounding markets</li>
-            <li>Other Florida locations by request</li>
-          </ul>
-        </div>
+      <div class="pill-row">
+        <span
 
-        <div class="contact-card">
-          <strong>Contact TRYaTECH</strong>
-          <p>
-            Email for availability, pricing, or a sample report. Include the property type, location,
-            and any deadlines in your message and you’ll receive a focused response instead of a generic reply.
-          </p>
-
-          <div class="contact-email">
-            <strong>Email:</strong><br>
-            <a href="mailto:xcv1cxt@msn.com?subject=TRYaTECH Inspection Request">xcv1cxt@msn.com</a>
-          </div>
-        </div>
-      </div>
-    </section>
-   
-    <script>
-    <!-- REQUEST AN INSPECTION MODAL -->
-<div id="inspectionModal" class="inspection-modal-overlay">
-  <div class="inspection-modal-box">
-    <span class="inspection-modal-close" id="closeInspectionModal">&times;</span>
-
-    <h3>Request an Inspection</h3>
-    <p>
-      Fill out the quick form and TRYaTECH will reply with availability,
-      pricing, and next-step details for your project.
-    </p>
-
-    <form id="inspectionForm" class="inspection-modal-form" novalidate>
-      <div class="form-row">
-        <label for="inspection-name">Full Name</label>
-        <input id="inspection-name" type="text" placeholder="Your name" required>
-      </div>
-
-      <div class="form-row">
-        <label for="inspection-email">Email</label>
-        <input id="inspection-email" type="email" placeholder="you@example.com" required>
-      </div>
-
-      <div class="form-row">
-        <label for="inspection-location">Property Location</label>
-        <input id="inspection-location" type="text" placeholder="City / Site address" required>
-      </div>
-
-      <div class="form-row">
-        <label for="inspection-notes">Project Details</label>
-        <textarea
-          id="inspection-notes"
-          name="details"
-          placeholder="Type of inspection, timeline, lender/investor needs..."
-          required
-        ></textarea>
-      </div>
-
-      <button type="submit" class="inspection-modal-submit">Submit Request</button>
-    </form>
-
-    <!-- Success message -->
-    <div id="inspectionSuccess" class="inspection-modal-success" aria-live="polite">
-      Request sent. TRYaTECH will email you with availability and pricing.
-    </div>
-  </div>
-</div>
-
-<script>
-  const modal      = document.getElementById('inspectionModal');
-  const openBtn    = document.getElementById('openInspectionModal');
-  const closeBtn   = document.getElementById('closeInspectionModal');
-  const form       = document.getElementById('inspectionForm');
-  const successBox = document.getElementById('inspectionSuccess');
-
-  function openModal(e) {
-    if (e) e.preventDefault();
-    if (modal) {
-      modal.classList.add('active');
-    }
-  }
-
-  function closeModal() {
-    if (modal) {
-      modal.classList.remove('active');
-    }
-    if (successBox) {
-      successBox.classList.remove('active');
-    }
-  }
-
-  // Open modal when hero button is clicked
-  if (openBtn) {
-    openBtn.addEventListener('click', openModal);
-  }
-
-  // Close modal with X
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  // Close modal by clicking outside the box
-  if (modal) {
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-  }
-
-  // Close with ESC key
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  });
-
-  // Handle form submit → show success and auto-close
-  if (form && successBox) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Basic validation if available
-      if (form.checkValidity && !form.checkValidity()) {
-        if (form.reportValidity) form.reportValidity();
-        return;
-      }
-
-      successBox.classList.add('active');
-
-      // Auto-close after short delay
-      setTimeout(function () {
-        successBox.classList.remove('active');
-        closeModal();
-        form.reset();
-      }, 2400);
-    });
-  }
-</script>
-</body>
-</html>
-
-
-
-  
-/* 1) Global text comfort: better line-height + max width */
-main p {
-  line-height: 1.6;
-  max-width: 720px;
-}
-
-/* 2) Keep all main content in a nice centered column */
-.ins-hero-layout,
-.who-we-work-with,
-.ins-section,
-.ins-snapshot {
-  max-width: 1120px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(24px, 4vw, 40px);
-  padding-right: clamp(24px, 4vw, 40px);
-}
-
-/* 3) Align hero text + lower “Extra set of eyes…” text
-      so they share the same left edge */
-.ins-hero-copy,
-.who-we-work-with {
-  margin-left: 0;                  /* rely on the padding above */
-  max-width: 720px;
-}
-
-/* 4) Vertical breathing between sections */
-.ins-hero-layout {
-  padding-top: clamp(32px, 6vh, 56px);
-  padding-bottom: clamp(28px, 5vh, 48px);
-  row-gap: 32px;
-}
-
-.ins-snapshot {
-  margin-top: 24px;
-  margin-bottom: 32px;
-}
-
-.who-we-work-with {
-  padding-top: clamp(32px, 7vh, 56px);
-  padding-bottom: clamp(40px, 8vh, 72px);
-}
-
-/* 5) Button + glow polish (keeps things consistent) */
-.ins-cta-row a,
-.ins-cta-row button {
-  box-shadow: 0 0 18px rgba(0, 245, 255, 0.45);
-}
-
-.ins-cta-row a:hover,
-.ins-cta-row button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 26px rgba(0, 245, 255, 0.75);
-}
-
-/* 6) Snapshot card spacing + glow refinement */
-.ins-snapshot-title {
-  margin-bottom: 8px;
-  text-shadow:
-    0 0 6px #00b7ff,
-    0 0 14px #0070d6;
-}
-
-.ins-snapshot-label {
-  margin-bottom: 12px;
-}
-
-.ins-snapshot-grid {
-  row-gap: 12px;
-}
-
-.ins-pill {
-  box-shadow:
-    0 0 14px rgba(0, 245, 255, 0.35),
-    0 10px 28px rgba(0, 0, 0, 0.7);
-}
-
-/* 7) Responsive tweaks for tablets/phones */
-@media (max-width: 880px) {
-  .ins-hero-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 28px;
-  }
-
-  .ins-hero-copy {
-    order: 1;
-  }
-
-  .ins-snapshot {
-    order: 2;
-  }
-
-  main p {
-    max-width: 100%;
-  }
-}
-
-/* Align hero intro paragraph with bullet list text */
-.ins-hero-copy p:first-of-type {
-  max-width: 720px;
-  margin: 0 0 16px;
-  padding-left: 1.4rem;  /* indent intro text */
-}
-
-/* Use the same indent for the bullet list so they line up */
-.ins-hero-copy ul {
-  margin: 0;
-  padding-left: 1.4rem;  /* bullet text starts at same column */
-}
-
-/* Brighten the small section headings / labels */
-.section-eyebrow,
-.metric-tag,
-.ins-section-heading,
-.hero-card-metric-label {
-  color: #eaf3ff;  /* brighter off-white */
-}
-
-/* Optional: add a subtle TRYaTECH glow to those labels */
-.section-eyebrow,
-.metric-tag {
-  text-shadow:
-    0 0 4px rgba(0, 224, 255, 0.55),
-    0 0 10px rgba(0, 120, 210, 0.65);
-}
-/* FORCE BRIGHTEN all mini-headings / section labels */
-.section-eyebrow,
-.metric-tag,
-.ins-section-heading,
-.hero-card-metric-label,
-.section-heading,
-.section-label {
-  color: #ffffff !important; /* strong white */
-  opacity: 1 !important;      /* in case muted levels are applied */
-  text-shadow:
-    0 0 6px rgba(0, 245, 255, 0.85),
-    0 0 18px rgba(0, 180, 255, 0.75),
-    0 0 30px rgba(0, 140, 255, 0.65);
-}
-/* === Inspection Modal === */
-.inspection-modal {
-  position: fixed;
-  inset: 0;
-  display: none;              /* hidden by default */
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  font-family: inherit;
-}
-
-.inspection-modal--open {
-  display: flex;
-}
-
-.inspection-modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-}
-
-.inspection-modal__content {
-  position: relative;
-  max-width: 720px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 2rem 2.5rem;
-  border-radius: 18px;
-  background: rgba(5, 10, 20, 0.96);
-  box-shadow: 0 0 40px rgba(0, 255, 255, 0.35);
-  color: #f5f7ff;
-}
-
-.inspection-modal__content h2 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: left;
-  color: #e6f7ff;
-  text-shadow: 0 0 12px rgba(0, 255, 255, 0.7);
-}
-
-.inspection-modal__intro {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  opacity: 0.85;
-  margin-bottom: 1.5rem;
-}
-
-.inspection-modal__close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  border: none;
-  background: transparent;
-  color: #b0c8ff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  line-height: 1;
-}
-
-.inspection-modal__close:hover {
-  color: #ffffff;
-}
-
-/* Optional: form styling inside modal */
-#inspection-form .form-row {
-  margin-bottom: 1rem;
-}
-
-#inspection-form label {
-  display: block;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.25rem;
-  opacity: 0.8;
-}
-
-#inspection-form input,
-#inspection-form textarea,
-#inspection-form select {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 255, 255, 0.5);
-  background: rgba(10, 15, 30, 0.9);
-  color: #f5f7ff;
-  font-size: 0.9rem;
-}
-
-#inspection-form textarea {
-  border-radius: 16px;
-  min-height: 120px;
-  resize: vertical;
-}
-
-#inspection-form .submit-button {
-  margin-top: 0.75rem;
-  width: 100%;
-  padding: 0.9rem 1.2rem;
-  border-radius: 999px;
-  border: none;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: linear-gradient(90deg, #00f5ff, #00c3ff);
-  color: #050810;
-  box-shadow: 0 0 18px rgba(0, 255, 255, 0.85);
-}
-</style>
-</head>
-<body>
-
-<!-- (Optional) If your main layout had a <main> tag earlier, close it here -->
-</main>
-
-<!-- Paste the modal-opening script -->
-<script>
-  (function () {
-    const openBtn  = document.getElementById('open-inspection-modal');
-    const modal    = document.getElementById('inspection-modal');
-    const closeBtn = document.getElementById('close-inspection-modal');
-
-    if (!openBtn || !modal || !closeBtn) return;
-
-    function openModal(event) {
-      event.preventDefault();
-      modal.classList.add('inspection-modal--open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal.classList.remove('inspection-modal--open');
-      document.body.style.overflow = '';
-    }
-
-    openBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', function (event) {
-      if (event.target.classList.contains('inspection-modal__backdrop')) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') closeModal();
-    });
-  })();
-</script>
-
-</body>
-</html>
-     
+Get Outlook for iOS
